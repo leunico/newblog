@@ -45,7 +45,6 @@ class IndexController extends Controller
     public function cms()
     {
         echo 'test>>>>';
-
         $route = $this->get('routes')->get('GET_memsss');
         var_dump($route);
         //$ip = $this->getRequest()->getClientIps();
