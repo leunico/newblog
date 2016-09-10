@@ -49,7 +49,7 @@ class IndexController extends Controller
         $route = $this->get('routes')->get('GET_memsss');
         var_dump($route);
         //$ip = $this->getRequest()->getClientIps();
-        //var_dump($ip);
+        //var_dump($ip);      
         die();
     }
 
