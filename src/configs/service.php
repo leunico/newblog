@@ -2,8 +2,8 @@
 
 return [
 
-	'view' => 'app\ViewFunction',
+	'view' => ['class' => 'app\service\ViewFunction', 'argument' => 'app'],
 
-	'test' => function (){return 'sb';},
+	//'test' => ['app\testFunctionService'],
 	
 ];
