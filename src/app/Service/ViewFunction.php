@@ -1,15 +1,16 @@
 <?php
-namespace app\ViewFunction;
+namespace app\service;
 
 use Alicecore\Controller;
+use Alicecore\AppFramework;
 
 class ViewFunction
 {
 	public $app;
 
-	public function __construct(Controller $controller)
+	public function __construct(AppFramework $app)
 	{
-		$this->app = $controller;
+		$this->app = $app;
 	}
 
 	private function getStatic($type, $name)

@@ -75,6 +75,7 @@ abstract class Controller implements ContainerInterface
 
         $response = new Response();
         $view = new ViewFunction($this);
+        //$view = $this->container['view'];
         @extract($parameters);
 
         ob_start();
