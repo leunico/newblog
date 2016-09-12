@@ -46,6 +46,11 @@ class ViewFunction
 		return $this->getStatic('image', $name);
 	}
 
+	public function escape($str)
+	{
+		return $this->app->escape($str);
+	}
+
 	public function __call($method, $arguments)
     {
         return $this->app->$method($arguments);

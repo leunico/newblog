@@ -27,6 +27,13 @@ class Service implements AppHandleInterface
                 $instances = isset($callback['argument']) ? $callback['argument'] : '';
                 if($instances == 'app')
                     $instances = [self::$app];
+                if(is_array($instances)){
+                    $service = [];
+                    foreach ($instances as $name) {
+                        $service[] = self::$app[$name];
+                    }
+                    $instances = $service;    
+                }
             }
 
             if ($className instanceof Closure) {
