@@ -7,7 +7,7 @@ use Alicecore\Handle\Resolver\CallbackResolver;
 use Alicecore\EventListener\ConverterListener;
 use Alicecore\EventListener\MiddlewareListener;
 use Alicecore\EventListener\StringToResponseListener;
-use Alicecore\Handle\Extension\ControllerResolver;
+use Alicecore\Handle\Extend\ControllerResolverExtend;
 use Symfony\Component\EventDispatcher\EventDispatcher;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpKernel\ControllerMetadata\ArgumentMetadataFactory;
@@ -29,7 +29,7 @@ class HttpKernelServiceProvider implements ServiceProviderInterface, EventListen
     public function register(Container $app)
     {
         $app['resolver'] = function ($app) {
-            return new ControllerResolver($app);
+            return new ControllerResolverExtend($app);
         };
 
         $app['argument_metadata_factory'] = function ($app) {

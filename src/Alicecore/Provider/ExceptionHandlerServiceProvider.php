@@ -4,7 +4,7 @@ namespace Alicecore\Provider;
 
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
-use Alicecore\Handle\ExceptionHandler;
+use Alicecore\EventListener\ExceptionListener;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
 class ExceptionHandlerServiceProvider implements ServiceProviderInterface, EventListenerProviderInterface
@@ -15,7 +15,7 @@ class ExceptionHandlerServiceProvider implements ServiceProviderInterface, Event
     public function register(Container $app)
     {
         $app['exception_handler'] = function ($app) {
-            return new ExceptionHandler($app['debug']);
+            return new ExceptionListener($app['debug']);
         };
     }
 

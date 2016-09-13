@@ -2,7 +2,7 @@
 
 return [
 
-	'view' => ['class' => 'app\service\ViewFunction', 'argument' => 'app'],
+	'view' => 'app\service\ViewFunction',
 
 	//'test' => ['app\testFunctionService'],
 	

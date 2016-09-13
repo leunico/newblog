@@ -4,7 +4,7 @@ namespace Alicecore\Provider;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Alicecore\Handle\Resolver\ControllerResolver;
-use Alicecore\Handle\Extension\LazyRequestMatcher;
+use Alicecore\Handle\Extend\LazyRequestMatcherExtend;
 use Symfony\Component\Routing;
 use Symfony\Component\HttpKernel\EventListener\RouterListener;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
@@ -16,7 +16,7 @@ class RoutingServiceProvider implements ServiceProviderInterface, EventListenerP
      */
     public function register(Container $app)
     {
-        $app['route_class'] = 'Alicecore\\Handle\\RouteHandler';
+        $app['route_class'] = 'Alicecore\\Handle\\Extend\\RouteExtend';
 
         $app['route_factory'] = $app->factory(function ($app) {
             return new $app['route_class']();
@@ -55,7 +55,7 @@ class RoutingServiceProvider implements ServiceProviderInterface, EventListenerP
         };
 
         $app['routing.listener'] = function ($app) {
-            $urlMatcher = new LazyRequestMatcher(function () use ($app) {
+            $urlMatcher = new LazyRequestMatcherExtend(function () use ($app) {
                 return $app['request_matcher'];
             });
 

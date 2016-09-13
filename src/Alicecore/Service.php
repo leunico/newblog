@@ -18,23 +18,10 @@ class Service implements AppHandleInterface
 
     public static function loagservice()
     {
-        foreach(self::$services as $name=>$callback){
+        foreach(self::$services as $name=>$className){
 
-            if(!is_array($callback)){
-                $className = $callback;
-            }else{
-                $className = isset($callback['class']) ? $callback['class'] : $callback[0];
-                $instances = isset($callback['argument']) ? $callback['argument'] : '';
-                if($instances == 'app')
-                    $instances = [self::$app];
-                if(is_array($instances)){
-                    $service = [];
-                    foreach ($instances as $name) {
-                        $service[] = self::$app[$name];
-                    }
-                    $instances = $service;    
-                }
-            }
+            if(!is_string($className))
+                continue;
 
             if ($className instanceof Closure) {
                 self::$app[$name] = $className(self::$app);
@@ -50,11 +37,7 @@ class Service implements AppHandleInterface
                 self::$app[$name] = new $className();
             }
 
-            if ($instances) {
-                 self::$app[$name] = $reflector->newInstanceArgs($instances);
-            } else {
-                throw new \InvalidArgumentException("Missing parameters");
-            }
+            self::$app[$name] = $reflector->newInstanceArgs([self::$app]);
         }
         return true;
     }

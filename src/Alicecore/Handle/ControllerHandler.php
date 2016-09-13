@@ -1,6 +1,8 @@
 <?php
 namespace Alicecore\Handle;
 
+use Alicecore\Handle\Extend\RouteExtend;
+
 class ControllerHandler
 {
     private $route;
@@ -12,7 +14,7 @@ class ControllerHandler
      *
      * @param Route $route
      */
-    public function __construct(RouteHandler $route)
+    public function __construct(RouteExtend $route)
     {
         $this->route = $route;
     }
