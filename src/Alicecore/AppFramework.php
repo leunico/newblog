@@ -345,7 +345,7 @@ class AppFramework extends Container implements HttpKernelInterface, TerminableI
 
     public function loadconfig($name)
     {
-        $file_dir = dirname(dirname(__FILE__))."\\configs\\";
+        $file_dir = dirname(dirname(__FILE__))."\\config\\";
         $path = $file_dir.$name.".php";
 
         if (!file_exists($path)) {
