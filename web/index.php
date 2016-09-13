@@ -2,7 +2,7 @@
 
 use Symfony\Component\HttpFoundation\Request;
 
-$kernel = include __DIR__.'/../src/Alicecore/app.php';
+$kernel = include __DIR__.'/../src/app.php';
 
 $request = Request::createFromGlobals(); //接受请求
 
