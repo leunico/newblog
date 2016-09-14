@@ -5,5 +5,5 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 
 class Tag extends BaseModel
 {
-	protected $table = 'info_tag';
+    protected $table = 'info_tag';
 }

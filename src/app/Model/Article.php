@@ -5,9 +5,9 @@ use Illuminate\Database\Eloquent\Model as BaseModel;
 
 class Article extends BaseModel
 {
-	protected $table = 'info_article';
+    protected $table = 'info_article';
 
-	public function comments()
+    public function comments()
     {
         return $this->hasMany('app\Model\Comment', 'aid');
     }

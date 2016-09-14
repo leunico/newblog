@@ -34,7 +34,7 @@ class EloquentServiceProvider implements ServiceProviderInterface, BootableProvi
         });
 
         $app['db.start'] = $app->protect(function () use ($app) {
-        	$app['db.options.initializer']();
+            $app['db.options.initializer']();
             $capsule = new Capsule();
             $capsule->addConnection($app['db_options']);
             $capsule->setAsGlobal();

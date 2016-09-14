@@ -18,12 +18,10 @@ class MemcacheListener implements EventSubscriberInterface
 
     public function onKernelRequest(GetResponseEvent $event)
     {
-
     }
 
     public function onKernelController(FilterResponseEvent $event)
     {
-
     }
 
     public static function getSubscribedEvents()

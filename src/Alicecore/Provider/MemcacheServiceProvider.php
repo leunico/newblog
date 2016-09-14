@@ -8,7 +8,6 @@ use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Alicecore\EventListener\MemcacheListener;
 use Alicecore\Handle\Extension\MemcacheExension;
 
-
 class MemcacheServiceProvider implements ServiceProviderInterface, EventListenerProviderInterface
 {
     public function register(Container $app)
@@ -42,7 +41,7 @@ class MemcacheServiceProvider implements ServiceProviderInterface, EventListener
                 };
                 return false;
             }
-        	$app['memcache.options.initializer']();
+            $app['memcache.options.initializer']();
             $config = $app['memcache_options'];
             extract($config, EXTR_SKIP);
 

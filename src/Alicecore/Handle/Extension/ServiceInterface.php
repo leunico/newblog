@@ -5,5 +5,5 @@ use Alicecore\AppFramework;
 
 interface ServiceInterface
 {
-	public function __construct(AppFramework $app);
+    public function __construct(AppFramework $app);
 }

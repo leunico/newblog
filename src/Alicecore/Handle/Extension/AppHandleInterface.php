@@ -5,5 +5,5 @@ use Alicecore\AppFramework;
 
 interface AppHandleInterface
 {
-	public static function start(AppFramework $app);
+    public static function start(AppFramework $app);
 }
