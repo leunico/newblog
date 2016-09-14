@@ -20,7 +20,6 @@ abstract class Controller implements ContainerInterface
     public function setContainer(AppFramework $container)
     {
         $this->container = $container;
-
         $this->page = $this->getRequest()->query->get('page', 0);
     }
 
@@ -62,7 +61,7 @@ abstract class Controller implements ContainerInterface
     }
 
     public function render($name, $parameters)
-    {       
+    {
         $file_dir = dirname(dirname(__FILE__))."\\app\\View\\";
         $file_name = $name.'.tpl.php';
 

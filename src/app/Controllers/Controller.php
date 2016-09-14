@@ -10,12 +10,12 @@ class Controller extends BaseCollection
     public function pageNavAdmin($count)
     {
         # code...
-	}
+    }
 
     public function pageNavComment($count)
     {
         # code...
-	}
+    }
 
     public function getLimit()
     {

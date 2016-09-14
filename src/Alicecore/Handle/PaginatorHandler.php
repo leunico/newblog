@@ -21,7 +21,7 @@ class PaginatorHandler
         if($total < 1 || $total <= $pagesize)
             return 'No content or pagesize error!';
 
-	    $baseurl = $this->urlGenerator->generate($this->routeName);
+        $baseurl = $this->urlGenerator->generate($this->routeName);
         $pages = ceil($total/$pagesize);
         $page = min($pages, $this->page);
         $pagenav = '<div class="pagination"><ul>';
