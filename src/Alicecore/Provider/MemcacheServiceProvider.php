@@ -6,6 +6,8 @@ use Pimple\ServiceProviderInterface;
 use Symfony\Component\HttpFoundation\Session\Storage\Handler\MemcacheSessionHandler;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Alicecore\EventListener\MemcacheListener;
+use Alicecore\Handle\Extension\MemcacheExension;
+
 
 class MemcacheServiceProvider implements ServiceProviderInterface, EventListenerProviderInterface
 {
@@ -35,8 +37,8 @@ class MemcacheServiceProvider implements ServiceProviderInterface, EventListener
         $app['memcache.start'] = $app->protect(function () use ($app) {
             if(!isset($app['memcache_switch']) || $app['memcache_switch'] === FALSE){
                 $app['memcache'] = function () {
-                    throw new \LogicException('The Memcache is disabled');
-                    # return false;
+                    # throw new \LogicException('The Memcache is disabled');
+                    return new MemcacheExension();
                 };
                 return false;
             }

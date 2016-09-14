@@ -15,7 +15,7 @@ abstract class Controller implements ContainerInterface
 
     protected $page;
 
-    protected $pagesize = 5;
+    protected $pagesize = 10;
 
     public function setContainer(AppFramework $container)
     {
@@ -62,10 +62,7 @@ abstract class Controller implements ContainerInterface
     }
 
     public function render($name, $parameters)
-    {
-        if($this instanceof ViewFunction)
-            return;
-        
+    {       
         $file_dir = dirname(dirname(__FILE__))."\\app\\View\\";
         $file_name = $name.'.tpl.php';
 
@@ -74,13 +71,17 @@ abstract class Controller implements ContainerInterface
         }
 
         $response = new Response();
-        $view = new ViewFunction($this);
-        //$view = $this->container['view'];
-        @extract($parameters);
+        $view = $this->container['view'];
+        @extract($parameters, EXTR_SKIP);
 
         ob_start();
         include $file_dir.$file_name;
         $response->setContent(ob_get_clean());
+
+        if(!empty($this->container['httpcache_switch'])){
+            $time = (int)$this->container['httpcache_time'] ? (int)$this->container['httpcache_time'] : 60;
+            $response->setTtl($time);
+        }
 
         return $response;
     }
@@ -99,20 +100,7 @@ abstract class Controller implements ContainerInterface
 
     public function __call($method, $arguments)
     {
-        if (false === strpos($method, 'get')) {
-            throw new \BadMethodCallException(sprintf('Method "%s" does not exist.', $method));
-        }
-
-        $method = preg_split("/(?=[A-Z])/", $method);
-
-        if(count($method) > 2){
-            unset($method[0]);
-            $method = implode('_', $method);
-        }else{
-            $method = $method[1];
-        }
-
-        return $this->container[strtolower($method)];
+        return $this->container->$method($arguments);
     }
 
 }

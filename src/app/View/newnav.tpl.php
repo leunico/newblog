@@ -25,8 +25,8 @@
             <?php
                 if(!isset($menuclass) || !isset($articleclass))
                 {
-                    $menuclass = $view->getMenuClass();
-                    $articleclass = $view->getArticleClass();
+                    $menuclass = $view->getConfig('menu')['menu_class'];
+                    $articleclass = $view->getConfig('article')['article_class'];
                 }
 
                 foreach($menuclass as $key=>$val){

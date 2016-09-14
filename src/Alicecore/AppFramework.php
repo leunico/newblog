@@ -27,13 +27,8 @@ class AppFramework extends Container implements HttpKernelInterface, TerminableI
     public function __construct(array $values = array())
     {
         parent::__construct();
-
-        $this['request.http_port'] = 80;
-        $this['request.https_port'] = 443;
-        $this['debug'] = true;
-        $this['charset'] = 'UTF-8';
-        $this['logger'] = null;
-
+        $this->defaultConfig();
+        
         foreach ($values as $key => $value) {
             $this[$key] = $value;
         }
@@ -45,6 +40,16 @@ class AppFramework extends Container implements HttpKernelInterface, TerminableI
         $this->register(new Provider\MemcacheServiceProvider());
 
         Service::start($this);
+    }
+
+    private function defaultConfig()
+    {
+        $this['request.http_port'] = 80;
+        $this['request.https_port'] = 443;
+        $this['debug'] = true;
+        $this['charset'] = 'UTF-8';
+        $this['logger'] = null;
+        $this['static'] = __DIR__."/../../web/";
     }
 
     /**
@@ -357,5 +362,23 @@ class AppFramework extends Container implements HttpKernelInterface, TerminableI
             throw new \InvalidArgumentException("The config file do not return array file not an array");
         }
         return $parameter;
+    }
+
+    public function __call($method, $arguments)
+    {
+        if (false === strpos($method, 'get')) {
+            throw new \BadMethodCallException(sprintf('Method "%s" does not exist.', $method));
+        }
+
+        $method = preg_split("/(?=[A-Z])/", $method);
+
+        if(count($method) > 2){
+            unset($method[0]);
+            $method = implode('_', $method);
+        }else{
+            $method = $method[1];
+        }
+
+        return $this[strtolower($method)];
     }
 }

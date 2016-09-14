@@ -1,8 +1,8 @@
 <footer class="footer"><div class="container">
 <div class="about-wrapper"><h4 class="foot-item-head">关于</h4>
-    <p><a class="ln-about" href="<?php echo HTTP_ROOT; ?>class/me">关于我</a></p>
-    <p><a class="ln-about" href="<?php echo HTTP_ROOT; ?>class/liuy">留言</a></p>
-    <p><a class="ln-about" href="<?php echo HTTP_ROOT; ?>class/articlebox">文章归档</a></p>
+    <p><a class="ln-about" href="<?php echo $view->Route('class/me') ?>">关于我</a></p>
+    <p><a class="ln-about" href="<?php echo $view->Route('class/liuy') ?>">留言</a></p>
+    <p><a class="ln-about" href="<?php echo $view->Route('class/articlebox') ?>">文章归档</a></p>
 </div>
 <!--<div class="interaction-wrapper" style="padding-top:10px;">
     <!--<h4 class="foot-item-head" style="margin-bottom:8px;">阿里云服务器</h4>
@@ -27,7 +27,7 @@
 <div class="sns-wrapper">
     <h4 class="foot-item-head">关注</h4>
     <p><a class="ln-sns qq-group" href="javascript:;" title="QQ"><i class="fa fa-qq fa-fw"></i></a>
-       <a class="ln-sns sns-wechat" href="javascript:;" title="加个微信好友" data-src="<?php echo IMAGE_DIR; ?>weixin.png"><i class="fa fa-weixin fa-fw"></i></a>
+       <a class="ln-sns sns-wechat" href="javascript:;" title="加个微信好友" data-src="<?php echo $view->getImage('weixin.png') ?>"><i class="fa fa-weixin fa-fw"></i></a>
        <a class="ln-sns" href="http://weibo.com/3101570465" target="_blank"><i class="fa fa-weibo fa-fw"></i></a>
        <a class="ln-sns" href="https://www.facebook.com/juri.alice.3" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></p>
     <p> &copy; 2016 Leunico ・ 东莞</p>
@@ -37,15 +37,15 @@
 </footer>
 <script> 
     window.jsui={     
-        www: '<?php echo HTTP_ROOT; ?>',     
-        uri: '<?php echo STATIC_PATH; ?>',     
+        www: "<?php echo $view->getServer('HTTP_HOST') ?>",    
+        uri: "<?php echo $view->getBaseUrl() ?>",     
         ver: 'THEME_VERSION', 
         roll: ["1"],    
         ajaxpager: '0',     
-        url_rp: '<?php echo HTTP_ROOT; ?>' 
+        url_rp: "<?php echo $view->getServer('HTTP_HOST') ?>"
     }; 
 </script>
-<script type='text/javascript' src='<?php echo JS_DIR?>bootstrap.min.js?ver=1446654712'></script>
-<script type='text/javascript' src='<?php echo JS_DIR?>loader.js?ver=1446654712'></script>
+<script type='text/javascript' src='<?php echo $view->getJs('bootstrap.min.js') ?>'></script>
+<script type='text/javascript' src='<?php echo $view->getJs('loader.js') ?>'></script>
 </body>
 </html>

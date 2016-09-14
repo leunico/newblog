@@ -1,0 +1,556 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<link rel="dns-prefetch" href="//apps.bdimg.com">
+<meta http-equiv="X-UA-Compatible" content="IE=11,IE=10,IE=9,IE=8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+<meta name="apple-mobile-web-app-title" content="yi">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+<title>yi</title>
+<link rel='stylesheet' id='_bootstrap-css' href='/newblog/web/css/bootstrap.min.css' type='text/css' media='all' />
+<link rel='stylesheet' id='_main-css'  href='/newblog/web/css/main.css' type='text/css' media='all' />
+<script type='text/javascript' src='/newblog/web/js/jquery.min.js'></script>
+<meta name="keywords" content="qi">
+<meta name="description" content="hapi">
+<style>
+.container{max-width:1180px}a:hover, .site-navbar li:hover > a, .site-navbar li.active a:hover, .site-navbar a:hover, .search-on .site-navbar li.navto-search a, .topbar a:hover, .site-nav li.current-menu-item > a, .site-nav li.current-menu-parent > a, .site-search-form a:hover, .branding-primary .btn:hover, .title .more a:hover, .excerpt h2 a:hover, .excerpt .meta a:hover, .excerpt-minic h2 a:hover, .excerpt-minic .meta a:hover, .article-content .wp-caption:hover .wp-caption-text, .article-content a, .article-nav a:hover, .relates a:hover, .widget_links li a:hover, .widget_categories li a:hover, .widget_ui_comments strong, .widget_ui_posts li a:hover .text, .widget_ui_posts .nopic .text:hover , .widget_meta ul a:hover, .tagcloud a:hover, .textwidget a:hover, .sign h3, #navs .item li a, .url, .url:hover{color: #dd5862;}
+.btn-primary, .label-primary, .branding-primary, .post-copyright:hover, .article-tags a, .pagination ul > .active > a, .pagination ul > .active > span, .pagenav .current, .widget_ui_tags .items a:hover, .sign .close-link, .pagemenu li.active a, .pageheader, .resetpasssteps li.active, #navs h2, #navs nav, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary, .tag-clouds a:hover{background-color: #dd5862;}.btn-primary, .search-input:focus, #bdcs .bdcs-search-form-input:focus, #submit, .plinks ul li a:hover,.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{border-color: #dd5862;}
+.search-btn, .label-primary, #bdcs .bdcs-search-form-submit, #submit, .excerpt .cat{background-color: #dd5862;}.excerpt .cat i{border-left-color:#dd5862;}@media (max-width: 720px) {.site-navbar li.active a, .site-navbar li.active a:hover, .m-nav-show .m-icon-nav{color: #dd5862;}}@media (max-width: 480px) {.pagination ul > li.next-page a{background-color:#dd5862;}}
+</style>
+<link rel="shortcut icon" href="/newblog/web/image/favicon.ico">    
+<!-- Easy FancyBox 1.5.7 using FancyBox 1.3.7 - RavanH (http://status301.net/wordpress-plugins/easy-fancybox/) -->
+<!--<link rel="shortcut icon" href="">-->
+</head>
+    
+
+<body class="home blog site-layout-2 wc-shortcodes-font-awesome-enabled">
+    
+<header class="header">
+  <div id="topcontainer">
+    <div class="container" id="nav">
+      <div class="circle-wrapper">
+      <div class="red doted-circle circling"></div>
+    </div>
+    <div class="logo" style="width:152px;">
+        <a href="http://www.lzxya.com" title="啊哒！" style="width:152px;">
+        <div class="circle-wrapper">
+            <div class="red doted-circle circling"></div>
+        </div>
+        <img src="/newblog/web/image/navred.png">
+        </a>
+     </div>	
+     <div class="top-search">
+         <form method="get" class="site-search-form" action="#" >
+             <button class="search-btn" type="submit">
+                 <span class="icon-search"></span>
+             </button>
+             <input class="search-input" name="s" type="text" placeholder="" value="">
+         </form>
+     </div>
+        <ul class="site-nav site-navbar main-nav">
+            <li id="menu-1" class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-1 current-menu-item"><a href="/">首页</a></li>
+            <li id="menu-jishu" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-jishu"><a href=class/jishu>技术日记</a><ul class="sub-menu"><li id="menu-js" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-js"><a href=class/js>前端</a></li><li id="menu-linux" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-linux"><a href=class/linux>Linux</a></li><li id="menu-backend" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-backend"><a href=class/backend>后端技术</a></li><li id="menu-laravel" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-laravel"><a href=class/laravel>Laravel5</a></li><li id="menu-python" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-python"><a href=class/python>Python</a></li></ul></li><li id="menu-php" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-php"><a href=class/php>PHP</a></li><li id="menu-symfony" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-symfony"><a href=class/symfony>Symfony</a></li><li id="menu-left" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-left"><a href=class/left>生活说</a></li><li id="menu-like" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-like"><a href=class/like>爱好分享</a><ul class="sub-menu"><li id="menu-music" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-music"><a href=class/music>音乐</a></li><li id="menu-game" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-game"><a href=class/game>游戏</a></li><li id="menu-book" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-book"><a href=class/book>图书</a></li></ul></li><li id="menu-meclass" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-meclass"><a href=class/meclass>关于</a><ul class="sub-menu"><li id="menu-me" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-me"><a href=class/me>关于我</a></li><li id="menu-articlebox" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-articlebox"><a href=class/articlebox>归档</a></li><li id="menu-liuy" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-liuy"><a href=class/liuy>留言</a></li></ul></li><li id="menu-timewait" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-timewait"><a href=class/timewait>时光旅行</a></li>            <li id="menu-8" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-7"><a href="admin/login">她很漂亮</a></li>
+            <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
+        </ul>
+        <i class="fa fa-bars m-icon-nav"></i>
+      </div>
+   </div>
+</header>
+<div class="site-search">
+    <div class="container">
+        <form method="post" class="site-search-form" action="index/search" onsubmit="return searcha()">
+            <input class="search-input" name="search" type="text" placeholder="输入关键字" value="" id='asearch'>
+            <button class="search-btn" type="submit" name="dosubmit" value="dosubmit"><i class="fa fa-search"></i></button>
+        </form>
+    </div>
+</div>
+
+ 
+<script>
+if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
+    setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好哦！'),2000);
+}
+</script>
+<section class="container mtop95">
+    <div class="content-wrap">        
+        <div class="main-content">
+            <div class="content">                
+                <div id="focusslide" class="carousel slide" data-ride="carousel">
+                    <a class="close" href="javascript:void(0)" onClick="$('#focusslide').slideUp(800);" data-original-title="" title=""></a>
+                    <ol class="carousel-indicators">
+                        <li data-target="#focusslide" data-slide-to="0" class="active"></li>
+                        <li data-target="#focusslide" data-slide-to="1"></li>
+                        <li data-target="#focusslide" data-slide-to="2"></li>
+                        <li data-target="#focusslide" data-slide-to="3"></li>
+                    </ol>
+                    <div class="carousel-inner" role="listbox">
+                                               
+                        <div class="item ">
+                            <a target="_blank" href="http://www.lzxya.com/class/liuy"><img style="height：200px" src="http://7xnvnk.com1.z0.glb.clouddn.com/151202150214.jpg?imageView2/1/w/810/h/200"></a>
+                       </div>                       
+                                               
+                        <div class="item ">
+                            <a target="_blank" href="http://weibo.com/u/3101570465"><img style="height：200px" src="http://7xnvnk.com1.z0.glb.clouddn.com/push_160115151224.jpg?imageView2/1/w/810/h/200"></a>
+                       </div>                       
+                                               
+                        <div class="item active">
+                            <a target="_blank" href="http://www.lzxya.com/class/timewait"><img style="height：200px" src="http://7xnvnk.com1.z0.glb.clouddn.com/151202152603.jpg?imageView2/1/w/810/h/200"></a>
+                       </div>                       
+                                               
+                        <div class="item ">
+                            <a target="_blank" href="http://www.08cms.com"><img style="height：200px" src="http://7xnvnk.com1.z0.glb.clouddn.com/push_160329164128.jpg?imageView2/1/w/810/h/200"></a>
+                       </div>                       
+                                           </div>
+                    <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
+                    <a class="right carousel-control" href="#focusslide" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
+                </div>
+                <div class="asb asb-index asb-index-01"></div>
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/117">
+                        <span class='mask-tags'>置顶文章</span>                        <img src="http://lzxya.kssws.ks-cdn.com/image_1455591439556287.jpg?imageView2/1/w/210/h/140" alt="服务器搬家到阿里云，重构网站代码记录" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/117" title="服务器搬家到阿里云，重构网站代码记录" rel='bookmark'>服务器搬家到阿里云，重构网站代码记录</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/left>生活说</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-02-16                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>340浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-117.html#comments">1评论</a>
+                            </p>
+                            <p class='note'>为了方便自己开发和学习，网站搬家到了阿里云，使用的是Lnmp环境，然后不定时的更新和重构网站代码，运营一个小博客网站来一边学习一边进步吧！源码地址https://github.com/leunico/aliceBlog，请多多指教！！</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/108">
+                        <span class='mask-tags'>置顶文章</span>                        <img src="http://7xq09h.com1.z0.glb.clouddn.com/20151218_1450403060_184868.jpg?imageView2/1/w/210/h/140" alt="用微信测试帐号实现微信扫一扫登录和注册" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/108" title="用微信测试帐号实现微信扫一扫登录和注册" rel='bookmark'>用微信测试帐号实现微信扫一扫登录和注册</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/php>PHP</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2015-10-29                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>646浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-108.html#comments">4评论</a>
+                            </p>
+                            <p class='note'>微信扫一扫登录本来是微信开放平台的功能，要想使用这个功能也可以，300大洋加开发者认证...所以我使用的并不是这个，而是根据二维码带的scene_id再结合后台数据遍历实现的，这样只要公众号有部分接口权限就完全可以实现。</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/129">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/qimg_1465723644814343.jpg?imageView2/1/w/210/h/140" alt="利用代码来迁移数据（Php/Python）" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/129" title="利用代码来迁移数据（Php/Python）" rel='bookmark'>利用代码来迁移数据（Php/Python）</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/backend>后端技术</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-06-12                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>72浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-129.html#comments">2评论</a>
+                            </p>
+                            <p class='note'>因为工作做过几次网站的数据迁移，这个过程没多大技术难点，就是分析一些字段比较花时间吧，这里记录一下代码和过程，可能以后会用到。</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/128">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/qimg_1460707589360271.jpg?imageView2/1/w/210/h/140" alt="非常实用的PHP方法以及代码块（常更新）" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/128" title="非常实用的PHP方法以及代码块（常更新）" rel='bookmark'>非常实用的PHP方法以及代码块（常更新）</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/php>PHP</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-04-15                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>173浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-128.html#comments">2评论</a>
+                            </p>
+                            <p class='note'>本文章记录那些非常实用的PHP方法，以及代码功能块。比如：传递任意数量的函数参数，使用glob()和scandir()查找文件和文件夹，获取系统常量，生成唯一的一个编号，序列化和反序列化，页面跳转的几种技巧...</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/127">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/qimg_1459915039846369.jpg?imageView2/1/w/210/h/140" alt="如何确保你的网站和网页的安全" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/127" title="如何确保你的网站和网页的安全" rel='bookmark'>如何确保你的网站和网页的安全</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/backend>后端技术</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-04-06                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>144浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-127.html#comments">0评论</a>
+                            </p>
+                            <p class='note'>从技术到安全，这是一个趋势，以前追求的是比较炫酷的技术，等实现过后发现，自己还能做什么。炫技完了之后,差不多就该到悟道的时候了。用户安全，就是一个很大的禅，而网页安全又是一个巨坑。基本上没有大量的时间和精力投入，你基本上是爬不出来的。那这个坑有多深呢？我这里挖了浅浅的一层土。</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/126">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/145983967710.jpg?imageView2/1/w/210/h/140" alt="网站数据库和服务器的各种优化和发展" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/126" title="网站数据库和服务器的各种优化和发展" rel='bookmark'>网站数据库和服务器的各种优化和发展</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/backend>后端技术</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-04-01                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>206浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-126.html#comments">1评论</a>
+                            </p>
+                            <p class='note'>【数据库】Sql语句优化和合理的索引，【分布式缓存】Memcache/Redis缓存的运用，【服务器】实现负载均衡【数据库】数据库的分库、分表、主从、集群、负载均衡。</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/124">
+                                                <img src="http://lzxya.kssws.ks-cdn.com/image_1458533791318310.jpg?imageView2/1/w/210/h/140" alt="学习Laravel5的Ioc容器设计模式" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/124" title="学习Laravel5的Ioc容器设计模式" rel='bookmark'>学习Laravel5的Ioc容器设计模式</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/laravel>Laravel5</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-03-21                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>202浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-124.html#comments">1评论</a>
+                            </p>
+                            <p class='note'>容器，字面上理解就是装东西的东西。常见的变量、对象属性等都可以算是容器。一个容器能够装什么，全部取决于你对该容器的定义。当然，有这样一种容器，它存放的不是文本、数值，而是对象、对象的描述（类、接口）或者是提供对象的回调。</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/123">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/image_1457504413350313.jpg?imageView2/1/w/210/h/140" alt="Python爬虫日记之爬取微博互粉好友的照片" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/123" title="Python爬虫日记之爬取微博互粉好友的照片" rel='bookmark'>Python爬虫日记之爬取微博互粉好友的照片</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/python>Python</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-03-09                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>178浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-123.html#comments">1评论</a>
+                            </p>
+                            <p class='note'>作为资深的微博控，我终于要爬微博了，当然，单纯爬文字就太简单了，所以我就选择爬取互粉好友的照片。爬取主要有这两个难点，一来微博登录这里各种安全参数和谜一样的加密，好在这步网上有现成的资料。第二个难点就是踏马的图片是js动态加载的，鬼畜了一点，不过还是有办法的。</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/119">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/image_1456883650734015.jpg?imageView2/1/w/210/h/140" alt="Python爬虫日记之爬取豆瓣故事到数据库" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/119" title="Python爬虫日记之爬取豆瓣故事到数据库" rel='bookmark'>Python爬虫日记之爬取豆瓣故事到数据库</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/python>Python</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-03-01                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>186浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-119.html#comments">0评论</a>
+                            </p>
+                            <p class='note'>豆瓣故事算是我大学比较常去的一个社区了，所以...光荣的成为了我的练手对象哈哈，爬取过程主要先分析页面的url，然后将页面爬下来后分析页面的html，截取需要的信息保存到dict然后操作数据库保存数据！</p>
+                    </div>
+                </article> 
+                                <article class='excerpt excerpt-0 recommend-sticky'>
+                    <a class='fleft' href="articleshow/118">
+                                                <img src="http://7xq09h.com1.z0.glb.clouddn.com/image_1456455874557643.jpg?imageView2/1/w/210/h/140" alt="Python爬虫日记之爬取网易摄影图库照片" class="thumb" /></a>
+                    <div class='excerpt-right'>       
+                        <header>
+                            <h2><a href="articleshow/118" title="Python爬虫日记之爬取网易摄影图库照片" rel='bookmark'>Python爬虫日记之爬取网易摄影图库照片</a></h2>
+                        </header>
+                        <p class='meta'>
+                            <a class='entry-cat' href=class/python>Python</a>                            <span class='author'> 
+                                <span class='separator'>・</span>
+                                <span class='author'>一只特立独行的猪</span>
+                                <time>
+                                    <span class='separator'>・</span>2016-02-26                                </time>
+                                <span class='pv'>
+                                    <span class='separator'>・</span>172浏览
+                                </span>
+                                <span class='separator'>・</span>
+                                <a class='pc' href="articleshow-118.html#comments">0评论</a>
+                            </p>
+                            <p class='note'>用大名鼎鼎的python爬虫爬取网易摄影图库的图片，支持两种页面链接的爬取，然后，，，当然是把美图保存到本地啦。方便走起！</p>
+                    </div>
+                </article> 
+                <div class="pagination"><ul><li class="prev-page"><a href='/newblog/web/'>首页</a></li><li><a href='/newblog/web/'>1</a></li><li><a href='/newblog/web/?page=2'>2</a></li><li class="next-page"><a href='/newblog/web/?page=2'>尾页</a></li><li><span>共 2 页</span></li></ul></div>            </div>
+            
+            <aside class="sidebar sidebar2 fontSmooth">        
+                <div class="widget widget_ui_textasb">
+                    <a class="style04" href="https://github.com/leunico/newblog" target="_blank">
+                        <strong>网站公告</strong>
+                        <h2>Website Updating...</h2>
+                        <p><img src='/newblog/web/image/toux.jpg' style='adminpic'></p>
+                        <div class='profile'>
+                            <span class='adminname'>Leunico</span>
+                            <span class='admintitle'>Alice博客站长</span>
+                        </div>
+                        <div class='adminsaying'>Hi，欢迎来访。这是我用PHP开发的一个个人网站。点击就能在GitHub查看源码啦~</div>
+                    </a>
+                </div>
+                <div class="widget widget_ui_posts">
+                    <h3><i class="fa fa-thumbs-o-up fa-fw"></i>推荐阅读</h3>
+                    <ul>
+                         
+                        <li>
+                            <a href="articleshow/108">
+                                <span class="thumbnail">
+                                    <img  height="34" width="46" src="http://7xq09h.com1.z0.glb.clouddn.com/20151218_1450403060_184868.jpg?imageView2/1/w/210/h/140" alt="用微信测试帐号实现微信扫一扫登录和注册" class="thumb" /></span>
+                                <span class="text">用微信测试帐号实现微信扫一扫登录和注册</span>
+                                <span class="muted">PHP</span>
+                                <span class="separator">・</span>
+                                <span class="muted">一只特立独行的猪</span>
+                            </a>
+                        </li>
+                         
+                        <li>
+                            <a href="articleshow/123">
+                                <span class="thumbnail">
+                                    <img  height="34" width="46" src="http://7xq09h.com1.z0.glb.clouddn.com/image_1457504413350313.jpg?imageView2/1/w/210/h/140" alt="Python爬虫日记之爬取微博互粉好友的照片" class="thumb" /></span>
+                                <span class="text">Python爬虫日记之爬取微博互粉好友的照片</span>
+                                <span class="muted">Python</span>
+                                <span class="separator">・</span>
+                                <span class="muted">一只特立独行的猪</span>
+                            </a>
+                        </li>
+                         
+                        <li>
+                            <a href="articleshow/118">
+                                <span class="thumbnail">
+                                    <img  height="34" width="46" src="http://7xq09h.com1.z0.glb.clouddn.com/image_1456455874557643.jpg?imageView2/1/w/210/h/140" alt="Python爬虫日记之爬取网易摄影图库照片" class="thumb" /></span>
+                                <span class="text">Python爬虫日记之爬取网易摄影图库照片</span>
+                                <span class="muted">Python</span>
+                                <span class="separator">・</span>
+                                <span class="muted">一只特立独行的猪</span>
+                            </a>
+                        </li>
+                         
+                        <li>
+                            <a href="articleshow/126">
+                                <span class="thumbnail">
+                                    <img  height="34" width="46" src="http://7xq09h.com1.z0.glb.clouddn.com/145983967710.jpg?imageView2/1/w/210/h/140" alt="网站数据库和服务器的各种优化和发展" class="thumb" /></span>
+                                <span class="text">网站数据库和服务器的各种优化和发展</span>
+                                <span class="muted">后端技术</span>
+                                <span class="separator">・</span>
+                                <span class="muted">一只特立独行的猪</span>
+                            </a>
+                        </li>
+                         
+                        <li>
+                            <a href="articleshow/119">
+                                <span class="thumbnail">
+                                    <img  height="34" width="46" src="http://7xq09h.com1.z0.glb.clouddn.com/image_1456883650734015.jpg?imageView2/1/w/210/h/140" alt="Python爬虫日记之爬取豆瓣故事到数据库" class="thumb" /></span>
+                                <span class="text">Python爬虫日记之爬取豆瓣故事到数据库</span>
+                                <span class="muted">Python</span>
+                                <span class="separator">・</span>
+                                <span class="muted">一只特立独行的猪</span>
+                            </a>
+                        </li>
+                         
+                        <li>
+                            <a href="articleshow/128">
+                                <span class="thumbnail">
+                                    <img  height="34" width="46" src="http://7xq09h.com1.z0.glb.clouddn.com/qimg_1460707589360271.jpg?imageView2/1/w/210/h/140" alt="非常实用的PHP方法以及代码块（常更新）" class="thumb" /></span>
+                                <span class="text">非常实用的PHP方法以及代码块（常更新）</span>
+                                <span class="muted">PHP</span>
+                                <span class="separator">・</span>
+                                <span class="muted">一只特立独行的猪</span>
+                            </a>
+                        </li>
+                                            </ul>
+                </div>
+                <div class="widget widget_ui_tags">
+                    <h3><i class="fa fa-tags fa-fw"></i>云标签</h3>
+                    <div class='items'>
+                        <a href="tag/134">Tag(6)</a><a href="tag/135">建站(4)</a><a href="tag/124">图片(3)</a><a href="tag/150">爬虫日记(3)</a><a href="tag/119">微信(2)</a><a href="tag/153">RESTful(2)</a><a href="tag/148">杂文(2)</a><a href="tag/149">博客(1)</a><a href="tag/147">阿里云(1)</a><a href="tag/137">LAMP(1)</a><a href="tag/152">Laravel5(1)</a><a href="tag/155">网站安全(1)</a><a href="tag/156">PHP方法(1)</a><a href="tag/142">青春(1)</a><a href="tag/141">短文(1)</a>                        <a class="alltags" target="_blank" href='tag/showall'>- 查看全部 -</a>
+                    </div>
+                </div>
+                <div class="widget widget_ui_comments">
+                    <h3><i class="fa fa-comments-o fa-fw"></i>最新评论</h3>
+                    <ul>
+                                                <li>
+                            <div class="postmeta">
+                                <img alt='' src = "/newblog/web/image/ty.jpg" class='avatar avatar-50 photo' height='50' width='50' />
+                                <a href="articleshow/129#comment-302" title="悄悄告诉你，这个是基佬">
+                                    <strong>一只特立独行的猪</strong>
+                                </a>
+                                <span class="separator">・</span>23天前                            </div>
+                            <div class="widgent_ui_comments_content">这个啊，搜索一下这个：scrollmonitor.js，其实这个效果就是一个js插件来的~</div>
+                            <div class="widget_ui_comments_title">
+                                <p>评论于<a href="articleshow/129">利用代码来迁移数据（Php/Python）</a></p>
+                            </div>
+                        </li>
+                                                <li>
+                            <div class="postmeta">
+                                <img alt='' src = "/newblog/web/image/ty.jpg" class='avatar avatar-50 photo' height='50' width='50' />
+                                <a href="articleshow/129#comment-301" title="悄悄告诉你，这个是基佬">
+                                    <strong>不点儿</strong>
+                                </a>
+                                <span class="separator">・</span>24天前                            </div>
+                            <div class="widgent_ui_comments_content">楼主你好，你的博客很好看，有一个地方我不清楚，就是文章页面下拉得时候，图片有一个从小到大的过程，想问楼主这个这么实现，是用css3的动画吗</div>
+                            <div class="widget_ui_comments_title">
+                                <p>评论于<a href="articleshow/129">利用代码来迁移数据（Php/Python）</a></p>
+                            </div>
+                        </li>
+                                                <li>
+                            <div class="postmeta">
+                                <img alt='' src = "/newblog/web/image/ty.jpg" class='avatar avatar-50 photo' height='50' width='50' />
+                                <a href="articleshow/105#comment-300" title="悄悄告诉你，这个是基佬">
+                                    <strong>Leunico</strong>
+                                </a>
+                                <span class="separator">・</span>2016-06-21 23:32:41                            </div>
+                            <div class="widgent_ui_comments_content">自己弄的啦，没用模版，就是看到好看的网站后看源码然后截下来这样子。</div>
+                            <div class="widget_ui_comments_title">
+                                <p>评论于<a href="articleshow/105">记一次CentOs6.X下LAMP环境的编译安装</a></p>
+                            </div>
+                        </li>
+                                                <li>
+                            <div class="postmeta">
+                                <img alt='' src = "/newblog/web/image/ty.jpg" class='avatar avatar-50 photo' height='50' width='50' />
+                                <a href="articleshow/105#comment-299" title="悄悄告诉你，这个是基佬">
+                                    <strong>海里麦</strong>
+                                </a>
+                                <span class="separator">・</span>2016-06-16 17:56:55                            </div>
+                            <div class="widgent_ui_comments_content">挺好看的，你的使用的织梦模板还是wp，是自己设计的模板么，很喜欢啊。</div>
+                            <div class="widget_ui_comments_title">
+                                <p>评论于<a href="articleshow/105">记一次CentOs6.X下LAMP环境的编译安装</a></p>
+                            </div>
+                        </li>
+                                                <li>
+                            <div class="postmeta">
+                                <img alt='' src = "/newblog/web/image/ty.jpg" class='avatar avatar-50 photo' height='50' width='50' />
+                                <a href="articleshow/128#comment-298" title="悄悄告诉你，这个是基佬">
+                                    <strong>一只特立独行的猪</strong>
+                                </a>
+                                <span class="separator">・</span>2016-06-12 11:51:36                            </div>
+                            <div class="widgent_ui_comments_content">咳咳，手机UI烂这点我承认，在自适应方面我不是很熟悉，后面也就没花时间去弄手机版了。。。 <img src="/newblog/web/image/smilies/icon_confused.gif"></div>
+                            <div class="widget_ui_comments_title">
+                                <p>评论于<a href="articleshow/128">非常实用的PHP方法以及代码块（常更新）</a></p>
+                            </div>
+                        </li>
+                                            </ul>
+                </div>
+                <div class="widget widget_text">			
+                    <div class="textwidget">
+                        <!--<span class="WB_FB_plus">
+                               <a href="http://weibo.com/u/3101570465" title="Leunico" target="_blank"><i id="fNum">81</i></a>
+                               <em class="plus_arr"></em>
+                            </span>-->
+                        <iframe width="340" height="550" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=550&fansRow=1&ptype=1&speed=0&skin=5&isTitle=1&noborder=1&isWeibo=1&isFans=0&uid=3101570465&verifier=f6ab8812&dpc=1"></iframe>
+                    </div>
+                </div>
+                <div class="widget widget_friendslink">
+                    <div class="widget-title">
+                        <h3><i class="fa fa-facebook-square fa-link"></i> 友情链接</h3>
+                    </div>
+                    <div class="linkwidget">
+                        <div class="indexfriendslink">
+                        <a href='http://www.chinaz.com' target="_blank">站长之家</a><a href='http://www.acfun.tv' target="_blank">AcFun弹幕网</a><a href='http://www.bilibili.com' target="_blank">BiliBili弹幕网</a><a href='http://www.oschina.net/' target="_blank">开源中国</a><a href='http://www.08cms.com/' target="_blank">08CMS网站</a><a href='http://txjia.com/tip/' target="_blank">和平鸽的博客</a><a href='http://blog.mireas.com/' target="_blank">Mireas的博客</a><a href='http://blog.ykqmain.com/' target="_blank">iAnna的博客</a><a href='http://www.dxxing.com/' target="_blank">大猩猩网</a>                        </div>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </section>	
+<footer class="footer"><div class="container">
+<div class="about-wrapper"><h4 class="foot-item-head">关于</h4>
+    <p><a class="ln-about" href="class/me">关于我</a></p>
+    <p><a class="ln-about" href="class/liuy">留言</a></p>
+    <p><a class="ln-about" href="class/articlebox">文章归档</a></p>
+</div>
+<!--<div class="interaction-wrapper" style="padding-top:10px;">
+    <!--<h4 class="foot-item-head" style="margin-bottom:8px;">阿里云服务器</h4>
+<a href="http://www.yyyweb.com/go/aliyun" target="_blank" class="external" rel="nofollow" ><img style="width:100px;height:100px;" src="http://nextimg.kssws.ks-cdn.com/aliyun.png" alt="阿里云"></a>
+</div>
+<div class="more-wrapper" style="max-width:240px;padding-top:10px;">
+    <!--<h4 class="foot-item-head">金山云图片储存</h4>
+<a href="http://www.yyyweb.com/go/qiniu" target="_blank" class="external" rel="nofollow"><img style="width:120px;height:150px;" src="http://ks3.ksyun.com/image/ks_header_logo.png" alt="金山云储存"></a>	
+</div>-->
+<div class="interaction-wrapper">
+    <h4 class="foot-item-head">悠悠我心</h4>
+    <p><a class="ln-more" href="#">这是菜单</a></p>
+    <p><a class="ln-more" href="#">也是菜单</a></p>
+    <p><a class="ln-more" href="#">还是菜单</a></p>
+</div>
+<div class="more-wrapper">
+    <h4 class="foot-item-head">更多</h4>
+    <p><a class="ln-more" href="#">咳咳</a></p>
+    <p><a class="ln-more" href="#">这个这个</a></p>
+    <p><a class="ln-more" href="#">菜单有点多</a></p>		
+</div>
+<div class="sns-wrapper">
+    <h4 class="foot-item-head">关注</h4>
+    <p><a class="ln-sns qq-group" href="javascript:;" title="QQ"><i class="fa fa-qq fa-fw"></i></a>
+       <a class="ln-sns sns-wechat" href="javascript:;" title="加个微信好友" data-src="/newblog/web/image/weixin.png"><i class="fa fa-weixin fa-fw"></i></a>
+       <a class="ln-sns" href="http://weibo.com/3101570465" target="_blank"><i class="fa fa-weibo fa-fw"></i></a>
+       <a class="ln-sns" href="https://www.facebook.com/juri.alice.3" target="_blank"><i class="fa fa-facebook fa-fw"></i></a></p>
+    <p> &copy; 2016 Leunico ・ 东莞</p>
+    <p> 粤ICP备16009627号<!--&nbsp;<a href="">网站介绍</a>--></p>
+</div>
+</div> 
+</footer>
+<script> 
+    window.jsui={     
+        www: "192.168.1.180:8080",    
+        uri: "/newblog/web/",     
+        ver: 'THEME_VERSION', 
+        roll: ["1"],    
+        ajaxpager: '0',     
+        url_rp: "192.168.1.180:8080"
+    }; 
+</script>
+<script type='text/javascript' src='/newblog/web/js/bootstrap.min.js'></script>
+<script type='text/javascript' src='/newblog/web/js/loader.js'></script>
+</body>
+</html>   

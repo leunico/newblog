@@ -25,7 +25,7 @@ class PaginatorHandler
 		$pages = ceil($total/$pagesize);
 		$page = min($pages, $this->page);
         $pagenav = '<div class="pagination"><ul>';
-        $pagenav .= ($page-1) ? "<li class=\"prev-page\"><a href='$url'>首页</a></li>" : '';
+        $pagenav .= ($page-1) ? "<li class=\"prev-page\"><a href='$baseurl'>首页</a></li>" : '';
         for($i=-10; $i<=10; $i++){
         	$pageTmp = $page+$i;
         	$url = $this->urlGenerator->generate($this->routeName, ['page' => $pageTmp]);

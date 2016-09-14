@@ -12,7 +12,7 @@
 .skillset .level-bar{height:15px;background:#e8e8e8}
 .skillset .level-bar-inner{height:15px;background:#66cb8c}
 .ad-bottom-wrapper{position:fixed;bottom:0;left:0;z-index:1000;display:none;width:100%;height:158px;background:rgba(32,40,45,.8)}
-.content .asb .close,.content .carousel .close,.wall-middle-right .close{position:absolute;top:5px;right:5px;z-index:99;display:block;width:20px;height:20px;background:url(../img/close_1.png) center no-repeat;opacity:1}
+.content .asb .close,.content .carousel .close,.wall-middle-right .close{position:absolute;top:5px;right:5px;z-index:99;display:block;width:20px;height:20px;background:url(../image/close_1.png) center no-repeat;opacity:1}
 .wall-middle-right .close{top:-7px;right:-21px;padding:5px;background:0 0;color:#5C95DD;font-weight:400;font-size:18px}
 .aboutqit{margin:2px -42px 15px -40px;padding:5px 25px;border-left:10px solid #F36F6F;border-radius:4px;font-weight:700;font-size:24px;font-family:'Gotham Narrow SSm',"Microsoft Jhenghei","Microsoft Yahei","Helvetica Neue",HelveticaNeue,Arial,sans-serif;line-height:1.5}
 .aboutart{margin:2px -42px 15px -39px;padding:5px 25px;border-left:8px solid #F36F6F;color:#F36F6F;font-weight:700;font-size:20px;font-family:'Gotham Narrow SSm',"Microsoft Jhenghei","Microsoft Yahei","Helvetica Neue",HelveticaNeue,Arial,sans-serif;line-height:1.5}
@@ -399,7 +399,7 @@ body{position:relative;background-color:#EFF0F2!important;}
 #weixin_tip{width:100%;height:100px;background:#dd5862;text-align:center;line-height:100px}
 #weixin_tip i{color:fff}
 #weixin_tip .message-bar .desc{color:#fff;letter-spacing:.06em;font-size:22px;font-family:"Helvetica Neue",Helvetica,"Microsoft Yahei","微软雅黑",Arial,sans-serif;line-height:80px}
-#weixin_tip .message-bar .close{position:relative;z-index:999;float:right;display:block;margin-right:10px;width:20px;height:40px;background:url(../img/close_1.png) right no-repeat;text-indent:-9999px;opacity:1}
+#weixin_tip .message-bar .close{position:relative;z-index:999;float:right;display:block;margin-right:10px;width:20px;height:40px;background:url(../image/close_1.png) right no-repeat;text-indent:-9999px;opacity:1}
 #weixin_tip .message-bar .jiange{float:right;display:inline-block;margin-top:8px;color:#fff;font-size:14px;line-height:36px}
 .category-job .header,.page-template-pagesnavs-php .header,.page-template-pagestheme-php .header,.page-template-pagesthemes-php .header,.page-template-pagestools-php .header,.site-minicat .header{margin-bottom:0;border-bottom:none;box-shadow:none}
 .carousel{margin-bottom:15px}

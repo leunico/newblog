@@ -21,6 +21,6 @@
 <!-- Easy FancyBox 1.5.7 using FancyBox 1.3.7 - RavanH (http://status301.net/wordpress-plugins/easy-fancybox/) -->
 <!--<link rel="shortcut icon" href="">-->
 <?php echo isset($css) ? "<link rel=\"stylesheet\" href=".$view->getCss('$css').">" : "";?>
-<?php echo isset($js) ? "<script type='text/javascript' src=".$view->getCss('$js')."></script>" : "";?>
+<?php echo isset($js) ? "<script type='text/javascript' src=".$view->getJs('$js')."></script>" : "";?>
 </head>
     

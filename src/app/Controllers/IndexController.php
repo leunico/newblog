@@ -37,7 +37,7 @@ class IndexController extends Controller
         ->orderBy('ctime', 'desc')
         ->take(5)
         ->get();
-        //var_dump($this->parameters['articleList']->count());die();
+
         return $this->render('newindex', $this->parameters);
 
     }

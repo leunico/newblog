@@ -5,7 +5,7 @@
 <?php $nav = 1; include_once 'newnav.tpl.php'; ?> 
 <script>
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
-setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好哦！'),2000);
+    setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好哦！'),2000);
 }
 </script>
 <section class="container mtop95">
@@ -52,39 +52,39 @@ setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好�
                                     <span class='separator'>・</span><?php echo $article->clicks; ?>浏览
                                 </span>
                                 <span class='separator'>・</span>
-                                <a class='pc' href="<?php echo $view->Route("articleshow-".$article->id).".html"; ?>#comments"><?php echo $article->comcount ? $article->comcount:0; ?>评论</a>
+                                <a class='pc' href="<?php echo $view->Route("articleshow-".$article->id).".html"; ?>#comments"><?php echo $article->comcount ? $article->comcount:0 ?>评论</a>
                             </p>
                             <p class='note'><?php echo $article->description; ?></p>
                     </div>
                 </article> 
-                <?php } echo $pageNav;die(); ?>     
+                <?php } echo $pageNav; ?>
             </div>
             
             <aside class="sidebar sidebar2 fontSmooth">        
                 <div class="widget widget_ui_textasb">
-                    <a class="style04" href="/class/me" target="_blank">
+                    <a class="style04" href="https://github.com/leunico/newblog" target="_blank">
                         <strong>网站公告</strong>
                         <h2>Website Updating...</h2>
-                        <p><img src='<?php echo IMAGE_DIR;?>toux.jpg' style='adminpic'></p>
+                        <p><img src='<?php echo $view->getImage('toux.jpg') ?>' style='adminpic'></p>
                         <div class='profile'>
                             <span class='adminname'>Leunico</span>
                             <span class='admintitle'>Alice博客站长</span>
                         </div>
-                        <div class='adminsaying'>Hi，欢迎来访。这是我用PHP开发的一个个人网站。在Git上有源码~</div>
+                        <div class='adminsaying'>Hi，欢迎来访。这是我用PHP开发的一个个人网站。点击就能在GitHub查看源码啦~</div>
                     </a>
                 </div>
                 <div class="widget widget_ui_posts">
                     <h3><i class="fa fa-thumbs-o-up fa-fw"></i>推荐阅读</h3>
                     <ul>
-                        <?php  foreach($pushArticleList as $articlepush){ ?> 
+                        <?php foreach($pushArticleList as $articlepush){ ?> 
                         <li>
-                            <a href="<?php echo Route("articleshow/".$articlepush['id']); ?>">
+                            <a href="<?php echo $view->Route("articleshow/".$articlepush['id']) ?>">
                                 <span class="thumbnail">
-                                    <img  height="34" width="46" src="<?php echo ($articlepush['image'] ? $articlepush['image']:IMG_DEFAULT); ?>" alt="<?php echo $articlepush['title']; ?>" class="thumb" /></span>
-                                <span class="text"><?php echo $articlepush['title']; ?></span>
-                                <span class="muted"><?php echo $articleclass[$articlepush['mid']]; ?></span>
+                                    <img  height="34" width="46" src="<?php echo $articlepush->image ? $articlepush->image : $view->getImage('default.jpg') ?>" alt="<?php echo $articlepush->title; ?>" class="thumb" /></span>
+                                <span class="text"><?php echo $articlepush->title; ?></span>
+                                <span class="muted"><?php echo $articleclass[$articlepush->mid]; ?></span>
                                 <span class="separator">・</span>
-                                <span class="muted"><?php echo $articlepush['author']; ?></span>
+                                <span class="muted"><?php echo $articlepush->author; ?></span>
                             </a>
                         </li>
                         <?php } ?>
@@ -93,10 +93,10 @@ setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好�
                 <div class="widget widget_ui_tags">
                     <h3><i class="fa fa-tags fa-fw"></i>云标签</h3>
                     <div class='items'>
-                        <?php  foreach($tagList as $tags){  
-                                  echo "<a href=\"".Route('tag/'.$tags['id'])."\">".$tags['tag'].'('.$tags['num'].')'."</a>"; 
+                        <?php foreach($tagList as $tags){  
+                                  echo "<a href=\"".$view->Route('tag/'.$tags->id)."\">".$tags->tag.'('.$tags->num.')'."</a>"; 
                          } ?>
-                        <a class="alltags" target="_blank" href="<?php echo Route('tag/showall') ?>">- 查看全部 -</a>
+                        <a class="alltags" target="_blank" href='<?php echo $view->Route('tag/showall') ?>'>- 查看全部 -</a>
                     </div>
                 </div>
                 <div class="widget widget_ui_comments">
@@ -105,15 +105,15 @@ setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好�
                         <?php foreach($commentList as $comment){ ?>
                         <li>
                             <div class="postmeta">
-                                <img alt='' src = "<?php echo IMG_TXING;?>" class='avatar avatar-50 photo' height='50' width='50' />
-                                <a href="<?php echo Route('articleshow/'.$comment['aid'])."#comment-".$comment['id']?>" title="悄悄告诉你，这个是基佬">
-                                    <strong><?php echo $comment['nickname'] ?></strong>
+                                <img alt='' src = "<?php echo $view->getImage('ty.jpg') ?>" class='avatar avatar-50 photo' height='50' width='50' />
+                                <a href="<?php echo $view->Route('articleshow/'.$comment->aid)."#comment-".$comment->id ?>" title="悄悄告诉你，这个是基佬">
+                                    <strong><?php echo $comment->nickname ?></strong>
                                 </a>
-                                <span class="separator">・</span><?php echo wordTime($comment['ctime']) ?>
+                                <span class="separator">・</span><?php echo $view->wordTime($comment->ctime) ?>
                             </div>
-                            <div class="widgent_ui_comments_content"><?php echo EmojiH($comment['contents']) ?></div>
+                            <div class="widgent_ui_comments_content"><?php echo $view->EmojiH($comment->contents) ?></div>
                             <div class="widget_ui_comments_title">
-                                <p>评论于<a href="<?php echo Route('articleshow/'.$comment['aid'])?>"><?php echo $comment['title'] ?></a></p>
+                                <p>评论于<a href="<?php echo $view->Route('articleshow/'.$comment->aid) ?>"><?php echo $comment->title ?></a></p>
                             </div>
                         </li>
                         <?php } ?>
@@ -134,7 +134,7 @@ setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好�
                     </div>
                     <div class="linkwidget">
                         <div class="indexfriendslink">
-                        <?php $link = getClass('friendslink'); foreach($link as $name=>$url){echo "<a href='".$url."' target=\"_blank\">".$name."</a>"; } ?>
+                        <?php $link = $view->getConfig('friends'); foreach($link as $name=>$url){echo "<a href='".$url."' target=\"_blank\">".$name."</a>"; } ?>
                         </div>
                     </div>
                 </div>

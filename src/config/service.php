@@ -2,8 +2,6 @@
 
 return [
 
-	'view' => 'app\service\ViewFunction',
-
-	//'test' => ['app\testFunctionService'],
+	'view' => 'app\service\ViewService',
 	
 ];
