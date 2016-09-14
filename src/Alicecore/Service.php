@@ -10,11 +10,11 @@ class Service implements AppHandleInterface
     public static $services;
 
     public static function start(AppFramework $app)
-	{
+    {
         self::$services = $app->loadconfig('service');
         self::$app = $app;
         self::loagservice();
-	}
+    }
 
     public static function loagservice()
     {
@@ -34,7 +34,7 @@ class Service implements AppHandleInterface
             }
 
             $interface = $reflector->getInterfaces();
-           
+
             if (!array_key_exists("Alicecore\Handle\Extension\ServiceInterface", $interface)) {
                 throw new Exception('Error:Service does not implement interface');
             }

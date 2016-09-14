@@ -79,7 +79,7 @@ abstract class Controller implements ContainerInterface
         $response->setContent(ob_get_clean());
 
         if(!empty($this->container['httpcache_switch'])){
-            $time = (int)$this->container['httpcache_time'] ? (int)$this->container['httpcache_time'] : 60;
+            $time = $this->container['httpcache_time'] ? (int)$this->container['httpcache_time'] : 60;
             $response->setTtl($time);
         }
 

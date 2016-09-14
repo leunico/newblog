@@ -6,24 +6,24 @@ use Alicecore\Handle\Extension\AppHandleInterface;
 class Route implements AppHandleInterface
 {
 
-	public static $app;
+    public static $app;
 
-	public static function start(AppFramework $app)
-	{
-		$app['controllers']->get('/hello/{name}', function ($name) use ($app) {
-		  return 'Hello '.$app->escape($name).' This is AliceFramework!!!';
-		});
+    public static function start(AppFramework $app)
+    {
+        $app['controllers']->get('/hello/{name}', function ($name) use ($app) {
+            return 'Hello '.$app->escape($name).' This is AliceFramework!!!';
+        });
 
-		self::$app = $app;
-		require_once __DIR__.'/../route.php';
-	}
+        self::$app = $app;
+        require_once __DIR__.'/../route.php';
+    }
 
-	public static function get($pattern, $to = null)
-	{
-		return self::$app['controllers']->get($pattern, $to);
-	}
+    public static function get($pattern, $to = null)
+    {
+        return self::$app['controllers']->get($pattern, $to);
+    }
 
-	public static function match($pattern, $to = null)
+    public static function match($pattern, $to = null)
     {
         return self::$app['controllers']->match($pattern, $to);
     }
