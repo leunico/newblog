@@ -17,10 +17,10 @@
 .btn-primary, .label-primary, .branding-primary, .post-copyright:hover, .article-tags a, .pagination ul > .active > a, .pagination ul > .active > span, .pagenav .current, .widget_ui_tags .items a:hover, .sign .close-link, .pagemenu li.active a, .pageheader, .resetpasssteps li.active, #navs h2, #navs nav, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary, .tag-clouds a:hover{background-color: #dd5862;}.btn-primary, .search-input:focus, #bdcs .bdcs-search-form-input:focus, #submit, .plinks ul li a:hover,.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{border-color: #dd5862;}
 .search-btn, .label-primary, #bdcs .bdcs-search-form-submit, #submit, .excerpt .cat{background-color: #dd5862;}.excerpt .cat i{border-left-color:#dd5862;}@media (max-width: 720px) {.site-navbar li.active a, .site-navbar li.active a:hover, .m-nav-show .m-icon-nav{color: #dd5862;}}@media (max-width: 480px) {.pagination ul > li.next-page a{background-color:#dd5862;}}
 </style>
-<link rel="shortcut icon" href="<?php echo $view->getImage('favicon.ico');?>">    
+<link rel="shortcut icon" href="<?php echo $view->getImage('favicon.ico');?>">
 <!-- Easy FancyBox 1.5.7 using FancyBox 1.3.7 - RavanH (http://status301.net/wordpress-plugins/easy-fancybox/) -->
 <!--<link rel="shortcut icon" href="">-->
-<?php echo isset($css) ? "<link rel=\"stylesheet\" href=".$view->getCss('$css').">" : "";?>
-<?php echo isset($js) ? "<script type='text/javascript' src=".$view->getJs('$js')."></script>" : "";?>
+<?php echo isset($css) ? "<link rel=\"stylesheet\" href=".$view->getCss($css).">" : "";?>
+<?php echo isset($js) ? "<script type='text/javascript' src=".$view->getJs($js)."></script>" : "";?>
 </head>
-    
+

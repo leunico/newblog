@@ -31,7 +31,7 @@ class IndexController extends Controller
 
             $this->getMemcache()->write($this->getRouteName().$this->getLimit(), $this->parameters);
         }
-        
+
         $this->parameters['commentList'] = Comment::Join('info_article', 'info_article.id', '=', 'info_comment.aid')
         ->select('info_comment.*', 'info_article.title')
         ->orderBy('ctime', 'desc')
@@ -40,16 +40,6 @@ class IndexController extends Controller
 
         return $this->render('newindex', $this->parameters);
 
-    }
-
-    public function cms()
-    {
-        echo 'test>>>>';
-        $route = $this->get('routes')->get('GET_memsss');
-        var_dump($route);
-        //$ip = $this->getRequest()->getClientIps();
-        //var_dump($ip);      
-        die();
     }
 
 }

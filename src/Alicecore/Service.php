@@ -13,10 +13,10 @@ class Service implements AppHandleInterface
     {
         self::$services = $app->loadconfig('service');
         self::$app = $app;
-        self::loagservice();
+        self::loadservice();
     }
 
-    public static function loagservice()
+    public static function loadservice()
     {
         foreach(self::$services as $name=>$className){
 
@@ -35,16 +35,17 @@ class Service implements AppHandleInterface
 
             $interface = $reflector->getInterfaces();
 
-            if (!array_key_exists("Alicecore\Handle\Extension\ServiceInterface", $interface)) {
+            if (!array_key_exists("Alicecore\Handle\Extension\ServiceInterface", $interface)
+                && !array_key_exists("Alicecore\Handle\Extension\MiddlewareInterface", $interface)) {
                 throw new Exception('Error:Service does not implement interface');
             }
 
-            /*$constructor = $reflector->getConstructor();
+            $constructor = $reflector->getConstructor();
             if (is_null($constructor)) {
                 self::$app[$name] = new $className();
-            }*/ //检测是否有构造方法~
-
-            self::$app[$name] = $reflector->newInstanceArgs([self::$app]);
+            }else{
+                self::$app[$name] = $reflector->newInstanceArgs([self::$app]);
+            }
         }
 
         return true;

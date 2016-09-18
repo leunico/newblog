@@ -44,7 +44,15 @@ class ControllerResolver
         $route = clone $this->defaultRoute;
         $route->setPath($pattern);
         $this->controllers[] = $controller = new ControllerHandler($route);
-        $route->setDefault('_controller', null === $to ? $this->defaultController : $to);
+        if(is_array($to) && array_key_exists('_controller', $to)){
+            $route->setDefault('_controller', isset($to['_controller']) ? $to['_controller'] : $this->defaultController);
+            unset($to['_controller']);
+            foreach ($to as $key => $value) {
+                $route->setOption($key, $value);
+            }
+        }else{
+            $route->setDefault('_controller', null === $to ? $this->defaultController : $to);
+        }
 
         return $controller;
     }

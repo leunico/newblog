@@ -11,7 +11,7 @@
         </div>
         <img src="<?php echo $view->getImage('navred.png');?>">
         </a>
-     </div>	
+     </div>
      <div class="top-search">
          <form method="get" class="site-search-form" action="#" >
              <button class="search-btn" type="submit">
@@ -23,6 +23,7 @@
         <ul class="site-nav site-navbar main-nav">
             <li id="menu-1" class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-1<?php if($nav==1) echo " current-menu-item"; ?>"><a href="/">首页</a></li>
             <?php
+
                 if(!isset($menuclass) || !isset($articleclass))
                 {
                     $menuclass = $view->getConfig('menu')['menu_class'];
@@ -30,16 +31,16 @@
                 }
 
                 foreach($menuclass as $key=>$val){
-                    if(is_array($val)){                     
-                        echo "<li id=\"menu-".$key."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-".$key.(isset($val[$nav]) ? " current-menu-item" : "")."\"><a href=".$view->Route('class/'.$key).">$val[$key]</a><ul class=\"sub-menu\">";
-                        foreach($val as $k=>$v){                            
-                           if($k !== $key) echo "<li id=\"menu-".$k."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-".$k."\"><a href=".$view->Route('class/'.$k).">".$v."</a></li>"; 
+                    if(is_array($val)){
+                        echo "<li id=\"menu-".$key."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-".$key.(isset($val[$nav]) ? " current-menu-item" : "")."\"><a href=".$view->Route('menu/'.$key).">$val[$key]</a><ul class=\"sub-menu\">";
+                        foreach($val as $k=>$v){
+                           if($k !== $key) echo "<li id=\"menu-".$k."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-".$k."\"><a href=".$view->Route('menu/'.$k).">".$v."</a></li>";
                         }
                         echo "</ul></li>";
-                    }else{                       
-                        echo "<li id=\"menu-".$key."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-".$key.($nav == $key ? " current-menu-item":"")."\"><a href=".$view->Route('class/'.$key).">".$val."</a></li>";    
-                    }                                        
-                } 
+                    }else{
+                        echo "<li id=\"menu-".$key."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-".$key.($nav == $key ? " current-menu-item":"")."\"><a href=".$view->Route('menu/'.$key).">".$val."</a></li>";
+                    }
+                }
             ?>
             <li id="menu-8" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-7"><a href="<?php echo $view->Route("admin/login"); ?>">她很漂亮</a></li>
             <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>

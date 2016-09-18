@@ -2,6 +2,7 @@
 
 return [
 
-	'view' => 'app\service\ViewService',
-	
+    'view' => 'app\service\ViewService',
+
+	'menu' => 'app\service\MenuMiddleware',
 ];

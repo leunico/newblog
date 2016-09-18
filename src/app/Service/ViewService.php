@@ -34,7 +34,7 @@ class ViewService implements ServiceInterface
 
     public function Route($route)
     {
-        return $route;
+        return 'http://'.$this->app['request_stack']->getCurrentRequest()->server->get('HTTP_HOST').$this->getBaseUrl().$route;
     }
 
     public function getConfig($name)
@@ -44,7 +44,7 @@ class ViewService implements ServiceInterface
 
     public function getServer($name)
     {
-        # var_dump($this->app['request_stack']->getCurrentRequest()->server);die();
+        #var_dump($this->app['request_stack']->getCurrentRequest()->server);die();
         return $this->app['request_stack']->getCurrentRequest()->server->get($name);
     }
 
@@ -68,6 +68,22 @@ class ViewService implements ServiceInterface
         }
         return $str;
 	}
+
+	public function getThumb($content, $order='ALL')
+	{
+        $pattern="/<img.*?src=[\'|\"](.*?(?:[\.gif|\.jpg|\.png]))[\'|\"].*?[\/]?>/";
+        preg_match_all($pattern,$content,$match);
+
+        if(isset($match[1]) && !empty($match[1])){
+            if($order==='ALL')
+            	return $match[1];
+
+            if(is_numeric($order) && isset($match[1][$order]))
+            	return $match[1][$order];
+        }
+
+        return '';
+    }
 
     public function getCss($name)
     {
@@ -130,4 +146,5 @@ class ViewService implements ServiceInterface
     {
         return $this->app->$method($arguments);
     }
+
 }

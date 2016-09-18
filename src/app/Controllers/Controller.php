@@ -25,7 +25,11 @@ class Controller extends BaseCollection
 
     public function getRouteName()
     {
-        return $this->getRequest()->attributes->get('_route');
+        if($this->getRequest()->attributes->get('_route_params')){
+            return $this->getRequest()->attributes->get('_route') . "_" . implode('_', $this->getRequest()->attributes->get('_route_params'));
+        }else{
+            return $this->getRequest()->attributes->get('_route');
+        }
     }
 
 }

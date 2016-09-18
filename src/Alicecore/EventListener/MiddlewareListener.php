@@ -28,8 +28,7 @@ class MiddlewareListener implements EventSubscriberInterface
         foreach ((array) $route->getOption('_before_middlewares') as $callback) {
             $ret = call_user_func($this->app['callback_resolver']->resolveCallback($callback), $request, $this->app);
             if ($ret instanceof Response) {
-                $event->setResponse($ret);
-
+                $event->setResponse($ret); //直接返回，跳过了控制器事件~
                 return;
             } elseif (null !== $ret) {
                 throw new \RuntimeException(sprintf('A before middleware for route "%s" returned an invalid response value. Must return null or an instance of Response.', $routeName));

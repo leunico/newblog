@@ -6,12 +6,12 @@ class MemcacheExension
 
     public function read($name)
     {
-        return false;
+        return [];
     }
 
     public function write($name, $value)
     {
-        return false;
+        return [];
     }
 
 }

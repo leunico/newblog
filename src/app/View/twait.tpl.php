@@ -1,11 +1,11 @@
-<?php $css = 'timeline.css';include_once 'newheader.tpl.php';?>  
+<?php $css = 'timeline.css'; include_once 'newheader.tpl.php' ?>
 
 <body class="page page-id-2925 page-template page-template-pagestimeline-php comment-open site-layout-2 wc-shortcodes-font-awesome-enabled">
-   
-<?php $nav = 'timewait';include_once 'newnav.tpl.php';?>  
-    
+
+<?php $nav = 'timewait'; include_once 'newnav.tpl.php' ?>
+
 <section class="container timeline-page">
-    <div class="pageside"><div class="pagemenus"><ul class="pagemenu"></ul></div></div>        
+    <div class="pageside"><div class="pagemenus"><ul class="pagemenu"></ul></div></div>
     <div class="content">
 <script src="<?php echo JS_DIR?>modernizr.js"></script>
 <div id="cd-timeline" class="cd-container">
@@ -31,16 +31,16 @@
 				<span class="cd-date"><?php echo $timew['time']; ?></span>
 			</div>
 		</div>
-      <?php } ?>		
-	  </div>	
-	</div>		
+      <?php } ?>
+	  </div>
+	</div>
 	<div id="to-be-continue">
       <div class="year-wrap" style="margin-bottom: 0;">
         <div class="year-bg">
           <p class="year" style="font-size:16px;width:100px">未完待续...</p></div>
           <div class="bottom-jt"></div>
         </div>
-      </div>   
-	</div> <!-- cd-timeline -->	
-</div></section>       
+      </div>
+	</div> <!-- cd-timeline -->
+</div></section>
 <?php include_once 'newfooter.tpl.php';?>

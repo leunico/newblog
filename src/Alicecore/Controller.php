@@ -62,33 +62,13 @@ abstract class Controller implements ContainerInterface
 
     public function render($name, $parameters)
     {
-        $file_dir = dirname(dirname(__FILE__))."\\app\\View\\";
-        $file_name = $name.'.tpl.php';
-
-        if (!file_exists($file_dir.$file_name)) {
-            throw new \InvalidArgumentException("Template file '$file_name' not Exists!");
-        }
-
-        $response = new Response();
-        $view = $this->container['view'];
-        @extract($parameters, EXTR_SKIP);
-
-        ob_start();
-        include $file_dir.$file_name;
-        $response->setContent(ob_get_clean());
-
-        if(!empty($this->container['httpcache_switch'])){
-            $time = $this->container['httpcache_time'] ? (int)$this->container['httpcache_time'] : 60;
-            $response->setTtl($time);
-        }
-
-        return $response;
+        return $this->container->render($name, $parameters);
     }
 
     public function getPaginator()
     {
         $routeName = $this->getRequest()->attributes->get('_route');
-        return new PaginatorHandler($this->page, $routeName, $this->get('url_generator'));
+        return new PaginatorHandler($this->page, $routeName, $this->get('url_generator'), $this->getRequest()->attributes->get('_route_params'));
     }
 
     public function pageNav($count)

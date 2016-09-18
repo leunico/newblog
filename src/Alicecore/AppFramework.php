@@ -28,7 +28,7 @@ class AppFramework extends Container implements HttpKernelInterface, TerminableI
     {
         parent::__construct();
         $this->defaultConfig();
-        
+
         foreach ($values as $key => $value) {
             $this[$key] = $value;
         }
@@ -348,16 +348,41 @@ class AppFramework extends Container implements HttpKernelInterface, TerminableI
         $this['kernel']->terminate($request, $response);
     }
 
+    public function render($name, array $parameters = [])
+    {
+        $file_dir = dirname(dirname(__FILE__))."\\app\\View\\";
+        $file_name = $name.'.tpl.php';
+
+        if (!file_exists($file_dir.$file_name)) {
+            throw new \InvalidArgumentException("Template file '$file_name' not Exists!");
+        }
+
+        $response = new Response();
+        $view = $this['view'];
+        @extract($parameters, EXTR_SKIP);
+
+        ob_start();
+        include $file_dir.$file_name;
+        $response->setContent(ob_get_clean());
+
+        if(!empty($this['httpcache_switch'])){
+            $time = $this['httpcache_time'] ? (int)$this['httpcache_time'] : 60;
+            $response->setTtl($time);
+        }
+
+        return $response;
+    }
+
     public function loadconfig($name)
     {
         $file_dir = dirname(dirname(__FILE__))."\\config\\";
         $path = $file_dir.$name.".php";
 
         if (!file_exists($path)) {
-            throw new \InvalidArgumentException("Config file '$file_name' not Exists!");
+            throw new \InvalidArgumentException("Config file '$name'.php not Exists!");
         }
 
-        $parameter = include_once $path;
+        $parameter = include $path;
         if (!is_array($parameter)) {
             throw new \InvalidArgumentException("The config file do not return array file not an array");
         }
