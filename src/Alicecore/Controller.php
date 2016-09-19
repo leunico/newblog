@@ -15,7 +15,7 @@ abstract class Controller implements ContainerInterface
 
     protected $page;
 
-    protected $pagesize = 10;
+    protected $pagesize = 5;
 
     public function setContainer(AppFramework $container)
     {

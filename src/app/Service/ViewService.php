@@ -69,17 +69,17 @@ class ViewService implements ServiceInterface
         return $str;
 	}
 
-	public function getThumb($content, $order='ALL')
-	{
+    public function getThumb($content, $order='ALL')
+    {
         $pattern="/<img.*?src=[\'|\"](.*?(?:[\.gif|\.jpg|\.png]))[\'|\"].*?[\/]?>/";
         preg_match_all($pattern,$content,$match);
 
         if(isset($match[1]) && !empty($match[1])){
             if($order==='ALL')
-            	return $match[1];
+                return $match[1];
 
             if(is_numeric($order) && isset($match[1][$order]))
-            	return $match[1][$order];
+                return $match[1][$order];
         }
 
         return '';

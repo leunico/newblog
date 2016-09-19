@@ -17,8 +17,7 @@ class IndexController extends Controller
             ->select(new raw('COUNT(info_comment.id) as comcount, info_article.*'))
             ->groupBy('info_article.id')
             ->orderBy('top', 'desc')->orderBy('ctime', 'desc')
-            ->skip($this->getLimit())
-            ->take($this->pagesize)
+            ->skip($this->getLimit())->take($this->pagesize)
             ->get();
             $this->parameters['pageNav'] = $this->pageNav(Article::all()->count());
             $this->parameters['pushArticleList'] = Article::where('recommend_type', 2)
