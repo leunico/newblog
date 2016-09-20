@@ -9,14 +9,13 @@ return {
         	$('#comment-author-info input:first').focus()
 		})
 
-		/* 
+		/*
 	     * comment
 	     * ====================================================
 	    */
 			$('#comment').focus(function(){
 		if( $('#author').val()=='' || $('#email').val()=='' ) $('.comt-comterinfo').slideDown(300)
 	})
-	
 	    var edit_mode = '0',
 	        txt1 = '<div class="comt-tip comt-loading">评论提交中...</div>',
 	        txt2 = '<div class="comt-tip comt-error">#</div>',
@@ -41,7 +40,7 @@ return {
 	        $submit.attr('disabled', true).fadeTo('slow', 0.5);
 	        if (edit) $('#comment').after('<input type="text" name="edit_id" id="edit_id" value="' + edit + '" style="display:none;" />');
 	        $.ajax({
-	            url: jsui.www + 'articleshow/addcomment',
+	            url: jsui.www + 'comment/add',
 	            data: $(this).serialize(),
 	            type: $(this).attr('method'),
 	            error: function(request) {

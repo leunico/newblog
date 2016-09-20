@@ -142,6 +142,14 @@ class ViewService implements ServiceInterface
         return $msg;
     }
 
+    public function getUser($type)
+    {
+        $key = $this->app['session_pre'].'admin_user_login';
+        $loginInfo = $this->getSession()->get($key);
+        return $loginInfo[$type] ? $loginInfo[$type] : '';
+
+    }
+
     public function __call($method, $arguments)
     {
         return $this->app->$method($arguments);

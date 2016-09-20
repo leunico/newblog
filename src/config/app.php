@@ -16,6 +16,10 @@ return [
 
     'logger' => null,
 
+    'session_pre' => 'Alice',
+
+    'cookie_pre' => 'Alice',
+
     # 数据库配置~
     'db_options' => [
 

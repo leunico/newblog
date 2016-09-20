@@ -4,6 +4,8 @@ namespace Alicecore\Provider;
 use Pimple\Container;
 use Pimple\ServiceProviderInterface;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use Overtrue\Validation\Translator;
+use Overtrue\Validation\Factory as ValidatorFactory;
 
 class EloquentServiceProvider implements ServiceProviderInterface, BootableProviderInterface
 {
@@ -41,6 +43,11 @@ class EloquentServiceProvider implements ServiceProviderInterface, BootableProvi
             $capsule->bootEloquent();
             $app['db'] = $capsule;
         });
+
+        $app['validation'] = function () {
+            return new ValidatorFactory(new Translator);
+        };
+
     }
 
     public function boot(Container $app){

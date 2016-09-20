@@ -4,18 +4,18 @@ if( !window.console ){
     }
 }
 var star=false;
-function searcha(){    
+function searcha(){
     if($("#asearch").val() == '' || $("#asearch").val().length >20){
         if(!star){
            $("#asearch").next().after('<span style="margin-left:10px;color:#BF2F2F;font-size:16px"><i class="fa fa-times"></i>不能为空或过长！</span>');
-           star = true; 
+           star = true;
         }
-        return false;        
+        return false;
     }else{
-        return true;   
+        return true;
     }
 }
-/* 
+/*
  * jsui
  * ====================================================
 */
@@ -127,7 +127,7 @@ if( $('.article-content').length ) $('.article-content a').tooltip({container: '
 
 $('.content a').tooltip({container: 'body'});
 $('.sidebar a').tooltip({container: 'body'});
-/* 
+/*
  * lazyload
  * ====================================================
 */
@@ -158,7 +158,7 @@ if ( $('.thumb:first').data('src') || $('.widget_ui_posts .thumb:first').data('s
         })
     })
 }
-/* 
+/*
  * rollbar
  * ====================================================
 */
@@ -179,7 +179,7 @@ var scroller = $('.rollbar')
 $(window).scroll(function() {
     document.documentElement.scrollTop + document.body.scrollTop > 200 ? scroller.fadeIn() : scroller.fadeOut();
 })
-/* 
+/*
  * bootstrap
  * ====================================================
 */
@@ -233,7 +233,7 @@ $('.plinks a').each(function(){
     var imgSrc = $(this).attr('href')+'/boot/img/favicon.ico'
     $(this).prepend( '<img src="'+imgSrc+'">' )
 })
-/* 
+/*
  * comment
  * ====================================================
 */
@@ -242,7 +242,7 @@ if (jsui.bd.hasClass('comment-open')) {
         comment.init()
     })
 }
-/* 
+/*
  * page u
  * ====================================================
 */
@@ -251,7 +251,7 @@ if (jsui.bd.hasClass('page-template-pagesuser-php')) {
         user.init()
     })
 }
-/* 
+/*
  * page theme
  * ====================================================
 */
@@ -260,7 +260,7 @@ if (jsui.bd.hasClass('page-template-pagestheme-php')) {
         theme.init()
     })
 }
-/* 
+/*
  * page nav
  * ====================================================
 */
@@ -295,7 +295,7 @@ if( jsui.bd.hasClass('page-template-pagesnavs-php') ){
         })
     })
 }
-/* 
+/*
  * page search
  * ====================================================
 */
@@ -306,7 +306,7 @@ if( jsui.bd.hasClass('search-results') ){
         $(this).html( $(this).text().replace(reg, function(w){ return '<b>'+w+'</b>' }) )
     })
 }
-/* 
+/*
  * search
  * ====================================================
 */
@@ -320,7 +320,7 @@ $('.search-show').bind('click', function(){
         jsui.bd.removeClass('m-nav-show')
     }
 })
-/* 
+/*
  * phone
  * ====================================================
 */
@@ -331,12 +331,12 @@ $('.m-icon-nav').on('click', function(){
         jsui.bd.removeClass('search-on')
         $('.search-show .fa').removeClass('fa-remove')
     }
-    
+
 })
 $('.m-mask').on('click', function(){
     jsui.bd.removeClass('m-nav-show')
 })
-/* 
+/*
  * baidushare
  * ====================================================
 */
@@ -377,7 +377,7 @@ $(document).on('click', function(e){
             		$('#commentform .comt-box').append('<div id="comment-smilies" class="hide2"></div>')
             		var res = ''
 					for( key in options.smilies ){
-						res += '<img data-simle="'+key+'" data-type="comment-smilie" src="'+jsui.uri+'/img/smilies/icon_'+options.smilies[key]+'.gif">'
+						res += '<img data-simle="'+key+'" data-type="comment-smilie" src="'+jsui.uri+'image/smilies/icon_'+options.smilies[key]+'.gif">'
 					}
 					$('#comment-smilies').html( res )
             	}
@@ -391,9 +391,9 @@ $(document).on('click', function(e){
             break; case 'switch-author':
             	$('.comt-comterinfo').slideToggle(300);
 				$('#author').focus();
-            	
 
-            break; 
+
+            break;
         }
     })
 		var options = {
@@ -444,8 +444,8 @@ function grin(tag) {
 	function insertTag(tag) {
 		myField = document.getElementById('comment');
 		myField.selectionStart || myField.selectionStart == '0' ? (startPos = myField.selectionStart, endPos = myField.selectionEnd, cursorPos = startPos, myField.value = myField.value.substring(0, startPos) + tag + myField.value.substring(endPos, myField.value.length), cursorPos += tag.length, myField.focus(), myField.selectionStart = cursorPos, myField.selectionEnd = cursorPos) : (myField.value += tag, myField.focus())
-	} 
-//上面两个是点击表情图片自动插入到评论框里。 
+	}
+//上面两个是点击表情图片自动插入到评论框里。
 function scrollTo(name, add, speed) {
     if (!speed) speed = 300
     if (!name) {
@@ -488,17 +488,17 @@ $.fn.serializeObject = function(){
     return o;
 };
 
-function strToDate(str, fmt) { //author: meizz   
+function strToDate(str, fmt) { //author: meizz
     if( !fmt ) fmt = 'yyyy-MM-dd hh:mm:ss'
     str = new Date(str*1000)
     var o = {
-        "M+": str.getMonth() + 1, //月份   
-        "d+": str.getDate(), //日   
-        "h+": str.getHours(), //小时   
-        "m+": str.getMinutes(), //分   
-        "s+": str.getSeconds(), //秒   
-        "q+": Math.floor((str.getMonth() + 3) / 3), //季度   
-        "S": str.getMilliseconds() //毫秒   
+        "M+": str.getMonth() + 1, //月份
+        "d+": str.getDate(), //日
+        "h+": str.getHours(), //小时
+        "m+": str.getMinutes(), //分
+        "s+": str.getSeconds(), //秒
+        "q+": Math.floor((str.getMonth() + 3) / 3), //季度
+        "S": str.getMilliseconds() //毫秒
     };
     if (/(y+)/.test(fmt))
         fmt = fmt.replace(RegExp.$1, (str.getFullYear() + "").substr(4 - RegExp.$1.length));
@@ -516,7 +516,7 @@ $.fn.postLike = function() {
 		$(this).addClass('actived');
 		var id = $(this).data("id"),
 		action = $(this).data('action'),
-        valuenum = $(this).data('num');   
+        valuenum = $(this).data('num');
 		rateHolder = $(this).children('.count');
 		var ajax_data = {
 			action: valuenum,
@@ -537,7 +537,7 @@ $.fn.postLike = function() {
             },
             success: function(data) {
                 $(rateHolder).html(data);
-            }		
+            }
         });
 		return false;
 	}
@@ -548,10 +548,10 @@ function() {
 });
 
 +(function($){
-	
+
 	function b(){
 	t = $(document).scrollTop();
-	if($(window).scrollTop()>=200){ 
+	if($(window).scrollTop()>=200){
    $(".d_postlist").addClass("affix");
    $("#topblack").hide();
    jsui.bd.addClass('topblack-hidden');
@@ -560,18 +560,18 @@ else{
 	$(".d_postlist").removeClass("affix");
 	$("#topblack").show();
 	jsui.bd.removeClass('topblack-hidden');
-	} 
 	}
-	
+	}
+
 $(window).scroll(function(e){
-	b();	
+	b();
 })
-$(document).ready(function() {	
+$(document).ready(function() {
 
 $('.ad-main-content-right').click(function(){
    $('.ad-main-content-right').toggleClass('sameating');
 });
-setTimeout(function(){						
+setTimeout(function(){
 $('.ad-bottom-wrapper').fadeIn(1500);
 }, 1200);
 $('.excerpt-see h2').click(function(){
@@ -631,7 +631,7 @@ $(".tabs li").click(function(){
 		//$(".leave").removeClass("hide");
 		$("#wreading").show();
 		$("#sreading").removeClass("show-reading");
-	})	
+	})
 
 $('#dashang a').click(function(){
   $('#dashang img').toggle('slow');
@@ -640,8 +640,8 @@ $('#dashang a').click(function(){
 $(".play-btn-mask").hover(function(){
 	$(this).siblings("span").stop(!0).animate({opacity:1},150),
 	$(this).stop(!0).animate({opacity:.4},200)},function(a){return $(a.relatedTarget).is($("span"))?!1:($(this).siblings("span").animate({opacity:0},200),void $(this).animate({opacity:0},200))})
-	
-	
+
+
 	// 评论分页点击分页导航链接时触发分页
 $(document).on("click", ".pagenav a", function(e) {
     e.preventDefault();

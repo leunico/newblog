@@ -11,7 +11,7 @@
         <img src='<?php echo $view->getImage('new-banner.jpg') ?>' style='margin-left:-60px;'>
         <h2>不是所有的难过都需要呐喊，不是所有的遗憾都非要填满。</h2>
     </div>
-    <?php foreach($articleClassList as $article){ ?>
+    <?php foreach($articleClassList as $article): ?>
     <article class='life excerpt-1'>
         <header><h2><a href="<?php echo $view->Route('articleshow/'.$article->id) ?>"><?php echo $article->title ?></a></h2></header>
         <p class='meta'><?php echo "<a class='entry-cat' href=".$view->Route('class/'.$article->mid).">".$articleclass[$article['mid']]."</a>"; ?>
@@ -24,6 +24,9 @@
 	    <p class='note'><?php echo $article->description ?></p>
         <p class='more'><a href="<?php echo $view->Route('articleshow/'.$article->id) ?>">Read More</a></p>
     </article>
-    <?php } echo $pageNav ?>
-</div></div></section>
+    <?php endforeach ?>
+    <?php echo $pageNav ?>
+</div>
+</div>
+</section>
 <?php include_once "newfooter.tpl.php"; ?>

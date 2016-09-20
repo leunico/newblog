@@ -1,17 +1,17 @@
 <?php include_once 'newheader.tpl.php'; ?>
 
 <body class="home blog site-layout-2 wc-shortcodes-font-awesome-enabled">
-    
-<?php $nav = 1; include_once 'newnav.tpl.php'; ?> 
+
+<?php $nav = 1; include_once 'newnav.tpl.php'; ?>
 <script>
 if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
     setTimeout(alert('Hi,手机访问体验较差(UI烂)，用电脑访问会更好哦！'),2000);
 }
 </script>
 <section class="container mtop95">
-    <div class="content-wrap">        
+    <div class="content-wrap">
         <div class="main-content">
-            <div class="content">                
+            <div class="content">
                 <div id="focusslide" class="carousel slide" data-ride="carousel">
                     <a class="close" href="javascript:void(0)" onClick="$('#focusslide').slideUp(800);" data-original-title="" title=""></a>
                     <ol class="carousel-indicators">
@@ -21,28 +21,28 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                         <li data-target="#focusslide" data-slide-to="3"></li>
                     </ol>
                     <div class="carousel-inner" role="listbox">
-                       <?php foreach($pushIndex as $k=>$push){ ?>                        
+                       <?php foreach($pushIndex as $k=>$push): ?>
                         <div class="item <?php echo $k==2 ? 'active':''; ?>">
                             <a target="_blank" href="<?php echo $push->pushurl; ?>"><img style="height：200px" src="<?php echo $push->pushimg; ?>"></a>
-                       </div>                       
-                       <?php } ?>
+                       </div>
+                       <?php endforeach ?>
                     </div>
                     <a class="left carousel-control" href="#focusslide" role="button" data-slide="prev"><i class="fa fa-angle-left"></i></a>
                     <a class="right carousel-control" href="#focusslide" role="button" data-slide="next"><i class="fa fa-angle-right"></i></a>
                 </div>
                 <div class="asb asb-index asb-index-01"></div>
-                <?php foreach($articleList as $article){ ?>
+                <?php foreach($articleList as $article): ?>
                 <article class='excerpt excerpt-0 recommend-sticky'>
                     <a class='fleft' href="<?php echo $view->Route("articleshow/".$article->id); ?>">
                         <?php if($article->top == 1) echo "<span class='mask-tags'>置顶文章</span>"; ?>
                         <img src="<?php echo ($article->image ? $article->image : $view->getImage('default.jpg')); ?>" alt="<?php echo $article->title ?>" class="thumb" /></a>
-                    <div class='excerpt-right'>       
+                    <div class='excerpt-right'>
                         <header>
                             <h2><a href="<?php echo $view->Route("articleshow/".$article->id); ?>" title="<?php echo $article->title ?>" rel='bookmark'><?php echo $article->title ?></a></h2>
                         </header>
                         <p class='meta'>
                             <?php echo "<a class='entry-cat' href=".$view->Route('class/'.$article->mid).">".$articleclass[$article->mid]."</a>"; ?>
-                            <span class='author'> 
+                            <span class='author'>
                                 <span class='separator'>・</span>
                                 <span class='author'><?php echo $article->author; ?></span>
                                 <time>
@@ -56,11 +56,12 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                             </p>
                             <p class='note'><?php echo $article->description; ?></p>
                     </div>
-                </article> 
-                <?php } echo $pageNav; ?>
+                </article>
+                <?php endforeach ?>
+                <?php echo $pageNav ?>
             </div>
-            
-            <aside class="sidebar sidebar2 fontSmooth">        
+
+            <aside class="sidebar sidebar2 fontSmooth">
                 <div class="widget widget_ui_textasb">
                     <a class="style04" href="https://github.com/leunico/newblog" target="_blank">
                         <strong>网站公告</strong>
@@ -76,7 +77,7 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                 <div class="widget widget_ui_posts">
                     <h3><i class="fa fa-thumbs-o-up fa-fw"></i>推荐阅读</h3>
                     <ul>
-                        <?php foreach($pushArticleList as $articlepush){ ?> 
+                        <?php foreach($pushArticleList as $articlepush): ?>
                         <li>
                             <a href="<?php echo $view->Route("articleshow/".$articlepush['id']) ?>">
                                 <span class="thumbnail">
@@ -87,14 +88,14 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                                 <span class="muted"><?php echo $articlepush->author; ?></span>
                             </a>
                         </li>
-                        <?php } ?>
+                        <?php endforeach ?>
                     </ul>
                 </div>
                 <div class="widget widget_ui_tags">
                     <h3><i class="fa fa-tags fa-fw"></i>云标签</h3>
                     <div class='items'>
-                        <?php foreach($tagList as $tags){  
-                                  echo "<a href=\"".$view->Route('tag/'.$tags->id)."\">".$tags->tag.'('.$tags->num.')'."</a>"; 
+                        <?php foreach($tagList as $tags){
+                                  echo "<a href=\"".$view->Route('tag/'.$tags->id)."\">".$tags->tag.'('.$tags->num.')'."</a>";
                          } ?>
                         <a class="alltags" target="_blank" href='<?php echo $view->Route('tag/showall') ?>'>- 查看全部 -</a>
                     </div>
@@ -102,7 +103,7 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                 <div class="widget widget_ui_comments">
                     <h3><i class="fa fa-comments-o fa-fw"></i>最新评论</h3>
                     <ul>
-                        <?php foreach($commentList as $comment){ ?>
+                        <?php foreach($commentList as $comment): ?>
                         <li>
                             <div class="postmeta">
                                 <img alt='' src = "<?php echo $view->getImage('ty.jpg') ?>" class='avatar avatar-50 photo' height='50' width='50' />
@@ -116,10 +117,10 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                                 <p>评论于<a href="<?php echo $view->Route('articleshow/'.$comment->aid) ?>"><?php echo $comment->title ?></a></p>
                             </div>
                         </li>
-                        <?php } ?>
+                        <?php endforeach ?>
                     </ul>
                 </div>
-                <div class="widget widget_text">			
+                <div class="widget widget_text">
                     <div class="textwidget">
                         <!--<span class="WB_FB_plus">
                                <a href="http://weibo.com/u/3101570465" title="Leunico" target="_blank"><i id="fNum">81</i></a>
@@ -140,5 +141,5 @@ if(navigator.userAgent.match(/(iPhone|iPod|Android|ios)/i)){
                 </div>
             </aside>
         </div>
-    </section>	
-<?php include_once 'newfooter.tpl.php'; ?>   
+    </section>
+<?php include_once 'newfooter.tpl.php'; ?>

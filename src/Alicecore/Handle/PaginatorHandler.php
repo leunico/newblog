@@ -44,4 +44,28 @@ class PaginatorHandler
 
         return $pagenav;
     }
+
+    public function pageNavComment($total, $pagesize)
+    {
+        if($total < 1 || $total<=$pagesize)
+            return '';
+
+        $pages = ceil($total/$pagesize);
+        $page = min($pages, $this->page);
+        $pagenav = '<div class="pagenav">';
+        for($i=-10; $i<=10; $i++){
+            $pageTmp = $page+$i;
+            $url = $this->urlGenerator->generate($this->routeName, array_merge($this->args, ['page' => $pageTmp]));
+            if($pageTmp < 1 || $pageTmp > $pages)
+                continue;
+            if($i != 0){
+                $pagenav .= "<a class=\"page-numbers\" href='$url#comments'>$pageTmp</a>";
+            }else if($i == 0){
+                $pagenav .= "<span class=\"page-numbers current\">$pageTmp</span>";
+            }
+        }
+        $pagenav .= "</div>";
+
+        return $pagenav;
+    }
 }

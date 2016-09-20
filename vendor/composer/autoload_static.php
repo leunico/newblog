@@ -10,6 +10,7 @@ class ComposerStaticInit061c10f113487d9aa021f879294a9e86
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
         '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
         '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
+        'ee2eba616b1493b62ef61c9c04a94bc1' => __DIR__ . '/..' . '/overtrue/validation/src/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -22,6 +23,10 @@ class ComposerStaticInit061c10f113487d9aa021f879294a9e86
             'Symfony\\Component\\HttpFoundation\\' => 33,
             'Symfony\\Component\\EventDispatcher\\' => 34,
             'Symfony\\Component\\Debug\\' => 24,
+        ),
+        'O' => 
+        array (
+            'Overtrue\\Validation\\' => 20,
         ),
         'I' => 
         array (
@@ -64,6 +69,10 @@ class ComposerStaticInit061c10f113487d9aa021f879294a9e86
         'Symfony\\Component\\Debug\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/debug',
+        ),
+        'Overtrue\\Validation\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/overtrue/validation/src',
         ),
         'Illuminate\\Support\\' => 
         array (

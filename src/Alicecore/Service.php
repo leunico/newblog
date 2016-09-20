@@ -2,6 +2,8 @@
 namespace Alicecore;
 
 use Alicecore\Handle\Extension\AppHandleInterface;
+use Alicecore\Handle\Extension\ServiceInterface;
+use Alicecore\Handle\Extension\MiddlewareInterface;
 
 class Service implements AppHandleInterface
 {
@@ -35,8 +37,8 @@ class Service implements AppHandleInterface
 
             $interface = $reflector->getInterfaces();
 
-            if (!array_key_exists("Alicecore\Handle\Extension\ServiceInterface", $interface)
-                && !array_key_exists("Alicecore\Handle\Extension\MiddlewareInterface", $interface)) {
+            if (!array_key_exists(ServiceInterface::class, $interface)
+                && !array_key_exists(MiddlewareInterface::class, $interface)) {
                 throw new Exception('Error:Service does not implement interface');
             }
 

@@ -19,7 +19,7 @@ class Article extends BaseModel
         $parameters['pushArticleList'] = Article::where('recommend_type', '<', 2)
             ->select('title', 'id', 'ctime', 'image')
             ->orderBy('recommend_type','asc')->orderBy('ctime','asc')
-            ->take(1)
+            ->take(6)
             ->get();
 
         $parameters['newArticleList'] = Article::select('title', 'id', 'ctime', 'image')

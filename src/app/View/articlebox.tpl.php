@@ -16,14 +16,15 @@
             <p>&nbsp;</p>
         </article>
         <article class='archives'>
-            <?php foreach($articleClassList as $k=>$ret){?>
+            <?php foreach($articleClassList as $k=>$ret): ?>
             <div class='item'><h3><?php echo $k."月"; ?></h3>
                 <ul class='archives-list'>
                     <?php foreach($ret as $article){
-                             echo "<li><time>".date('d', $article['ctime'])."日</time>&nbsp;&nbsp;&nbsp;&nbsp;<a href=".$view->Route('articleshow/'.$article['id']).">".$article['title']." </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class='text-muted'><i class='fa fa-comment fa-fw'></i>".$article['count']."</span></li>"; }?>
+                            echo "<li><time>".date('d', $article['ctime'])."日</time>&nbsp;&nbsp;&nbsp;&nbsp;<a href=".$view->Route('articleshow/'.$article['id']).">".$article['title']." </a>&nbsp;&nbsp;&nbsp;&nbsp;<span class='text-muted'><i class='fa fa-comment fa-fw'></i>".$article['count']."</span></li>";
+                    }?>
                 </ul>
             </div>
-            <?php } ?>
+            <?php endforeach ?>
         </article>
     </div>
     </section>

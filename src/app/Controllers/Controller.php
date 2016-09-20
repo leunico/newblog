@@ -12,9 +12,11 @@ class Controller extends BaseCollection
         # code...
     }
 
-    public function pageNavComment($count)
+    public function pageNavComment($count, $pagesize = '')
     {
-        # code...
+        $page = $this->getPaginator();
+        $pagesize = $pagesize ? $pagesize : $this->pagesize;
+        return $page->pageNavComment($count, $pagesize);
     }
 
     public function getLimit()

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "48659809bd77ddc3e6316fbca103fa0e",
-    "content-hash": "77ba5591523730a68d07fcacca0f326b",
+    "hash": "9ead24e79189288c811941124d861513",
+    "content-hash": "35a6442f94898075f6abc520ad3408cf",
     "packages": [
         {
             "name": "doctrine/inflector",
@@ -322,6 +322,48 @@
                 "time"
             ],
             "time": "2015-11-04 20:07:17"
+        },
+        {
+            "name": "overtrue/validation",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/overtrue/validation.git",
+                "reference": "78121011ebb8bd5c7e2af3e7abced8a1df251cb1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://packagist.phpcomposer.com/files/overtrue/validation/78121011ebb8bd5c7e2af3e7abced8a1df251cb1.zip",
+                "reference": "78121011ebb8bd5c7e2af3e7abced8a1df251cb1",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^5.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Overtrue\\Validation\\": "src/"
+                },
+                "files": [
+                    "src/helpers.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Carlos",
+                    "email": "anzhengchao@gmail.com"
+                }
+            ],
+            "description": "Laralve Validation 简化无依赖版",
+            "time": "2016-08-22 08:21:05"
         },
         {
             "name": "paragonie/random_compat",

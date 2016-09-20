@@ -5,7 +5,8 @@
         "symfony/http-kernel": "^3.1",
         "symfony/event-dispatcher": "^3.1",
         "pimple/pimple": "~3.0",
-        "illuminate/database": "^5.3"
+        "illuminate/database": "^5.3",
+        "overtrue/validation": "^2.0"
     },
 
     "autoload": {

@@ -10,7 +10,7 @@
 </div>
 <div class="more-wrapper" style="max-width:240px;padding-top:10px;">
     <!--<h4 class="foot-item-head">金山云图片储存</h4>
-<a href="http://www.yyyweb.com/go/qiniu" target="_blank" class="external" rel="nofollow"><img style="width:120px;height:150px;" src="http://ks3.ksyun.com/image/ks_header_logo.png" alt="金山云储存"></a>	
+<a href="http://www.yyyweb.com/go/qiniu" target="_blank" class="external" rel="nofollow"><img style="width:120px;height:150px;" src="http://ks3.ksyun.com/image/ks_header_logo.png" alt="金山云储存"></a>
 </div>-->
 <div class="interaction-wrapper">
     <h4 class="foot-item-head">悠悠我心</h4>
@@ -22,7 +22,7 @@
     <h4 class="foot-item-head">更多</h4>
     <p><a class="ln-more" href="#">咳咳</a></p>
     <p><a class="ln-more" href="#">这个这个</a></p>
-    <p><a class="ln-more" href="#">菜单有点多</a></p>		
+    <p><a class="ln-more" href="#">菜单有点多</a></p>
 </div>
 <div class="sns-wrapper">
     <h4 class="foot-item-head">关注</h4>
@@ -33,17 +33,17 @@
     <p> &copy; 2016 Leunico ・ 东莞</p>
     <p> 粤ICP备16009627号<!--&nbsp;<a href="">网站介绍</a>--></p>
 </div>
-</div> 
+</div>
 </footer>
-<script> 
-    window.jsui={     
-        www: "<?php echo $view->getServer('HTTP_HOST') ?>",    
-        uri: "<?php echo $view->getBaseUrl() ?>",     
-        ver: 'THEME_VERSION', 
-        roll: ["1"],    
-        ajaxpager: '0',     
+<script>
+    window.jsui={
+        www: "<?php echo $view->getBaseUrl() ?>",
+        uri: "<?php echo $view->getBaseUrl() ?>",
+        ver: 'THEME_VERSION',
+        roll: ["1"],
+        ajaxpager: '0',
         url_rp: "<?php echo $view->getServer('HTTP_HOST') ?>"
-    }; 
+    };
 </script>
 <script type='text/javascript' src='<?php echo $view->getJs('bootstrap.min.js') ?>'></script>
 <script type='text/javascript' src='<?php echo $view->getJs('loader.js') ?>'></script>

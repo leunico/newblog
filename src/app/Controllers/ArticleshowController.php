@@ -2,7 +2,6 @@
 namespace app\Controllers;
 
 use app\Model\Article;
-use Illuminate\Database\Query\Expression as raw;
 
 class ArticleshowController extends Controller
 {
@@ -11,8 +10,8 @@ class ArticleshowController extends Controller
         if(!$this->parameters = $this->getMemcache()->read($this->getRouteName()))
         {
             $this->parameters['articleShow'] = Article::find($id);
-            $this->parameters['articleShow']['up'] = Article::where('ctime', '>', $this->parameters['articleShow']['ctime'])->select('title', 'id')->orderBy('ctime','asc')->take(1)->get();
-            $this->parameters['articleShow']['down'] = Article::where('ctime', '<', $this->parameters['articleShow']['ctime'])->select('title', 'id')->orderBy('ctime','asc')->take(1)->get();
+            $this->parameters['articleShow']['up'] = Article::where('ctime', '>', $this->parameters['articleShow']['ctime'])->select('title', 'id')->orderBy('ctime','asc')->first();
+            $this->parameters['articleShow']['down'] = Article::where('ctime', '<', $this->parameters['articleShow']['ctime'])->select('title', 'id')->orderBy('ctime','asc')->first();
             $this->parameters['articleShow']['tag'] = explode('|', $this->parameters['articleShow']['tag']);
 
             $this->parameters['articleRelevant'] = Article::where('mid', $this->parameters['articleShow']['mid'])
@@ -32,9 +31,9 @@ class ArticleshowController extends Controller
         ->skip($this->getLimit())->take($this->pagesize)
         ->get(), $this->getLimit());
         $this->parameters['articleShow']['counts'] = Article::find($id)->comments()->where('cid', 0)->count();
-        $this->parameters['articleShow']['commentPagenav'] = $this->pageNav($this->parameters['articleShow']['counts']);
-#var_dump($this->parameters['comments']);die();
-#$article->updatePlus($id,'clicks');  //文章的点击数+1
+        $this->parameters['articleShow']['commentPagenav'] = $this->pageNavComment($this->parameters['articleShow']['counts']);
+
+        Article::increment('clicks');
         return $this->render('articleshow', $this->parameters);
     }
 
