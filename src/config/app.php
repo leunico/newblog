@@ -16,9 +16,9 @@ return [
 
     'logger' => null,
 
-    'session_pre' => 'Alice',
+    'session_pre' => 'Alice', #Session前缀
 
-    'cookie_pre' => 'Alice',
+    'cookie_pre' => 'Alice', #Cookie前缀
 
     # 数据库配置~
     'db_options' => [
@@ -27,7 +27,7 @@ return [
 
         'host'      => 'localhost',
 
-        'database'  => 'alice',
+        'database'  => 'newalice',
 
         'username'  => 'root',
 
@@ -58,5 +58,13 @@ return [
 
         'prefix'    => 'Alice', #默認緩存Key前綴
     ],
+
+    'mail_switch'   => FALSE, #是否开启邮件回复功能
+
+    'mail_address'  => '13826914162@163.com', #地址
+
+    'mail_password' => 'lzx013632350976', #密码
+
+    'mail_smtp'     => 'smtp.163.com',
 
 ];

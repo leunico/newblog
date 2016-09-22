@@ -26,7 +26,7 @@ class IndexController extends Controller
             ->take(6)
             ->get();
             $this->parameters['tagList'] = Tag::where([])->orderBy('num', 'desc')->take(15)->get();
-            $this->parameters['pushIndex'] = Push::where([])->orderBy('utime', 'desc')->take(4)->get();
+            $this->parameters['pushIndex'] = Push::where([])->orderBy('ctime', 'desc')->take(4)->get();
 
             $this->getMemcache()->write($this->getRouteName().$this->getLimit(), $this->parameters);
         }
@@ -38,7 +38,6 @@ class IndexController extends Controller
         ->get();
 
         return $this->render('newindex', $this->parameters);
-
     }
 
 }

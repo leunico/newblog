@@ -108,7 +108,7 @@ include_once 'newheader.tpl.php'; ?>
                             <ul>
                                 <li class="form-inline"><label class="hide" for="author">昵称</label><input class="ipt" type="text" name="nickname" id="author" value="<?php echo $view->getUser('username');?>" tabindex="2" placeholder="昵称"><span class="help-inline">昵称 (必填)</span></li>
                                 <li class="form-inline"><label class="hide" for="email">邮箱</label><input class="ipt" type="text" name="email" id="email" value="<?php echo $view->getUser('email');?>" tabindex="3" placeholder="邮箱"><span class="help-inline">邮箱 (必填)</span></li>
-                                <li class="form-inline"><label class="hide" for="url">网址</label><input class="ipt" type="text" name="website" id="url" value="<?php echo $view->getUser('url');?>" tabindex="4" placeholder="http://"><span class="help-inline">网址 (没有就留空)</span></li>
+                                <li class="form-inline"><label class="hide" for="url">网址</label><input class="ipt" type="text" name="website" id="url" value="<?php echo $view->getUser('weburl');?>" tabindex="4" placeholder="http://"><span class="help-inline">网址 (没有就留空)</span></li>
                             </ul>
                         </div>
                     </div>
@@ -139,7 +139,7 @@ include_once 'newheader.tpl.php'; ?>
                                         <span class="c-author"><?php echo $son['nickname'] ?></span>
                                         <?php if($son['email'] == '867426952@qq.com'){echo "<a title=\"Alice博客管理员\"><img src=\"http://www.liaosam.com/wp-content/themes/liaosam/images/2.png\" style=\"margin-top: -3px;\" class=\"box-hide box-show\"></a>";} ?>
                                         <div style="margin:8px 0 4px;">
-                                            <?php echo isset($son['pid']) ? "<a href=\"#comment-".$son['pid']."\" rel=\"nofollow\" class=\"cute\">@".$son['pnickname']."</a>".$view->EmojiH($son['contents']) : $view->EmojiH($son['contents']) ?>
+                                            <?php echo isset($son['pid']) ? "<a href=\"#comment-".$son['pid']."\" rel=\"nofollow\" class=\"cute\">@".$son['pnickname']."</a>：".$view->EmojiH($son['contents']) : $view->EmojiH($son['contents']) ?>
                                         </div>
                                         <div class="c-meta"><?php echo $view->wordTime($son['ctime'])."<a class='comment-reply-link' href='/articleshow/".$son['aid']."?replytocom=".$son['id']."#respond' onclick='return addComment.moveForm(\"div-comment-".$son['id']."\", \"".$comment['id'].'-'.$son['id']."\", \"respond\", \"".$son['aid']."\")'>回复</a>"; ?>
                                         </div>

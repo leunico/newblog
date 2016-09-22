@@ -8,7 +8,6 @@ class MenuController extends Controller
 {
     public function index($name)
     {
-
         $this->parameters['menuclass'] = $this->container->loadconfig('menu')['menu_class'];
         $this->parameters['articleclass'] = $this->container->loadconfig('article')['article_class'];
         $this->parameters['nav'] = $name;
@@ -30,8 +29,7 @@ class MenuController extends Controller
             ->$where('info_article.mid', $name)
             ->groupBy('info_article.id')
             ->orderBy('ctime', 'desc')
-            ->skip($this->getLimit())
-            ->take($this->pagesize)
+            ->skip($this->getLimit())->take($this->pagesize)
             ->get();
 
             $this->parameters['pageNav'] = $this->pageNav(Article::$where('info_article.mid', $name)->count());

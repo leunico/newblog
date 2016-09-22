@@ -41,4 +41,24 @@ class ControllerService implements ServiceInterface
         return $data;
     }
 
+    public function ipValidator($ip)
+    {
+        $localtime = time() - 12*3600;
+        $validator = Comment::where('ip', $ip)->where('ctime', '>', $localtime)->count();
+        return $validator > 12 ? true : false;
+    }
+
+    public function touristCookie($username, $email, $weburl)
+    {
+        $cookies = $this->app['request_stack']->getCurrentRequest()->cookies;
+        $username_ = $cookies->get('comment_username');
+        $email_ = $cookies->get('comment_email');
+        $weburl_ = $cookies->get('comment_weburl');
+        if($username_ !== $username || $email_ !== $email){
+            setcookie('comment_username', $username, time()+86400*3);
+            setcookie('comment_email', $email, time()+86400*3);
+            setcookie('comment_weburl', $weburl, time()+86400*3);
+        }
+    }
+
 }

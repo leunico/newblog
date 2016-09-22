@@ -21,15 +21,14 @@
          </form>
      </div>
         <ul class="site-nav site-navbar main-nav">
-            <li id="menu-1" class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-1<?php if($nav==1) echo " current-menu-item"; ?>"><a href="/">首页</a></li>
+            <li id="menu-1" class="menu-item menu-item-type-custom menu-item-object-custom current_page_item menu-item-home menu-1<?php if($nav==1) echo " current-menu-item"; ?>"><a href="<?php echo $view->Route('') ?>">首页</a></li>
             <?php
-
                 if(!isset($menuclass) || !isset($articleclass))
                 {
                     $menuclass = $view->getConfig('menu')['menu_class'];
                     $articleclass = $view->getConfig('article')['article_class'];
                 }
-
+                $nav = isset($nav) ? $nav : '';
                 foreach($menuclass as $key=>$val){
                     if(is_array($val)){
                         echo "<li id=\"menu-".$key."\" class=\"menu-item menu-item-type-taxonomy menu-item-object-category menu-item-has-children menu-item-".$key.(isset($val[$nav]) ? " current-menu-item" : "")."\"><a href=".$view->Route('menu/'.$key).">$val[$key]</a><ul class=\"sub-menu\">";

@@ -1,8 +1,8 @@
 <footer class="footer"><div class="container">
 <div class="about-wrapper"><h4 class="foot-item-head">关于</h4>
-    <p><a class="ln-about" href="<?php echo $view->Route('class/me') ?>">关于我</a></p>
-    <p><a class="ln-about" href="<?php echo $view->Route('class/liuy') ?>">留言</a></p>
-    <p><a class="ln-about" href="<?php echo $view->Route('class/articlebox') ?>">文章归档</a></p>
+    <p><a class="ln-about" href="<?php echo $view->Route('menu/me') ?>">关于我</a></p>
+    <p><a class="ln-about" href="<?php echo $view->Route('menu/liuy') ?>">留言</a></p>
+    <p><a class="ln-about" href="<?php echo $view->Route('menu/articlebox') ?>">文章归档</a></p>
 </div>
 <!--<div class="interaction-wrapper" style="padding-top:10px;">
     <!--<h4 class="foot-item-head" style="margin-bottom:8px;">阿里云服务器</h4>

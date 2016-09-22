@@ -50,7 +50,7 @@ class ViewService implements ServiceInterface
 
     public function wordTime($time)
     {
-        $time = (int) substr($time, 0, 10);
+        $time = (int) substr(strtotime($time), 0, 10);
         $int = time() - $time;
         $str = '';
         if ($int <= 2){
@@ -146,8 +146,15 @@ class ViewService implements ServiceInterface
     {
         $key = $this->app['session_pre'].'admin_user_login';
         $loginInfo = $this->getSession()->get($key);
-        return $loginInfo[$type] ? $loginInfo[$type] : '';
+        if(isset($loginInfo[$type])){
+            return $getsession;
+        }else{
+            $key = 'comment_'.$type;
+            $getcookie = $this->app['request_stack']->getCurrentRequest()->cookies->get($key);
+            return $getcookie;
+        }
 
+        return false;
     }
 
     public function __call($method, $arguments)

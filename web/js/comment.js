@@ -44,7 +44,6 @@ return {
 	            data: $(this).serialize(),
 	            type: $(this).attr('method'),
 	            error: function(request) {
-                    //console.log(request);
 	                $('.comt-loading').slideUp(300);
 	                $('.comt-error').slideDown(300).html(request.responseText);
 	                setTimeout(function() {
@@ -54,6 +53,7 @@ return {
 	                    3000)
 	            },
 	            success: function(data) {
+	            	data = data[0];
 	                $('.comt-loading').slideUp(300);
 	                comm_array.push($('#comment').val());
 	                $('textarea').each(function() {
