@@ -50,7 +50,7 @@
 </header>
 <div class="site-search">
     <div class="container">
-        <form method="post" class="site-search-form" action="<?php echo $view->Route('index/search'); ?>" onsubmit="return searcha()">
+        <form method="post" class="site-search-form" action="<?php echo $view->Route('search'); ?>" onsubmit="return searcha()">
             <input class="search-input" name="search" type="text" placeholder="输入关键字" value="" id='asearch'>
             <button class="search-btn" type="submit" name="dosubmit" value="dosubmit"><i class="fa fa-search"></i></button>
         </form>

@@ -9,7 +9,10 @@ Route::get('/articleshow/{id}', 'ArticleshowController::index');
 Route::get('/tag/showall', 'TagController::showAll');
 Route::get('/tag/{id}', 'TagController::show');
 
+Route::get('/admin/login', 'AdminController::login');
+
 Route::post('/comment/add', 'CommentController::add');
+Route::post('/search', 'SearchController::index');
 
 #测试用
 // 中间件:MiddlewareListener.php 名称：GET_haha_name

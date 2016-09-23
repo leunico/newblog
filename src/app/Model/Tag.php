@@ -9,6 +9,6 @@ class Tag extends BaseModel
 
     public function article()
     {
-        return $this->hasMany('app\Model\Article', 'tag');
+        return $this->belongsToMany('app\Model\Article'); // 'article_tag', 'tag_id', 'article_id'
     }
 }

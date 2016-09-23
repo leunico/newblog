@@ -2,6 +2,8 @@
 namespace app\Controllers;
 
 use app\Model\Tag;
+use app\Model\Article;
+use Illuminate\Database\Query\Expression as raw;
 
 class TagController extends Controller
 {
@@ -13,11 +15,20 @@ class TagController extends Controller
 
     public function show($id)
     {
-        $this->parameters['tag'] = $tag->getTagById($id);
-        $this->parameters['tagarticleShow'] = $article->getArticleTagShow($ret['tag']['tag'],$page);
-        $this->parameters['pageNav'] = @array_pop($ret['tagarticleShow']);
+        if(!$this->parameters = $this->getMemcache()->read($this->getRouteName().$this->getLimit()))
+        {
+            $this->parameters['tagarticleShow'] = Tag::find($id)->article()->leftJoin('info_comment', 'info_article.id', '=', 'info_comment.aid')
+            ->select(new raw('COUNT(info_comment.id) as comcount, info_article.*'))
+            ->groupBy('info_article.id')
+            ->orderBy('top', 'desc')->orderBy('ctime', 'desc')
+            ->skip($this->getLimit())->take($this->pagesize)
+            ->get();
+            $this->parameters['pageNav'] = $this->pageNav($this->parameters['tagarticleShow']->count());
+            $this->parameters['tag'] = Tag::where('id',$id)->select('tag')->first()->toArray();
 
-        $this->parameters = array_merge($this->parameters, Article::Recommend());
+            $this->parameters = array_merge($this->parameters, Article::Recommend());
+            $this->getMemcache()->write($this->getRouteName().$this->getLimit(), $this->parameters);
+        }
 
         return $this->render('tagshow', $this->parameters);
     }
