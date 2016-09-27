@@ -67,4 +67,9 @@ return [
 
     'mail_smtp'     => 'smtp.163.com',
 
+    'wx_appid'      => 'wxb33bef172a0860cf', #微信appid
+
+    'wx_appsecret'  => '0b35415865993d1be16b7655a8f673a0', #微信密匙
+
+
 ];

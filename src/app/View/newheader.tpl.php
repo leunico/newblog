@@ -7,11 +7,11 @@
 <meta name="apple-mobile-web-app-title" content="<?php echo $view->getSeoTitle();?>">
 <meta http-equiv="Cache-Control" content="no-siteapp">
 <title><?php echo isset($seo_title) ? $seo_title.'-'.$view->getSeoTitle() : $view->getSeoTitle();?></title>
-<link rel='stylesheet' id='_bootstrap-css' href='<?php echo $view->getCss('bootstrap.min.css');?>' type='text/css' media='all' />
-<link rel='stylesheet' id='_main-css'  href='<?php echo $view->getCss('main.css');?>' type='text/css' media='all' />
-<script type='text/javascript' src='<?php echo $view->getJs('jquery.min.js');?>'></script>
-<meta name="keywords" content="<?php echo isset($seo_keywords) ? $seo_keywords : $view->getSeoKeywords();?>">
-<meta name="description" content="<?php echo isset($seo_description) ? $seo_description : $view->getSeoDescription();?>">
+<link rel='stylesheet' id='_bootstrap-css' href='<?php echo $view->getCss('bootstrap.min.css') ?>' type='text/css' media='all' />
+<link rel='stylesheet' id='_main-css'  href='<?php echo $view->getCss('main.css') ?>' type='text/css' media='all' />
+<script type='text/javascript' src='<?php echo $view->getJs('jquery.min.js') ?>'></script>
+<meta name="keywords" content="<?php echo isset($seo_keywords) ? $seo_keywords : $view->getSeoKeywords() ?>">
+<meta name="description" content="<?php echo isset($seo_description) ? $seo_description : $view->getSeoDescription() ?>">
 <style>
 .container{max-width:1180px}a:hover, .site-navbar li:hover > a, .site-navbar li.active a:hover, .site-navbar a:hover, .search-on .site-navbar li.navto-search a, .topbar a:hover, .site-nav li.current-menu-item > a, .site-nav li.current-menu-parent > a, .site-search-form a:hover, .branding-primary .btn:hover, .title .more a:hover, .excerpt h2 a:hover, .excerpt .meta a:hover, .excerpt-minic h2 a:hover, .excerpt-minic .meta a:hover, .article-content .wp-caption:hover .wp-caption-text, .article-content a, .article-nav a:hover, .relates a:hover, .widget_links li a:hover, .widget_categories li a:hover, .widget_ui_comments strong, .widget_ui_posts li a:hover .text, .widget_ui_posts .nopic .text:hover , .widget_meta ul a:hover, .tagcloud a:hover, .textwidget a:hover, .sign h3, #navs .item li a, .url, .url:hover{color: #dd5862;}
 .btn-primary, .label-primary, .branding-primary, .post-copyright:hover, .article-tags a, .pagination ul > .active > a, .pagination ul > .active > span, .pagenav .current, .widget_ui_tags .items a:hover, .sign .close-link, .pagemenu li.active a, .pageheader, .resetpasssteps li.active, #navs h2, #navs nav, .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary, .tag-clouds a:hover{background-color: #dd5862;}.btn-primary, .search-input:focus, #bdcs .bdcs-search-form-input:focus, #submit, .plinks ul li a:hover,.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary{border-color: #dd5862;}

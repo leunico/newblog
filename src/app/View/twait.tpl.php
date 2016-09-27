@@ -7,7 +7,7 @@
 <section class="container timeline-page">
     <div class="pageside"><div class="pagemenus"><ul class="pagemenu"></ul></div></div>
     <div class="content">
-<script src="<?php echo JS_DIR?>modernizr.js"></script>
+<script src="<?php echo $view->getJs('modernizr.js') ?>"></script>
 <div id="cd-timeline" class="cd-container">
  <div id="year-2014">
   <div class="year-wrap">
@@ -27,7 +27,7 @@
 				<div class="timeline-img">
 				  <img src="<?php echo $timew['img']; ?>">
 				</div>
-                <?php if(strlen($timew['content'])<50){echo "<p class=\"short\">".$timew['content']."</p>";}else{echo "<p>".$timew['content']."</p>";} ?>
+        <?php if(strlen($timew['content'])<50){echo "<p class=\"short\">".$timew['content']."</p>";}else{echo "<p>".$timew['content']."</p>";} ?>
 				<span class="cd-date"><?php echo $timew['time']; ?></span>
 			</div>
 		</div>

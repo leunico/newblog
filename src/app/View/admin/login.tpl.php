@@ -4,20 +4,20 @@
         <title>登录 | AliceBlog</title>
         <meta charset="utf-8" />
         <meta content="initial-scale=1.0,maximum-scale=1.0,width=device-width" name="viewport" />
-        <link href="<?php echo HTTP_ROOT; ?>admin/login" rel="canoical" />
+        <link href="<?php echo $view->Route('/login') ?>" rel="canoical" />
         <meta name="HandheldFriendly" content="True" />
         <!--<link href="http://7mnpep.com2.z0.glb.qiniucdn.com/assets/application-f9dfa86dc49a0bdcb5a90211d7828879.css" media="all" rel="stylesheet" />-->
-        <link href="<?php echo CSS_DIR; ?>login.css" media="all" rel="stylesheet" />
-        <link rel="shortcut icon" href="<?php echo IMAGE_DIR; ?>favicon.ico"> 
+        <link href="<?php echo $view->getCss('login.css') ?>" media="all" rel="stylesheet" />
+        <link rel="shortcut icon" href="<?php echo $view->getImage('favicon.ico') ?>">
         <!--[if lte IE 9]>
         <link href="http://7mnpep.com2.z0.glb.qiniucdn.com/assets/application_split2-f9dfa86dc49a0bdcb5a90211d7828879.css" media="all" rel="stylesheet" />
         <![endif]-->
-        <!--[if lt IE 9]><script src="http://7mnpep.com2.z0.glb.qiniucdn.com/assets/html5-19b1381eac228d0e4d8a0a1da8a84f6a.js"></script><![endif]-->             
-    </head>         
-<body class="sessions sessions_new"> 
+        <!--[if lt IE 9]><script src="http://7mnpep.com2.z0.glb.qiniucdn.com/assets/html5-19b1381eac228d0e4d8a0a1da8a84f6a.js"></script><![endif]-->
+    </head>
+<body class="sessions sessions_new">
         <div class="topbar-mask" id="topbar-mask"></div>
         <div id="content">
-            <div id="login_container">            
+            <div id="login_container">
                 <div class="main impowerBox">
                     <div class="loginPanel normalPanel">
                         <div class="title">微信登录</div>
@@ -36,13 +36,13 @@
             <div id="sign_form_container">
                 <div id="normal_login_container">
                     <nav id="sign_nav">
-                        <div class="on" id="sign_in_nav"><img style="width:140px;height:35px;" src="<?php echo IMAGE_DIR; ?>navred.png">                        </div>
+                        <div class="on" id="sign_in_nav"><img style="width:140px;height:35px;" src="<?php echo $view->getImage('navred.png') ?>"></div>
                     </nav>
-                    <form action="<?php echo Route('admin/logingo');?>" class="form" id="sign_in" method="post">
-                        <img style="border-radius: 50%;" alt="" id="avatar_preview" src="<?php echo IMAGE_DIR; ?>toux.jpg">
+                    <form action="<?php echo $view->Route('login') ?>" class="form" id="sign_in" method="post">
+                        <img style="border-radius: 50%;" alt="" id="avatar_preview" src="<?php echo $view->getImage('toux.jpg') ?>">
                         <div class="field input_field">
                             <label><i class="fa fa-user" for="sign_in_username"></i>
-                                <input class="input" data-validate="required email" id="sign_in_username" name="email" placeholder="你的邮箱" type="text" />                               
+                                <input class="input" data-validate="required email" id="sign_in_username" name="email" placeholder="你的邮箱" type="text" />
                             </label>
                         </div>
                         <div class="field input_field no-sign">
@@ -64,10 +64,10 @@
                         <div class="field msg msg_success"></div>
                         <div class="field">
                             <input class="gp_confirm" id="sign_in_btn" type="submit" name="dosubmit" value="登录" />
-                        </div>                                   
+                        </div>
                     </form>
                 </div>
-                
+
                 <h2 id="sign_title">微信扫一扫登录/注册</h2>
                 <ul id="social_login">
                     <li><a class="fa fa-home" href="/" id="index_go" title="返回首页"></a></li>
@@ -79,8 +79,8 @@
         </div>
         <div id="bg"></div>
         <div class="clear" id="footer"></div>
-<script> var scene_id = '<?php echo $scene_id; ?>';</script>    
-<script src="<?php echo JS_DIR; ?>jquery.min.js"></script>
-<script src="<?php echo JS_DIR; ?>login.js"></script>
+<script> var scene_id = '<?php echo $scene_id ?>';</script>
+<script src="<?php echo $view->getJs('jquery.min.js') ?>"></script>
+<script src="<?php echo $view->getJs('login.js') ?>"></script>
 </body>
 </html>

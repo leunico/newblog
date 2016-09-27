@@ -9,7 +9,9 @@ Route::get('/articleshow/{id}', 'ArticleshowController::index');
 Route::get('/tag/showall', 'TagController::showAll');
 Route::get('/tag/{id}', 'TagController::show');
 
-Route::get('/admin/login', 'AdminController::login');
+#Route::get('/admin/login', ['_controller' => 'AdminController::login', '_before_middlewares' => 'menu::boot']);
+Route::get('/login', 'AdminController::index');
+Route::post('/login', 'AdminController::login');
 
 Route::post('/comment/add', 'CommentController::add');
 Route::post('/search', 'SearchController::index');

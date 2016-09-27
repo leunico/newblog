@@ -41,7 +41,7 @@
                     }
                 }
             ?>
-            <li id="menu-8" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-7"><a href="<?php echo $view->Route("admin/login"); ?>">她很漂亮</a></li>
+            <li id="menu-8" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-7"><a href="<?php echo $view->Route("/login"); ?>">她很漂亮</a></li>
             <li class="navto-search"><a href="javascript:;" class="search-show active"><i class="fa fa-search"></i></a></li>
         </ul>
         <i class="fa fa-bars m-icon-nav"></i>

@@ -34,4 +34,22 @@ class Controller extends BaseCollection
         }
     }
 
+    public function success($jumpurl, $msg, $target="")
+    {
+        $this->parameters['ms'] = 25;
+        $this->parameters['jumpurl'] = $jumpurl;
+        $this->parameters['msg'] = $msg;
+        $this->parameters['target'] = $target;
+        return $this->render('admin/public/show_success_message', $this->parameters);
+    }
+
+    public function error($jumpurl, $msg, $target="")
+    {
+        $this->parameters['ms'] = 25;
+        $this->parameters['jumpurl'] = $jumpurl;
+        $this->parameters['msg'] = $msg;
+        $this->parameters['target'] = $target;
+        return $this->render('admin/public/show_error_message', $this->parameters);
+    }
+
 }
