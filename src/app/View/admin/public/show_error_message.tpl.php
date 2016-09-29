@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <!--[if IE 8]><style>.ie8 .alert-circle,.ie8 .alert-footer{display:none}.ie8 .alert-box{padding-top:75px}.ie8 .alert-sec-text{top:45px}</style><![endif]-->
-<title><?php echo isset($seo_title) ? $seo_title : SEO_TITLE; ?> - <?php echo WEB_NAME;?></title>
+<title><?php echo isset($seo_title) ? $seo_title : $view->get('seo_title').' - '.$view->get('web_name') ?></title>
 <style>
 body{margin:0;padding:0;background:#e6eaeb;font-family:Arial,'微软雅黑',sans-serif}
 .alert-box{position:relative;display:none;margin:6pc auto 0;padding:180px 85px 22px;width:286px;border-radius:10px 10px 0 0;background:#fff;box-shadow:5px 9px 17px hsla(0,0%,40%,.75);color:#fff;text-align:center}
@@ -35,16 +35,16 @@ body{margin:0;padding:0;background:#e6eaeb;font-family:Arial,'微软雅黑',sans
 	<div class="alert-body">
 		<!--<div id="js-alert-head" class="alert-head"></div>-->
 		<div class="alert-concent">
-            <p style="color:#D13C3C;"><?php echo $msg?></p>
+            <p style="color:#D13C3C;"><?php echo isset($msg) ? $msg : "Error" ?></p>
 		</div>
-        <?php if (empty($jumpurl) ||  $jumpurl==''){?>
-            <a id="js-alert-btn" class="alert-btn" href="<?php $url = get_referer_url(); echo Request::getRefererUrl();?>">点击立即跳转页面</a>
+        <?php if (empty($jumpurl) ||  $jumpurl==''){ ?>
+            <a id="js-alert-btn" class="alert-btn" href="<?php $url = $referer; echo $referer ?>">点击立即跳转页面</a>
         <?php }else if ($jumpurl=='goback' ){ $url = "javascript:history.back();";?>
             <a id="js-alert-btn" class="alert-btn" href="javascript:history.back();">点击立即跳转页面</a>
         <?php } elseif ($jumpurl=="close") { ?>
             <a id="js-alert-btn" class="alert-btn" href="javascript:viod(0);" onclick="window.close();">点击关闭页面</a>
         <?php } elseif ($jumpurl) { ?>
-            <a id="js-alert-btn" class="alert-btn" href="<?php $url = HTTP_ROOT.$jumpurl; echo HTTP_ROOT.$jumpurl ?>">点击立即跳转页面</a>
+            <a id="js-alert-btn" class="alert-btn" href="<?php $url = $view->Route($jumpurl); echo $jumpurl ?>">点击立即跳转页面</a>
         <?php } ?>
 	</div>
 </div>
@@ -52,7 +52,7 @@ body{margin:0;padding:0;background:#e6eaeb;font-family:Arial,'微软雅黑',sans
 function alertSet(url) {
     document.getElementById("js-alert-box").style.display = "block";
     //document.getElementById("js-alert-head").innerHTML = e;
-    var t = <?php echo $ms;?>,
+    var t = <?php echo isset($ms) ? $ms : 5 ?>,
     n = document.getElementById("js-sec-circle");
     document.getElementById("js-sec-text").innerHTML = t,
     setInterval(function() {

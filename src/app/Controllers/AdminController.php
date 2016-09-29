@@ -16,7 +16,7 @@ class AdminController extends Controller
     {
         $loginInfo = $this->getSession()->get($this->sessionId);
         if (!empty($loginInfo) && !empty($loginInfo['username']) && !empty($loginInfo['id']))
-            $this->success('admin/index', '您已经登录了!');
+            $this->success('admin/index', '你已经登录了!');
 
         $this->parameters['scene_id'] = rand(100,999);
         $this->parameters['wximage'] = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$this->getWeixin()->get_code_image($this->parameters['scene_id']);
@@ -35,22 +35,20 @@ class AdminController extends Controller
 
         $email = $input['email'];
         $password = md5($input['password']);
-        $result = User::where('email', $email)->where('password', $password)->first();
-#var_dump($result);exit();
-        if(empty($result))
-            $this->error('/login', '密码or帐号错误，登录后台失败!');
+        $result = User::where('email', $email)->where('password', $password)->first()->toArray();
 
-        if(isset($result['is_block']))
-            $this->error('/login', 'sorry,你的帐号被管理员拉黑！');
+        if(empty($result))
+            return $this->error('login', '密码or帐号错误，登录后台失败!');
+
+        if(isset($result['is_block']) && $result['is_block'] == 1)
+            return $this->error('login', 'sorry,你的帐号被管理员拉黑！');
 
         $session = $this->getSession();
-        $session->set('id', $result['id']);
-        $session->set('username', $result['username']);
-        $session->set('type', 'pc');
-        $session->set('block', $result['is_block']);
-        $session->set('email', $result['email']);
+        $key = $this->get('session_pre').'admin_user_login';
+        $result['type'] = 'pc';
+        $session->set($key, $result);
 
-        return $this->redirect('/manage');
+        return $this->redirect($this->getView()->Route('manage'));
     }
 
 }

@@ -36,7 +36,8 @@ class Controller extends BaseCollection
 
     public function success($jumpurl, $msg, $target="")
     {
-        $this->parameters['ms'] = 25;
+        $this->parameters['ms'] = 5;
+        $this->parameters['referer'] = $this->getRequest()->server->get('HTTP_REFERER');
         $this->parameters['jumpurl'] = $jumpurl;
         $this->parameters['msg'] = $msg;
         $this->parameters['target'] = $target;
@@ -45,7 +46,8 @@ class Controller extends BaseCollection
 
     public function error($jumpurl, $msg, $target="")
     {
-        $this->parameters['ms'] = 25;
+        $this->parameters['ms'] = 5;
+        $this->parameters['referer'] = $this->getRequest()->server->get('HTTP_REFERER');
         $this->parameters['jumpurl'] = $jumpurl;
         $this->parameters['msg'] = $msg;
         $this->parameters['target'] = $target;

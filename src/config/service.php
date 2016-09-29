@@ -10,6 +10,8 @@ return [
     'weixin' => 'app\service\WeixinService',
 
     # 注册Middleware中间件
-	'menu' => 'app\service\MenuMiddleware',
+    'menu' => 'app\service\MenuMiddleware',
+
+	'auth' => 'app\service\AuthMiddleware',
 
 ];

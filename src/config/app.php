@@ -2,7 +2,7 @@
 
 return [
 
-    'name' => 'Alice Blog',
+    'web_name' => 'Alice Blog',
 
     'seo_title' => 'yi', #SEO默认标题
 

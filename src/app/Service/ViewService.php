@@ -147,7 +147,7 @@ class ViewService implements ServiceInterface
         $key = $this->app['session_pre'].'admin_user_login';
         $loginInfo = $this->getSession()->get($key);
         if(isset($loginInfo[$type])){
-            return $getsession;
+            return $loginInfo[$type];
         }else{
             $key = 'comment_'.$type;
             $getcookie = $this->app['request_stack']->getCurrentRequest()->cookies->get($key);
@@ -160,6 +160,11 @@ class ViewService implements ServiceInterface
     public function __call($method, $arguments)
     {
         return $this->app->$method($arguments);
+    }
+
+    public function get($name)
+    {
+        return $this->app[$name];
     }
 
 }
