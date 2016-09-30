@@ -26,19 +26,15 @@ class AdminController extends Controller
 
     public function login()
     {
-        $input = $this->getRequest()->request->all();
-        $validator = $this->getValidation()->make($input, $this->rules);
-        if(!$validator->passes()){
-            $errors = $validator->messages()->all();
-            $this->error('', $errors[0]);
-        }
-
+        $input = $this->validation($this->rules);
         $email = $input['email'];
         $password = md5($input['password']);
-        $result = User::where('email', $email)->where('password', $password)->first()->toArray();
+        $result = User::where(['email' => $email, 'password' => $password])->first();
 
         if(empty($result))
             return $this->error('login', '密码or帐号错误，登录后台失败!');
+        else
+            $result->toArray();
 
         if(isset($result['is_block']) && $result['is_block'] == 1)
             return $this->error('login', 'sorry,你的帐号被管理员拉黑！');

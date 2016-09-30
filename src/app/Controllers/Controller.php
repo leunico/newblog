@@ -7,12 +7,17 @@ class Controller extends BaseCollection
 {
     // 控制器基类扩展...
 
-    public function pageNavAdmin($count)
+    public function pageNavManage($count, $scree)
     {
-        # code...
+        $page = $this->getPaginator();
+        foreach ($scree as $key => $value) {
+            if(empty($value))
+                unset($scree[$key]);
+        }
+        return $page->pageNavManage($count, $scree, $this->pagesize);
     }
 
-    public function pageNavComment($count, $pagesize = 5)
+    public function pageNavComment($count, $pagesize = 10)
     {
         $page = $this->getPaginator();
         $pagesize = $pagesize ? $pagesize : $this->pagesize;
@@ -52,6 +57,18 @@ class Controller extends BaseCollection
         $this->parameters['msg'] = $msg;
         $this->parameters['target'] = $target;
         return $this->render('admin/public/show_error_message', $this->parameters);
+    }
+
+    public function validation($rules)
+    {
+        $input = $this->getRequest()->request->all();
+        $validator = $this->getValidation()->make($input, $rules);
+        if(!$validator->passes()){
+            $errors = $validator->messages()->all(); # 或者 $validator->errors();
+            return $this->error('goback', $errors[0]);
+        }
+
+        return $input;
     }
 
 }

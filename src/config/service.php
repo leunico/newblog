@@ -12,6 +12,6 @@ return [
     # 注册Middleware中间件
     'menu' => 'app\service\MenuMiddleware',
 
-	'auth' => 'app\service\AuthMiddleware',
+    'auth' => 'app\service\AuthMiddleware',
 
 ];

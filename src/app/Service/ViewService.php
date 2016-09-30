@@ -25,7 +25,7 @@ class ViewService implements ServiceInterface
         $file_dir = $this->app['static'].$type;
         $file_name = '/'.$name;
 
-        if (!file_exists($file_dir.$file_name)) {
+        if ($name && !file_exists($file_dir.$file_name)) {
             throw new \InvalidArgumentException("Static file '$file_name' not Exists!");
         }
 
@@ -98,6 +98,11 @@ class ViewService implements ServiceInterface
     public function getImage($name)
     {
         return $this->getStatic('image', $name);
+    }
+
+    public function getPlug($name, $file = '')
+    {
+        return $this->getStatic('plug/'.$name, $file);
     }
 
     public function escape($str)

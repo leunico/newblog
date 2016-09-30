@@ -44,9 +44,13 @@ class Service implements AppHandleInterface
 
             $constructor = $reflector->getConstructor();
             if (is_null($constructor)) {
-                self::$app[$name] = new $className();
+                self::$app[$name] = function () use ($className) {
+                    return new $className();
+                };
             }else{
-                self::$app[$name] = $reflector->newInstanceArgs([self::$app]);
+                self::$app[$name] = function ($app) use ($reflector) {
+                    return $reflector->newInstanceArgs([$app]);
+                };
             }
         }
 

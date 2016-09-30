@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        arts('add'); 
+        arts('add');
     });
 </script>
 <div class="span9">
@@ -11,7 +11,7 @@
 			<div class="page-header">
 				<h1>New Article <small>Add a new Article</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/article_add'); ?>" method="post"  onsubmit="return arts('add')">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/article_save') ?>" method="post"  onsubmit="return arts('add')">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="role">标题：</label>
@@ -22,14 +22,14 @@
                     <div class="control-group">
 						<label class="control-label" for="role">作者：</label>
 						<div class="controls">
-							<input type="text" readOnly="true" class="input-xlarge" id="role" name="author" value="<?php echo $loginInfo['username'] ?>"/>
+							<input type="text" readOnly="true" class="input-xlarge" id="role" name="author" value="<?php echo $view->getUser('username') ?>"/>
 						</div>
 					</div>
                     <div class="control-group">
 						<label class="control-label" for="role">文章分类：</label>
 						<div class="controls">
 							<select name="mid">
-                                <?php foreach($blogMenuList as $k=>$v){
+                                <?php foreach($view->getConfig('article')['article_class'] as $k=>$v){
                                    echo "<option value='".$k."'>".$v."</option>";
                                 }?>
                             </select>
@@ -82,9 +82,9 @@
                             <!-- 加载编辑器的容器 -->
                             <script id="container" name="content" type="text/plain"></script>
                             <!-- 配置文件 -->
-                            <script type="text/javascript" src="<?php echo ADMIN_UEDITOR_DIR?>ueditor.config.js"></script>
+                            <script type="text/javascript" src="<?php echo $view->getPlug('ueditor_q', 'ueditor.config.js') ?>"></script>
                             <!-- 编辑器源码文件 -->
-                            <script type="text/javascript" src="<?php echo ADMIN_UEDITOR_DIR?>ueditor.all.js"></script>
+                            <script type="text/javascript" src="<?php echo $view->getPlug('ueditor_q', 'ueditor.all.js') ?>"></script>
                             <!-- 实例化编辑器 -->
                             <script type="text/javascript">
                                 var ue = UE.getEditor('container');
@@ -96,13 +96,11 @@
                             <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Add Blog Article</button>
                             <button type="reset" class="btn">Cancel</button>
 				    <!--<input type="submit" class="btn btn-success btn-large" value="Save Role" /> <a class="btn" href="">Cancel</a>-->
-					</div>					
+					</div>
 				</fieldset>
 			</form>
 		  </div>
         </div>
       </div>
-
-
 
 <?php  include_once 'adminfooter.tpl.php'; ?>

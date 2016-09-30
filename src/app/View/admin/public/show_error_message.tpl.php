@@ -44,7 +44,7 @@ body{margin:0;padding:0;background:#e6eaeb;font-family:Arial,'微软雅黑',sans
         <?php } elseif ($jumpurl=="close") { ?>
             <a id="js-alert-btn" class="alert-btn" href="javascript:viod(0);" onclick="window.close();">点击关闭页面</a>
         <?php } elseif ($jumpurl) { ?>
-            <a id="js-alert-btn" class="alert-btn" href="<?php $url = $view->Route($jumpurl); echo $jumpurl ?>">点击立即跳转页面</a>
+            <a id="js-alert-btn" class="alert-btn" href="<?php $url = $view->Route($jumpurl); echo $url ?>">点击立即跳转页面</a>
         <?php } ?>
 	</div>
 </div>

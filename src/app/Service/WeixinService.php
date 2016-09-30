@@ -29,7 +29,7 @@ class WeixinService implements ServiceInterface
             $url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$this->appid."&secret=".$this->appsecret;
             $res = $this->https_request($url);
             $result = json_decode($res, true);
-            $this->access_token = $result["access_token"];
+            $this->access_token = $result["access_token"]; #错误处理
             $this->lasttime = time();
         }
     }
