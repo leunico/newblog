@@ -12,6 +12,7 @@
 				<h1>New Article <small>Add a new Article</small></h1>
 			</div>
               <form class="form-horizontal" action="<?php echo $view->Route('manage/article_save') ?>" method="post"  onsubmit="return arts('add')">
+                <input type="hidden" name="uid" value="<?php echo $view->getUser('id') ?>">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="role">标题：</label>
@@ -64,7 +65,7 @@
 						</div>
 					</div>
                     <div class="control-group">
-						<label class="control-label" for="role">标签(use '|')：</label>
+						<label class="control-label" for="role">标签(use ',')：</label>
 						<div class="controls">
                             <input type="text" class="input-xlarge" id="role" name="tag" value=""/><span class="validform"></span>
 						</div>

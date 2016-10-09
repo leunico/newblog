@@ -16,7 +16,7 @@ class AdminController extends Controller
     {
         $loginInfo = $this->getSession()->get($this->sessionId);
         if (!empty($loginInfo) && !empty($loginInfo['username']) && !empty($loginInfo['id']))
-            $this->success('admin/index', '你已经登录了!');
+            return $this->success('manage', '你已经登录了!');
 
         $this->parameters['scene_id'] = rand(100,999);
         $this->parameters['wximage'] = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".$this->getWeixin()->get_code_image($this->parameters['scene_id']);
@@ -27,6 +27,9 @@ class AdminController extends Controller
     public function login()
     {
         $input = $this->validation($this->rules);
+        if(!is_array($input))
+            return $input;
+
         $email = $input['email'];
         $password = md5($input['password']);
         $result = User::where(['email' => $email, 'password' => $password])->first();

@@ -8,9 +8,16 @@ class Article extends BaseModel
 {
     protected $table = 'info_article';
 
+    protected $guarded = ['clicks', 'dosubmit']; #黑名单，白名单是 $fillable
+
     public function comments()
     {
         return $this->hasMany('app\Model\Comment', 'aid');
+    }
+
+    public function tags()
+    {
+        return $this->belongsToMany('app\Model\Tag'); // 'article_tag', 'tag_id', 'article_id'
     }
 
     public static function Recommend()

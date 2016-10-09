@@ -7,6 +7,8 @@ class Tag extends BaseModel
 {
     protected $table = 'info_tag';
 
+    protected $fillable = ['tag', 'num'];
+
     public function article()
     {
         return $this->belongsToMany('app\Model\Article'); // 'article_tag', 'tag_id', 'article_id'

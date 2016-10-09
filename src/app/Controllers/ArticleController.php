@@ -2,10 +2,25 @@
 namespace app\Controllers;
 
 use app\Model\Article;
+use app\Model\Tag;
 use Illuminate\Database\Query\Expression as raw;
 
 class ArticleController extends Controller
 {
+    private $rules = [
+            'title' => 'required|min:10|max:35',
+            'seo_title' => 'required|min:2|max:20',
+            'seo_description' => 'required|max:120',
+            'seo_keywords' => 'required|max:8',
+            'author' => 'required',
+            'description' => 'required|min:60|max:160',
+            'tag' => 'required',
+            'mid' => 'required',
+            'recommend_type' => 'required',
+            'content' => 'required',
+            'good_num' => 'numeric',
+        ];
+
     public function index()
     {
         $scree = $where = [];
@@ -44,24 +59,54 @@ class ArticleController extends Controller
         return $this->render('admin/article_add', $this->parameters);
     }
 
+    public function edit($id)
+    {
+        $method = $this->getRequest()->getMethod();
+        $this->parameters['articles'] = Article::find($id);
+        if($method == 'POST'){
+            $info = $this->parameters['articles'];
+            $input = $this->validation(array_merge($this->rules, ['bad_num' => 'numeric', 'clicks' => 'numeric']));
+            if(!is_array($input))
+                return $input;
+
+            $article = $info->update($input);
+            $tags = explode('，', $input['tag']);
+            $oldtags = $info->tags();
+var_dump($oldtags);exit();
+            foreach($tags as $tag){
+                $add = Tag::firstOrCreate(['tag' => $tag]);
+                if(empty($add))
+                    $add = Tag::where('tag', $tag)->increment('num');
+
+                $article->tags()->attach($add->id);
+            }
+            return $this->success('manage/articles', '数据修改成功！');
+        }
+
+        return $this->render('admin/article_edit', $this->parameters);
+    }
+
     public function save()
     {
-        $rules = [
-            'title' => 'required|min:5|max:25',
-            'seo_title' => 'required|min:5|max:50',
-            'seo_description' => 'required|min:10',
-            'seo_keywords' => 'required|max:20',
-            'author' => 'required',
-            'description' => 'required|min:20',
-            'tag' => 'required',
-            'mid' => 'required',
-            'recommend_type' => 'required',
-            'content' => 'required',
-            'good_num' => 'required|numeric',
-        ];
+        $input = $this->validation($this->rules);
+        if(!is_array($input))
+            return $input;
 
-        $input = $this->validation($rules);
-var_dump($input);exit();
+        $tags = explode('，', $input['tag']);
+        $input['ctime'] = time();
+        $article = Article::create($input);
+        if(empty($article))
+            return $this->error('goback', '数据添加失败！');
+
+        foreach($tags as $tag){
+            $add = Tag::firstOrCreate(['tag' => $tag]);
+            if(empty($add))
+                $add = Tag::where('tag', $tag)->increment('num');
+
+            $article->tags()->attach($add->id);
+        }
+
+        return $this->success('manage/articles', '数据添加成功！');
     }
 
 }

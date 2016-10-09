@@ -39,7 +39,7 @@ class Controller extends BaseCollection
         }
     }
 
-    public function success($jumpurl, $msg, $target="")
+    public function success($jumpurl, $msg, $target = "")
     {
         $this->parameters['ms'] = 5;
         $this->parameters['referer'] = $this->getRequest()->server->get('HTTP_REFERER');
@@ -49,7 +49,7 @@ class Controller extends BaseCollection
         return $this->render('admin/public/show_success_message', $this->parameters);
     }
 
-    public function error($jumpurl, $msg, $target="")
+    public function error($jumpurl, $msg, $target = "")
     {
         $this->parameters['ms'] = 5;
         $this->parameters['referer'] = $this->getRequest()->server->get('HTTP_REFERER');
@@ -59,7 +59,7 @@ class Controller extends BaseCollection
         return $this->render('admin/public/show_error_message', $this->parameters);
     }
 
-    public function validation($rules)
+    public function validation($rules = [])
     {
         $input = $this->getRequest()->request->all();
         $validator = $this->getValidation()->make($input, $rules);

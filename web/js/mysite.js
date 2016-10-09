@@ -1,15 +1,15 @@
 //用户js表单验证
 
-/*function upperCase(value){ 
+/*function upperCase(value){
      username = document.getElementsByName('username')[0];
      var name = 'sucess';
      var password = 'sucess';
-     $.get('http://520.leunico.sinaapp.com/ajax/getUserName',{username:value},function(data){            
+     $.get('http://520.leunico.sinaapp.com/ajax/getUserName',{username:value},function(data){
             //console.log(username.value);
             name = data;
      });
-     
-     $.get('http://520.leunico.sinaapp.com/ajax/getPassWord',{username:username.value},function(data){            
+
+     $.get('http://520.leunico.sinaapp.com/ajax/getPassWord',{username:username.value},function(data){
            //console.log(username.value);
            password = data;
      });
@@ -18,21 +18,21 @@
             return true;
         }else{
             return false;
-        }        
+        }
     },'click');
 }*/
 
-function regs(type){    
+function regs(type){
     var stat = true;
-    var click = 'click';  
-    username = document.getElementsByName('username')[0];    
-    newpw = document.getElementsByName('newpw')[0];       
-    newpw_a = document.getElementsByName('newpw_a')[0];    
+    var click = 'click';
+    username = document.getElementsByName('username')[0];
+    newpw = document.getElementsByName('newpw')[0];
+    newpw_a = document.getElementsByName('newpw_a')[0];
     email = document.getElementsByName('email')[0];
     if(type == 'edit'){
         oldpw = document.getElementsByName('oldpw')[0];
-    }    
-    
+    }
+
     check(username, "用户名的长度在3-20之间", function(val){
         if (val.match(/^\S+$/) && val.length >=3 && val.length <=20){
             return true;
@@ -53,7 +53,7 @@ function regs(type){
             return false;
         }
     }, click);
-    
+
     if(type == 'edit'){
     check(oldpw, "请输入正确的登录密码", function(val){
         if (val.length == 0 && newpw.value== ''&& newpw_a.value== ''){return true;}
@@ -64,7 +64,7 @@ function regs(type){
             return false;
         }
     }, click);}
-    
+
    check(newpw_a, "请确定重复密码和上面一致", function(val){
         if(type == 'edit'){
             if (val.length == 0 && newpw.value== ''&& oldpw.value== ''){return true;}
@@ -109,26 +109,26 @@ function arts(type){
             return false;
         }
    }, click);
-    
+
    check(seo_title, "SEO标题的长度在2-16字之间", function(val){
-        if (val.match(/^\S+$/) && val.length >=2 && val.length <=16){
+        if (val.match(/^\S+$/) && val.length >=2 && val.length <=20){
             return true;
         } else {
             stat = false;
             return false;
         }
    }, click);
-    
+
    check(seo_description, "SEO描述的长度在0-100字之间", function(val){
         if(val == '')return true;
-        if (val.match(/^\S+$/) && val.length >=0 && val.length <=100){
+        if (val.match(/^\S+$/) && val.length >=0 && val.length <=120){
             return true;
         } else {
             stat = false;
             return false;
         }
    }, click);
-    
+
    check(seo_keywords, "SEO关键字的长度在0-8字之间", function(val){
         if(val == '')return true;
         if (val.match(/^\S+$/) && val.length >=0 && val.length <=8){
@@ -138,7 +138,7 @@ function arts(type){
             return false;
         }
    }, click);
-    
+
    check(tag, "标签的长度在2-10字之间", function(val){
         if (val.match(/^\S+$/) && val.length >=2 && val.length <=10){
             return true;
@@ -147,7 +147,7 @@ function arts(type){
             return false;
         }
    }, click);
-    
+
    check(description, "描述的长度在60-160字之间", function(val){
         if (val.match(/^\S+$/) && val.length >=60 && val.length <=160){
             return true;
@@ -156,8 +156,8 @@ function arts(type){
             return false;
         }
    }, click);
-   return stat; 
-        
+   return stat;
+
 }
 
 function gspan(cobj){//获取表单后的span 标签 显示提示信息
@@ -174,7 +174,7 @@ function check(obj, info, fun, click){
     obj.onfocus = function(){ //提示
         sp.innerHTML = "<i class='icon-exclamation-sign' style=\"margin-top:3px;\"></i> "+info;
         sp.style.color = "black";
-    } 
+    }
 
     obj.onblur = function(){
         if (fun(this.value)){ //成功
@@ -201,12 +201,12 @@ function setImagePreview(id) {
         //火狐下，直接设img属性
         imgObjPreview.style.display = 'block';
         imgObjPreview.style.width = '240px';
-        imgObjPreview.style.height = '96px';                    
+        imgObjPreview.style.height = '96px';
         //imgObjPreview.src = docObj.files[0].getAsDataURL();
-        
-        //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式  
+
+        //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
         imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
-        
+
     }else{
         //IE下，使用滤镜
         docObj.select();
@@ -234,8 +234,8 @@ function setImageToux(w,h) {
     if(docObj.files && docObj.files[0]){
         imgObjPreview.style.display = 'block';
         imgObjPreview.style.width = w+"px";
-        imgObjPreview.style.height = h+"px";                    
-        imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);        
+        imgObjPreview.style.height = h+"px";
+        imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
     }else{
         docObj.select();
         var imgSrc = document.selection.createRange().text;
@@ -254,15 +254,15 @@ function setImageToux(w,h) {
     }
     return true;
 }
-function order(id,type){    
-    $.get('http://www.lzxya.com/admin/setorder',{id:id,type:type},function(data){            
+function order(id,type){
+    $.get('http://www.lzxya.com/admin/setorder',{id:id,type:type},function(data){
         if(data == "error"){
             alert("没有权限啊~");
         }else{
             $('#order-'+id).html(data);
-        }  
-    });   
-    
+        }
+    });
+
 }
 
 

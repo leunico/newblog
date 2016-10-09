@@ -12,7 +12,7 @@ class ArticleshowController extends Controller
             $this->parameters['articleShow'] = Article::find($id);
             $this->parameters['articleShow']['up'] = Article::where('ctime', '>', $this->parameters['articleShow']['ctime'])->select('title', 'id')->orderBy('ctime','asc')->first();
             $this->parameters['articleShow']['down'] = Article::where('ctime', '<', $this->parameters['articleShow']['ctime'])->select('title', 'id')->orderBy('ctime','asc')->first();
-            $this->parameters['articleShow']['tag'] = explode('|', $this->parameters['articleShow']['tag']);
+            $this->parameters['articleShow']['tag'] = explode(',', $this->parameters['articleShow']['tag']);
 
             $this->parameters['articleRelevant'] = Article::where('mid', $this->parameters['articleShow']['mid'])
             ->where('mid', '!=', $this->parameters['articleShow']['id'])
@@ -33,7 +33,7 @@ class ArticleshowController extends Controller
         $this->parameters['articleShow']['counts'] = Article::find($id)->comments()->where('cid', 0)->count();
         $this->parameters['articleShow']['commentPagenav'] = $this->pageNavComment($this->parameters['articleShow']['counts']);
 
-        Article::increment('clicks');
+        Article::find($id)->increment('clicks');
         return $this->render('articleshow', $this->parameters);
     }
 

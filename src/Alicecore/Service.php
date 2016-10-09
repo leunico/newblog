@@ -8,8 +8,8 @@ use Alicecore\Handle\Extension\MiddlewareInterface;
 class Service implements AppHandleInterface
 {
 
-    public static $app;
-    public static $services;
+    private static $app;
+    private static $services;
 
     public static function start(AppFramework $app)
     {
@@ -18,7 +18,7 @@ class Service implements AppHandleInterface
         self::loadservice();
     }
 
-    public static function loadservice()
+    private static function loadservice()
     {
         foreach(self::$services as $name=>$className){
 
