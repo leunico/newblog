@@ -38,7 +38,7 @@ body{margin:0;padding:0;background:#e6eaeb;font-family:Arial,'微软雅黑',sans
             <p style="color:#27ae60;"><?php echo isset($msg) ? $msg : "Success" ?></p>
 		</div>
         <?php if (empty($jumpurl) ||  $jumpurl==''){ ?>
-            <a id="js-alert-btn" class="alert-btn" href="<?php $url = $referer; echo $referer ?>">点击立即跳转页面</a>
+            <a id="js-alert-btn" class="alert-btn" href="<?php $url = $referer; echo $url ?>">点击立即跳转页面</a>
         <?php }else if ($jumpurl=='goback' ){ $url = "javascript:history.back();";?>
             <a id="js-alert-btn" class="alert-btn" href="javascript:history.back();">点击立即跳转页面</a>
         <?php } elseif ($jumpurl=="close") { ?>
@@ -56,8 +56,8 @@ function alertSet(url) {
     document.getElementById("js-sec-text").innerHTML = t,
     setInterval(function() {
         if (0 == t){
-            location.href=url;
-		}else {
+            location.href = url;
+        }else {
             t -= 1,
             document.getElementById("js-sec-text").innerHTML = t;
             var e = Math.round(t / 10 * 735);

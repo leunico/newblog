@@ -59,6 +59,16 @@ class ArticleController extends Controller
         return $this->render('admin/article_add', $this->parameters);
     }
 
+    public function delete($id)
+    {
+        $info = Article::find($id);
+        if(empty($info))
+            return $this->error('manage/articles', '没有这条数据！');
+
+        $info->delete();
+        return $this->success('manage/articles', '数据删除成功！');
+    }
+
     public function edit($id)
     {
         $method = $this->getRequest()->getMethod();
@@ -70,16 +80,22 @@ class ArticleController extends Controller
                 return $input;
 
             $article = $info->update($input);
-            $tags = explode('，', $input['tag']);
-            $oldtags = $info->tags();
-var_dump($oldtags);exit();
-            foreach($tags as $tag){
-                $add = Tag::firstOrCreate(['tag' => $tag]);
-                if(empty($add))
-                    $add = Tag::where('tag', $tag)->increment('num');
+            $oldtags = array_map(function($item){return $item->tag;}, $info->tags->all());
+            $tags = $this->getTagDiff(explode('，', $input['tag']), $oldtags);
 
-                $article->tags()->attach($add->id);
+            if(!empty($tags)){
+                foreach($tags as $tag){
+                    if(in_array($tag, $oldtags)){
+                        $detachtag = $info->tags()->where('tag', $tag)->first();
+                        $info->tags()->detach($detachtag->id);
+                    }else{
+                        $add = Tag::firstOrCreate(['tag' => $tag]);
+                        $add->increment('num');
+                        $info->tags()->attach($add->id);
+                    }
+                }
             }
+
             return $this->success('manage/articles', '数据修改成功！');
         }
 
@@ -100,9 +116,7 @@ var_dump($oldtags);exit();
 
         foreach($tags as $tag){
             $add = Tag::firstOrCreate(['tag' => $tag]);
-            if(empty($add))
-                $add = Tag::where('tag', $tag)->increment('num');
-
+            $add->increment('num');
             $article->tags()->attach($add->id);
         }
 

@@ -71,4 +71,12 @@ class Controller extends BaseCollection
         return $input;
     }
 
+    public function getTagDiff($master, $salve)
+    {
+        if(count($master) == count($salve))
+            return array_merge(array_diff($master, $salve), array_diff($salve, $master));
+
+        return count($master) > count($salve) ? array_diff($master, $salve) : array_diff($salve, $master);
+    }
+
 }

@@ -8,7 +8,7 @@ class Article extends BaseModel
 {
     protected $table = 'info_article';
 
-    protected $guarded = ['clicks', 'dosubmit']; #黑名单，白名单是 $fillable
+    protected $guarded = ['dosubmit']; #黑名单，白名单是 $fillable
 
     public function comments()
     {

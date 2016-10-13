@@ -13,11 +13,13 @@ Route::get('/login', 'AdminController::index');
 Route::post('/login', 'AdminController::login');
 
 Route::get('/manage', ['_controller' => 'ManageController::index', '_before_middlewares' => 'auth::boot']);
+
 Route::get('/manage/articles', ['_controller' => 'ArticleController::index', '_before_middlewares' => 'auth::boot']);
 Route::get('/manage/article_add', ['_controller' => 'ArticleController::add', '_before_middlewares' => 'auth::boot']);
+Route::post('/manage/article_save', ['_controller' => 'ArticleController::save', '_before_middlewares' => 'auth::boot']);
 Route::get('/manage/article_edit/{id}', ['_controller' => 'ArticleController::edit', '_before_middlewares' => 'auth::boot']);
 Route::post('/manage/article_edit/{id}', ['_controller' => 'ArticleController::edit', '_before_middlewares' => 'auth::boot']);
-Route::post('/manage/article_save', ['_controller' => 'ArticleController::save', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/article_delete/{id}', ['_controller' => 'ArticleController::delete', '_before_middlewares' => 'auth::boot']);
 
 Route::post('/comment/add', 'CommentController::add');
 Route::post('/search', 'SearchController::index');

@@ -92,7 +92,7 @@
 						</div>
 					</div>
                     <div class="control-group">
-						<label class="control-label" for="role">标签(use ',')：</label>
+						<label class="control-label" for="role">标签(use '，')：</label>
 						<div class="controls">
                             <input type="text" class="input-xlarge" id="role" name="tag" value="<?php echo $articles['tag'] ?>"/><span class="validform"></span>
 						</div>
