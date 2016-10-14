@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-       regs('add'); 
+       regs('add');
     });
 </script>
 <div class="span9">
@@ -11,12 +11,12 @@
 			<div class="page-header">
 				<h1>New User <small>Add a new user</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/user_add'); ?>" method="post" onsubmit="return regs('add')">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/user_add'); ?>" method="post" onsubmit="return regs('add')">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="role">昵称：</label>
 						<div class="controls">
-                            <input type="text" class="input-xlarge" id="role" name="username" value="<?php echo $loginInfo['username'] ?>"/><span class="validform"></span>
+                            <input type="text" class="input-xlarge" id="role" name="username" value="<?php echo $view->getUser('username') ?>"/><span class="validform"></span>
 						</div>
 					</div>
                     <div class="control-group">
@@ -42,7 +42,7 @@
                             <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Add Blog User</button>
                             <button type="reset" class="btn">Cancel</button>
 				    <!--<input type="submit" class="btn btn-success btn-large" value="Save Role" /> <a class="btn" href="">Cancel</a>-->
-					</div>					
+					</div>
 				</fieldset>
 			</form>
 		  </div>

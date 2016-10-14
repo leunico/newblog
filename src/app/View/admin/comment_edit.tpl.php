@@ -6,7 +6,7 @@
 			<div class="page-header">
 				<h1>Edit Comments <small>Edit a Comment</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/comment_edit/'.$comments['id']); ?>" method="post">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/comment_edit/'.$comments['id']); ?>" method="post">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="role">昵称：</label>
@@ -35,15 +35,15 @@
                     <div class="control-group">
 						<label class="control-label" for="role">IP：</label>
 						<div class="controls">
-                            <input type="text" readOnly="true" class="input-xlarge" id="role" name="email" value="<?php echo $comments['ip']; ?>"/>
+                            <input type="text" readOnly="true" class="input-xlarge" id="role" name="ip" value="<?php echo $comments['ip']; ?>"/>
 						</div>
-					</div>                    
+					</div>
                     <p  class="controls" style="color:red;">注意：此处修改相应的文章也会随之修改！</p>
 					<div class="form-actions">
                             <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Edit Comment</button>
                             <button type="reset" class="btn">Cancel</button>
 				    <!--<input type="submit" class="btn btn-success btn-large" value="Save Role" /> <a class="btn" href="">Cancel</a>-->
-					</div>					
+					</div>
 				</fieldset>
 			</form>
 		  </div>

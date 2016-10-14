@@ -33,8 +33,8 @@ function regs(type){
         oldpw = document.getElementsByName('oldpw')[0];
     }
 
-    check(username, "用户名的长度在3-20之间", function(val){
-        if (val.match(/^\S+$/) && val.length >=3 && val.length <=20){
+    check(username, "用户名的长度在2-20之间", function(val){
+        if (val.match(/^\S+$/) && val.length >=2 && val.length <=20){
             return true;
         } else {
             stat = false;
@@ -42,11 +42,11 @@ function regs(type){
         }
     }, click);
 
-    check(newpw, "密码必须在6-10位之间", function(val){
+    check(newpw, "密码必须在6-20位之间", function(val){
         if(type == 'edit'){
             if (val.length == 0 && oldpw.value== ''&& newpw_a.value== ''){return true;}
         }
-        if (val.match(/^\S+$/) && val.length >= 6 && val.length <=10){
+        if (val.match(/^\S+$/) && val.length >= 6 && val.length <=20){
             return true;
         } else {
             stat = false;
@@ -57,7 +57,7 @@ function regs(type){
     if(type == 'edit'){
     check(oldpw, "请输入正确的登录密码", function(val){
         if (val.length == 0 && newpw.value== ''&& newpw_a.value== ''){return true;}
-        if (val.match(/^\S+$/) && val.length >= 6 && val.length <=10){
+        if (val.match(/^\S+$/) && val.length >= 6 && val.length <=20){
             return true;
         } else {
             stat = false;

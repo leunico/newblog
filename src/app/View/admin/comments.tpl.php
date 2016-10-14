@@ -6,15 +6,16 @@
 			<div class="page-header">
 				<h1>Comments <small>All Comments</small></h1>
 			</div>
-            <div> 
-                <form class="form-horizontal" action="<?php echo Route('admin/comments'); ?>" method="post">
+            <div>
+                <form class="form-horizontal" action="<?php echo $view->Route('manage/comments'); ?>" method="get">
 				<fieldset>
-                  <select name="keyword_type" style="width:120px">
-                            <option value="aid" <?php if($scree['keyword_type']=='aid') echo "selected";?>>文章ID</option>
-                            <option value="contents" <?php if($scree['keyword_type']=='contents') echo "selected";?>>评论内容</option>
-                            <option value="nickname" <?php if($scree['keyword_type']=='nickname') echo "selected";?>>昵称</option>
+                  <select name="type" style="width:120px">
+                            <option value="">筛选类型</option>
+                            <option value="aid" <?php if($scree['type']=='aid') echo "selected";?>>文章ID</option>
+                            <option value="contents" <?php if($scree['type']=='contents') echo "selected";?>>评论内容</option>
+                            <option value="nickname" <?php if($scree['type']=='nickname') echo "selected";?>>昵称</option>
                   </select>
-                  <input type="text" style="width:120px" class="input-xlarge" id="role" name="keyword" placeholder="要搜索的内容" value="<?php echo $scree['keyword']; ?>"/> 
+                  <input type="text" style="width:120px" class="input-xlarge" id="role" name="val" placeholder="要搜索的内容" value="<?php echo $scree['val']; ?>"/>
                   <button type="submit" class="btn btn-success" name="dosubmit" value="dosubmit">筛选</button>
                 </fieldset>
 			    </form>
@@ -35,7 +36,7 @@
                 <?php foreach($CommentList as $comment){?>
 				<tr class="list-users">
 					<td><?php echo $comment['id'];?></td>
-                    <td><a href="<?php echo Route('articleshow/'.$comment['aid']);?>" target="_blank"><?php echo $comment['title'];?></a></td>
+                    <td><a href="<?php echo $view->Route('articleshow/'.$comment['aid']);?>" target="_blank"><?php echo $comment['title'] ? $comment['title'] : '文章不存在了！' ?></a></td>
 					<td><span><?php echo $comment['contents'];?></span></td>
                     <td><span><?php echo $comment['nickname'];?></span></td>
                     <td><span><?php echo date('Y-m-d H:i:s', $comment['ctime']);?></span></td>
@@ -44,8 +45,8 @@
 						<div class="btn-group">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Actions <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-                                <li><a href="<?php echo Route('admin/comment_edit/'.$comment['id']);?>"><i class="icon-pencil"></i> Edit</a></li>
-								<li><a href="javascript:if(confirm('确定吗？'))window.location='<?php echo Route('admin/comment_delete/'.$comment['id']);?>'"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="<?php echo $view->Route('manage/comment_edit/'.$comment['id']);?>"><i class="icon-pencil"></i> Edit</a></li>
+								<li><a href="javascript:if(confirm('确定吗？'))window.location='<?php echo $view->Route('manage/comment_delete/'.$comment['id']);?>'"><i class="icon-trash"></i> Delete</a></li>
 								<li class="nav-header">Hello Alice</li>
 							</ul>
 						</div>
@@ -54,7 +55,7 @@
                 <?php }?>
 				</tbody>
 			</table>
-            <?php echo $pageNav ?>  
+            <?php echo $pageNav ?>
 		  </div>
         </div>
       </div>

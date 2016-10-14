@@ -58,7 +58,7 @@
                     <td><a href="#"><?php echo $meun[$article['mid']];?></a></td>
 					<td><?php echo date('Y-m-d H:i:s', $article['ctime']);?></td>
 					<td><span class="badge badge-inverse"><?php echo $article['clicks'];?></span></td>
-                    <td><a href="<?php echo $view->Route('manage/comments/?aid='.$article['id']);?>"><span class="badge badge-inverse"><?php echo $article['count'];?></span></a></td>
+                    <td><a href="<?php echo $view->Route('manage/comments?type=aid&val='.$article['id']);?>"><span class="badge badge-inverse"><?php echo $article['count'];?></span></a></td>
                     <td><span class="label label-success"><?php echo $article['good_num'];?></span></td>
                     <td><span class="label label-important"><?php echo $article['bad_num'];?></span></td>
 					<td>

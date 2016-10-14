@@ -19,14 +19,14 @@
                 <?php foreach($tagList as $tag){?>
 				<tr class="list-users">
 					<td><?php echo $tag['id'];?></td>
-					<td><a target="_blank" href="<?php echo Route('tag/'.$tag['id']);?>"><?php echo $tag['tag'];?></a></td>
-                    <td style="text-align:center;"><a href="<?php echo Route('');?>" class="badge badge-inverse"><?php echo $tag['num'];?></a></td>
+					<td><a target="_blank" href="<?php echo $view->Route('tag/'.$tag['id']);?>"><?php echo $tag['tag'];?></a></td>
+                    <td style="text-align:center;"><a href="<?php echo $view->Route('');?>" class="badge badge-inverse"><?php echo $tag['num'];?></a></td>
 					<td>
 						<div class="btn-group">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Actions <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-                                <li><a href="<?php echo Route('admin/tag_edit/'.$tag['id']);?>"><i class="icon-lock"></i> Edit</a></li>
-                                <li><a href="<?php echo Route('admin/tag_delete/'.$tag['id']);?>"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="<?php echo $view->Route('admin/tag_edit/'.$tag['id']);?>"><i class="icon-lock"></i> Edit</a></li>
+                                <li><a href="<?php echo $view->Route('admin/tag_delete/'.$tag['id']);?>"><i class="icon-trash"></i> Delete</a></li>
 								<li class="nav-header">Hello Alice</li>
 							</ul>
 						</div>

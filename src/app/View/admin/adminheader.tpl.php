@@ -47,7 +47,7 @@
 			        <li><a href="<?php echo $view->Route('manage'); ?>">首页介绍</a></li>
               <li class="dropdown"><a href="<?php echo $view->Route('manage/articles') ?>" class="dropdown-toggle" data-toggle="dropdown">文章管理 <b class="caret"></b></a>
 				        <ul class="dropdown-menu">
-                    <li><a href="<?php echo $view->Route('manage/article_my') ?>">我的文章</a></li>
+                    <li><a href="<?php echo $view->Route('manage/article_my/'.$view->getUser('id')) ?>">我的文章</a></li>
 					          <li class="divider"></li>
                     <li><a href="<?php echo $view->Route('manage/articles') ?>">文章列表</a></li>
 					          <li class="divider"></li>

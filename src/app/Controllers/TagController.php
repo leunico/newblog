@@ -32,4 +32,11 @@ class TagController extends Controller
 
         return $this->render('tagshow', $this->parameters);
     }
+
+    public function index()
+    {
+        $this->parameters['tagList'] = Tag::orderBy('num', 'desc')->skip($this->getLimit())->take($this->pagesize)->get();
+        $this->parameters['pageNav'] = $this->pageNavManage(Tag::all()->count());
+        return $this->render('admin/tags', $this->parameters);
+    }
 }

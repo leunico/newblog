@@ -2,7 +2,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-       regs('edit'); 
+       regs('edit');
     });
 </script>
 <div class="span9">
@@ -10,7 +10,7 @@
 			<div class="page-header">
 				<h1>Edit User <small>Edit a User</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/user_edit/'); ?>" method="post" onsubmit="return regs('edit')">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/user_edit'); ?>" method="post" onsubmit="return regs('edit')">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="role">昵称：</label>
@@ -29,7 +29,7 @@
 						<div class="controls">
                             <input type="text" readOnly="true" class="input-xlarge" id="role" name="openid" value="<?php echo ($users['openid'] ? $users['openid']:"Not wechat"); ?>"/>
 						</div>
-					</div>                    
+					</div>
                     <div class="control-group">
 						<label class="control-label" for="role">微信昵称：</label>
 						<div class="controls">
@@ -65,7 +65,7 @@
                             <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Edit User</button>
                             <button type="reset" class="btn">Cancel</button>
 				    <!--<input type="submit" class="btn btn-success btn-large" value="Save Role" /> <a class="btn" href="">Cancel</a>-->
-					</div>					
+					</div>
 				</fieldset>
 			</form>
 		  </div>

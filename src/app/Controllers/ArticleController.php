@@ -49,8 +49,8 @@ class ArticleController extends Controller
             $count->where('title', 'LIKE', '%'.$scree['keyword'].'%');
         }
         $this->parameters['ArticleList'] = $article->get();
-
         $this->parameters['pageNav'] = $this->pageNavManage($count->count(), $scree);
+
         return $this->render('admin/articles', $this->parameters);
     }
 
@@ -71,9 +71,8 @@ class ArticleController extends Controller
 
     public function edit($id)
     {
-        $method = $this->getRequest()->getMethod();
         $this->parameters['articles'] = Article::find($id);
-        if($method == 'POST'){
+        if($this->getRequest()->getMethod() == 'POST'){
             $info = $this->parameters['articles'];
             $input = $this->validation(array_merge($this->rules, ['bad_num' => 'numeric', 'clicks' => 'numeric']));
             if(!is_array($input))
@@ -110,6 +109,7 @@ class ArticleController extends Controller
 
         $tags = explode('，', $input['tag']);
         $input['ctime'] = time();
+        #$input['content'] = $this->toolContent($input['content']);
         $article = Article::create($input);
         if(empty($article))
             return $this->error('goback', '数据添加失败！');
@@ -121,6 +121,20 @@ class ArticleController extends Controller
         }
 
         return $this->success('manage/articles', '数据添加成功！');
+    }
+
+    public function show($id)
+    {
+        $this->parameters['ArticleList'] = Article::leftJoin('info_comment', 'info_article.id', '=', 'info_comment.aid')
+        ->select(new raw('COUNT(info_comment.id) as count, info_article.*'))
+        ->groupBy('info_article.id')
+        ->where('uid', $id)
+        ->orderBy('ctime', 'desc')
+        ->skip($this->getLimit())->take($this->pagesize)
+        ->get();
+        $this->parameters['pageNav'] = $this->pageNavManage(Article::where('uid', $id)->count());
+
+        return $this->render('admin/article_my', $this->parameters);
     }
 
 }

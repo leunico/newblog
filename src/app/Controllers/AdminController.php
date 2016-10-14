@@ -50,4 +50,10 @@ class AdminController extends Controller
         return $this->redirect($this->getView()->Route('manage'));
     }
 
+    public function loginout()
+    {
+        $this->getSession()->set($this->get('session_pre').'admin_user_login', null);
+        return $this->success('login', '退出后台成功!');
+    }
+
 }

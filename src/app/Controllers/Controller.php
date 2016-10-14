@@ -7,7 +7,7 @@ class Controller extends BaseCollection
 {
     // 控制器基类扩展...
 
-    public function pageNavManage($count, $scree)
+    public function pageNavManage($count, $scree = array())
     {
         $page = $this->getPaginator();
         foreach ($scree as $key => $value) {
@@ -77,6 +77,13 @@ class Controller extends BaseCollection
             return array_merge(array_diff($master, $salve), array_diff($salve, $master));
 
         return count($master) > count($salve) ? array_diff($master, $salve) : array_diff($salve, $master);
+    }
+
+    public function toolContent($content)
+    {
+        $contentPre = htmlspecialchars_decode($content);
+        $contentPre = preg_replace('#<pre.*?>#','<pre><code class="language-css">',$contentPre);
+        return preg_replace('#</pre>#','</code></pre>',$contentPre);
     }
 
 }

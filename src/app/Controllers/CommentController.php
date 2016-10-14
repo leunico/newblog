@@ -15,8 +15,8 @@ class CommentController extends Controller
 
     public function add()
     {
-        //$response = new Response('xxxxxxoooooo!!!!', Response::HTTP_METHOD_NOT_ALLOWED);
-        //return $response;
+        // $response = new Response('xxxxxxoooooo!!!!', Response::HTTP_METHOD_NOT_ALLOWED);
+        // return $response;
 
         $input = $this->getRequest()->request->all();
         $validator = $this->getValidation()->make($input, $this->rules);
@@ -28,8 +28,8 @@ class CommentController extends Controller
         $input['ctime'] = time();
         $input['ip'] = $this->getRequest()->getClientIP();
         $input['contents'] = $this->container->escape($input['contents']);
-        #if($this->getViceController()->ipValidator($input['ip']))
-        #    return new Response('Sorry！ 一天评论不能超过12条', Response::HTTP_METHOD_NOT_ALLOWED);
+        // if($this->getViceController()->ipValidator($input['ip']))
+        //     return new Response('Sorry！ 一天评论不能超过12条', Response::HTTP_METHOD_NOT_ALLOWED);
 
         if(strstr($input['cid'],'-')){
             $parents = explode('-', $input['cid']);
@@ -58,13 +58,58 @@ class CommentController extends Controller
 
             $toid = empty($commentp) ? '#' : $commentp['id'];
             $returnstr = "<li class=\"comment even thread-even depth-1 clearfix\" id=\"comment-".$toid."><span class=\"comt-f\"></span> ";
-            $returnstr .= "  <div class=\"c-avatar\"><img alt='' src='".$this->getView()->getImage('ty.jpg')."' class='avatar avatar-50 photo' height='50' width='50' /><div class=\"c-main\" id=\"div-comment-".$toid.">";
-            $returnstr .= "     <p style=\"color:#8c8c8c;\"><span class=\"c-author\">".$input['nickname']."</span></p><p>".$fidname.$this->getView()->EmojiH($input['contents'])."</p>";
-            $returnstr .= "        <div class=\"c-meta\">".$this->getView()->wordTime($input['ctime'])." (".date('Y-m-d H:i:s', $input['ctime']).")";
+            $returnstr .= "<div class=\"c-avatar\"><img alt='' src='".$this->getView()->getImage('ty.jpg')."' class='avatar avatar-50 photo' height='50' width='50' /><div class=\"c-main\" id=\"div-comment-".$toid.">";
+            $returnstr .= "<p style=\"color:#8c8c8c;\"><span class=\"c-author\">".$input['nickname']."</span></p><p>".$fidname.$this->getView()->EmojiH($input['contents'])."</p>";
+            $returnstr .= "<div class=\"c-meta\">".$this->getView()->wordTime($input['ctime'])." (".date('Y-m-d H:i:s', $input['ctime']).")";
             $returnstr .= "</div></div></div></li>";
         }
 
         return $this->json([$returnstr]);
+    }
+
+    public function index()
+    {
+        $scree['val'] = $this->getRequest()->query->get('val', '');
+        $scree['type'] = $this->getRequest()->query->get('type', '');
+
+        $comment = Comment::leftJoin('info_article', 'info_article.id', '=', 'info_comment.aid')
+        ->select('info_comment.*', 'info_article.title');
+
+        if($scree['type'] == 'aid')
+            $comment->where('aid', $scree['val']);
+        else if(!empty($scree['type']))
+            $comment->where($scree['type'],'LIKE', '%'.$scree['val'].'%');
+
+        $this->parameters['scree'] = $scree;
+        $this->parameters['pageNav'] = $this->pageNavManage($comment->count(), $scree);
+        $this->parameters['CommentList'] = $comment->orderBy('info_comment.ctime', 'desc')->skip($this->getLimit())->take($this->pagesize)->get();
+
+        return $this->render('admin/comments', $this->parameters);
+    }
+
+    public function edit($id)
+    {
+        $this->parameters['comments'] = $comment = Comment::find($id);
+        if($this->getRequest()->getMethod() == 'POST'){
+            $input = $this->validation($this->rules);
+            if(!is_array($input))
+                return $input;
+
+            $comment->update($input);
+            return $this->success('manage/comments', '数据修改成功！');
+       }
+
+       return $this->render('admin/comment_edit', $this->parameters);
+    }
+
+    public function delete($id)
+    {
+        $info = Comment::find($id);
+        if(empty($info))
+            return $this->error('manage/comments', '没有这条数据！');
+
+        $info->delete();
+        return $this->success('manage/comments', '数据删除成功！');
     }
 
 }

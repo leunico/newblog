@@ -7,5 +7,5 @@ class Comment extends BaseModel
 {
     protected $table = 'info_comment';
 
-    protected $guarded = ['comment_mail_notify'];
+    protected $guarded = ['comment_mail_notify', 'dosubmit'];
 }
