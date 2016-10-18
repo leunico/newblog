@@ -8,11 +8,12 @@
 			<div class="page-header">
 				<h1>Push <small>Edit Push</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/pushs'); ?>" method="POST" enctype="multipart/form-data">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/pushs'); ?>" method="POST" enctype="multipart/form-data">
                   <div class='push'>
                       <ul>
                           <?php foreach($pushs as $push){?>
                           <li>
+                              <input type="hidden" name="pushid[]" value="<?php echo $push['id'] ?>"/>
                               <div class="control-push">
                                   <label class="push-label" for="role">链接-<?php echo $push['id'] ?>：</label>
                                   <div class="push-controls">
@@ -34,8 +35,8 @@
                           </li>
                           <?php }?>
                       </ul><div style="clear:both;"></div>
-                   </div>	
-                  <fieldset>      
+                   </div>
+                  <fieldset>
                    <div class="form-actions">
                        <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Edit Push</button>
                        <button type="reset" class="btn">Cancel</button><span style="color:red;margin-left:9px">注意：图片的规格最好是810px*200px！</span>

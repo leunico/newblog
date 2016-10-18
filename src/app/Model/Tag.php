@@ -9,7 +9,7 @@ class Tag extends BaseModel
 
     protected $fillable = ['tag', 'num'];
 
-    public function article()
+    public function articles()
     {
         return $this->belongsToMany('app\Model\Article'); // 'article_tag', 'tag_id', 'article_id'
     }

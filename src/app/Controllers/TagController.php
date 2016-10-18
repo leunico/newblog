@@ -39,4 +39,29 @@ class TagController extends Controller
         $this->parameters['pageNav'] = $this->pageNavManage(Tag::all()->count());
         return $this->render('admin/tags', $this->parameters);
     }
+
+    public function edit($id)
+    {
+        $this->parameters['tags'] = $tags = Tag::find($id);
+        if($this->getRequest()->getMethod() == 'POST'){
+            $input = $this->validation(['tag' => 'required']);
+            if(!is_array($input))
+                return $input;
+
+            $tags->update($input);
+            return $this->success('manage/tags', '数据修改成功！');
+        }
+        return $this->render('admin/tag_edit', $this->parameters);
+    }
+
+    public function delete($id)
+    {
+        $info = Tag::find($id);
+        if(empty($info))
+            return $this->error('manage/tags', '没有这条数据！');
+
+        $info->articles()->detach($id);
+        $info->delete();
+        return $this->success('manage/tags', '数据删除成功！');
+    }
 }

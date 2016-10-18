@@ -41,6 +41,9 @@ Route::get('/manage/tag_edit/{id}', ['_controller' => 'TagController::edit', '_b
 Route::post('/manage/tag_edit/{id}', ['_controller' => 'TagController::edit', '_before_middlewares' => 'auth::boot']);
 Route::get('/manage/tag_delete/{id}', ['_controller' => 'TagController::delete', '_before_middlewares' => 'auth::boot']);
 
+Route::get('/manage/pushs', ['_controller' => 'PushController::index', '_before_middlewares' => 'auth::boot']);
+Route::post('/manage/pushs', ['_controller' => 'PushController::index', '_before_middlewares' => 'auth::boot']);
+
 Route::post('/comment/add', 'CommentController::add');
 Route::post('/search', 'SearchController::index');
 

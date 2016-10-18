@@ -25,8 +25,8 @@
 						<div class="btn-group">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Actions <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-                                <li><a href="<?php echo $view->Route('admin/tag_edit/'.$tag['id']);?>"><i class="icon-lock"></i> Edit</a></li>
-                                <li><a href="<?php echo $view->Route('admin/tag_delete/'.$tag['id']);?>"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="<?php echo $view->Route('manage/tag_edit/'.$tag['id']);?>"><i class="icon-lock"></i> Edit</a></li>
+                                <li><a href="<?php echo $view->Route('manage/tag_delete/'.$tag['id']);?>"><i class="icon-trash"></i> Delete</a></li>
 								<li class="nav-header">Hello Alice</li>
 							</ul>
 						</div>
