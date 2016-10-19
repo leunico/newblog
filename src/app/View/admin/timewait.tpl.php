@@ -23,7 +23,7 @@
 				<tr class="list-users center">
                     <td style="text-align:center;"><a href="javascript:void(0)" onclick="order(<?php echo $timewait['id']; ?>,'-')"><i class='icon-minus' style="margin-top:3px;"></i></a> <?php echo "<span id=\"order-".$timewait['id']."\">".$timewait['order']."</span>";?> <a href="javascript:void(0)" onclick="order(<?php echo $timewait['id']; ?>,'+')"><i class='icon-plus' style="margin-top:3px;"></i></a></td>
                     <td><?php echo $timewait['classfa'];?></td>
-                    <td><div class="timeline-img" ><img style="display:block;" src="<?php echo $timewait['img'];?>"/></div></td>					
+                    <td><div class="timeline-img" ><img style="display:block;" src="<?php echo $timewait['img'];?>"/></div></td>
                     <td style="line-height:normal;word-wrap:break-word;word-break:break-all;"><?php echo $timewait['content'];?></td>
                     <td><?php echo $timewait['time'];?></td>
 					<td><?php echo date('Y-m-d H:i:s', $timewait['ctime']);?></td>
@@ -31,8 +31,8 @@
                         <div class="btn-group" style="margin-top:20px;">
 							<a class="btn dropdown-toggle" data-toggle="dropdown" href="#">Actions <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-                                <li><a href="<?php echo Route('admin/timewait_edit/'.$timewait['id']);  ?>"><i class="icon-pencil"></i> Edit</a></li>
-								<li><a href="<?php echo Route('admin/timewait_delete/'.$timewait['id']);  ?>"><i class="icon-trash"></i> Delete</a></li>
+                                <li><a href="<?php echo $view->Route('manage/timewait_edit/'.$timewait['id']);  ?>"><i class="icon-pencil"></i> Edit</a></li>
+								<li><a href="<?php echo $view->Route('manage/timewait_delete/'.$timewait['id']);  ?>"><i class="icon-trash"></i> Delete</a></li>
 								<li class="nav-header">Hello Alice</li>
 							</ul>
 						</div>
@@ -42,7 +42,7 @@
 			  </tbody>
 			</table>
             <?php echo $pageNav ?>
-            <a href="<?php echo Route('admin/timewait_add'); ?>" class="btn btn-success">添加时光记录</a>
+            <a href="<?php echo $view->Route('manage/timewait_add'); ?>" class="btn btn-success">添加时光记录</a>
 		  </div>
         </div>
       </div>

@@ -77,8 +77,8 @@
                   <li><a href="<?php echo $view->Route('manage/timewaits') ?>">时光旅行</a></li>
 				        </ul>
 			        </li>
-              <li><a href="<?php echo $view->Route('manage/mem_updata') ?>">更新缓存</a></li>
-              <li><a href="<?php echo $view->Route('manage/go_baidu') ?>">百度主动推送</a></li>
+              <li><a href="<?php echo $view->Route('manage/memupdata') ?>">更新缓存</a></li>
+              <li><a href="<?php echo $view->Route('manage/baidupush') ?>">百度主动推送</a></li>
             </ul>
           </div>
         </div>

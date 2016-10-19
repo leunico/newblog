@@ -3,7 +3,7 @@
 
 <script type="text/javascript">
     $(document).ready(function(){
-        //arts('add');onsubmit="return arts('add')" 
+        //arts('add');onsubmit="return arts('add')"
     });
 </script>
 <div class="span9">
@@ -11,7 +11,7 @@
 			<div class="page-header">
 				<h1>New TimeWait Diary <small>Add a new TimeWait Diary</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/timewait_add'); ?>" method="post" enctype="multipart/form-data">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/timewait_add'); ?>" method="post" enctype="multipart/form-data">
 				<fieldset>
 					<div class="control-group">
 						<label class="control-label" for="role">排序：</label>
@@ -28,12 +28,12 @@
                     <div class="control-group">
 						<label class="control-label" for="role">头像图：</label>
 						<div class="controls">
-							<input type="file" accept="image/png,image/jpeg" class="input-xlarge" style="width:200px" name="img" id="toux" onchange="javascript:setImageToux(60,60);"/>         
+							<input type="file" accept="image/png,image/jpeg" class="input-xlarge" style="width:200px" name="img" id="toux" onchange="javascript:setImageToux(60,60);"/>
 					</div>
                         <div class="control-group" style="margin-bottom:8px;">
                         <div class="controls">
                             <div class="timeline-img" id="localImag" ><img id="preview" width=-1 height=-1/></div>
-                        </div>  
+                        </div>
                     </div>
                     <div class="control-group">
 						<label class="control-label" for="description">记录内容：</label>
@@ -46,12 +46,12 @@
 						<div class="controls">
 							<input type="text" class="input-xlarge" id="role" name="time" value="2016年月日"/><span class="validform"></span>
 						</div>
-					</div>                    
+					</div>
 					<div class="form-actions">
                             <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Add Diary</button>
                             <button type="reset" class="btn">Cancel</button>
 				    <!--<input type="submit" class="btn btn-success btn-large" value="Save Role" /> <a class="btn" href="">Cancel</a>-->
-					</div>					
+					</div>
 				</fieldset>
 			</form>
 		  </div>

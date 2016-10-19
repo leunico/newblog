@@ -14,6 +14,9 @@ Route::post('/login', 'AdminController::login');
 Route::get('/manage/loginout', ['_controller' => 'AdminController::loginout']);
 
 Route::get('/manage', ['_controller' => 'ManageController::index', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/baidupush', ['_controller' => 'ManageController::push', '_before_middlewares' => 'auth::boot']);
+Route::post('/manage/baidupush', ['_controller' => 'ManageController::push', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/memupdata', ['_controller' => 'ManageController::update', '_before_middlewares' => 'auth::boot']);
 
 Route::get('/manage/articles', ['_controller' => 'ArticleController::index', '_before_middlewares' => 'auth::boot']);
 Route::get('/manage/article_add', ['_controller' => 'ArticleController::add', '_before_middlewares' => 'auth::boot']);
@@ -43,6 +46,13 @@ Route::get('/manage/tag_delete/{id}', ['_controller' => 'TagController::delete',
 
 Route::get('/manage/pushs', ['_controller' => 'PushController::index', '_before_middlewares' => 'auth::boot']);
 Route::post('/manage/pushs', ['_controller' => 'PushController::index', '_before_middlewares' => 'auth::boot']);
+
+Route::get('/manage/timewaits', ['_controller' => 'DiaryController::index', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/timewait_delete/{id}', ['_controller' => 'DiaryController::delete', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/timewait_edit/{id}', ['_controller' => 'DiaryController::edit', '_before_middlewares' => 'auth::boot']);
+Route::post('/manage/timewait_edit/{id}', ['_controller' => 'DiaryController::edit', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/timewait_add', ['_controller' => 'DiaryController::add', '_before_middlewares' => 'auth::boot']);
+Route::post('/manage/timewait_add', ['_controller' => 'DiaryController::add', '_before_middlewares' => 'auth::boot']);
 
 Route::post('/comment/add', 'CommentController::add');
 Route::post('/search', 'SearchController::index');

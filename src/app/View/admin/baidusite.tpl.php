@@ -8,7 +8,7 @@
 			<div class="page-header">
 				<h1>BaiduPush <small>Baidu Push</small></h1>
 			</div>
-              <form class="form-horizontal" action="<?php echo Route('admin/go_baidu'); ?>" method="POST">
+              <form class="form-horizontal" action="<?php echo $view->Route('manage/baidupush'); ?>" method="POST">
                   <div class='push'>
                       <ul>
                           <li>
@@ -40,8 +40,8 @@
                               </div>
                           </li>
                       </ul><div style="clear:both;"></div>
-                   </div>	
-                  <fieldset>      
+                   </div>
+                  <fieldset>
                    <div class="form-actions">
                        <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Baidu Push</button>
                        <button type="reset" class="btn">Cancel</button><span style="color:red;margin-left:9px">注意：每天推送有数量限制！</span>

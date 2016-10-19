@@ -20,6 +20,8 @@ return [
 
     'cookie_pre' => 'Alice', #Cookie前缀
 
+    'baidu_site_api' => 'http://data.zz.baidu.com/urls?site=www.lzxya.com&token=FmPt3beiE9VEhM9b',
+
     # 数据库配置~
     'db_options' => [
 

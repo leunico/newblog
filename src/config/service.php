@@ -9,6 +9,8 @@ return [
 
     'weixin' => 'app\service\WeixinService',
 
+    'qiniu' => 'app\service\QiNiuService',
+
     # 注册Middleware中间件
     'menu' => 'app\service\MenuMiddleware',
 
