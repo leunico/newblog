@@ -53,4 +53,10 @@ class Route implements AppHandleInterface
         return self::$app['controllers']->patch($pattern, $to);
     }
 
+    public static function group($pattern, $to = null)
+    {
+        self::$app['controllers']->post($pattern, $to);
+        return self::$app['controllers']->get($pattern, $to);
+    }
+
 }

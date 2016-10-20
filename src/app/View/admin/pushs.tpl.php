@@ -38,8 +38,8 @@
                    </div>
                   <fieldset>
                    <div class="form-actions">
-                       <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Edit Push</button>
-                       <button type="reset" class="btn">Cancel</button><span style="color:red;margin-left:9px">注意：图片的规格最好是810px*200px！</span>
+                      <button type="submit" class="btn btn-success btn-large" name="dosubmit" value="dosubmit">Edit Push</button>
+                      <!--<button type="reset" class="btn">Cancel</button><span style="color:red;margin-left:9px">注意：图片的规格最好是810px*200px！</span>-->
                    </div>
                   </fieldset>
 			</form>

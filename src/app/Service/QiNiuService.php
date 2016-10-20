@@ -51,10 +51,25 @@ class QiNiuService implements ServiceInterface
     {
         $category = '?imageView2/1/w/120/h/120';
         if(!$file->getError()){
-           $name = "diary_".time().'.jpg';
-           return $this->put($name, $file->getPathName(), $category);
+            $name = "diary_".time().'.jpg';
+            return $this->put($name, $file->getPathName(), $category);
         }else{
-           return false;
+            return false;
+        }
+    }
+
+    public function setPushImg(UploadedFile $file, $oldimg)
+    {
+        $category = '?imageView2/1/w/810/h/200';
+        if(!$file->getError()){
+            $name = "push_".time().'.jpg';
+            $image = $this->put($name, $file->getPathName(), $category);
+            if($oldimg && $image)
+                $this->delImg($oldimg);
+
+            return $image;
+        }else{
+            return false;
         }
     }
 
@@ -62,7 +77,7 @@ class QiNiuService implements ServiceInterface
     {
         $qiniuimg = explode('/', $fileurl);
         $img = explode('?', $qiniuimg[3]);
-        $this->delete($img[0]);
+        return $this->delete($img[0]);
     }
 
 }

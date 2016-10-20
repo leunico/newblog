@@ -26,15 +26,15 @@ class AuthMiddleware implements MiddlewareInterface
     public function security(Request $request, AppFramework $app)
     {
         $this->boot($request, $app);
-        /*$loginInfo = Request::getSession('admin_user_login');
-        $admin = self::$models->Admin;
-        $result = $admin->getByUserId($loginInfo['id']);
-        if($id !== ''){
-            $article = $admin->getByArticleId($id);
-            if($article['uid'] !== $loginInfo['id'] && $result['is_admin'] == '0') View::AdminErrorMessage('goback', '你没有这篇文章的操作权限！');
-            return $result['is_admin'];
+        $id = $request->get('id', '');
+        $user = $this->app->getView()->getUser('all');
+        if(empty($id)){
+            if($user['is_admin'] == 0)
+                return $app->render('admin/public/show_error_message', ['jumpurl' => 'manage', 'msg' => '对不起，你没有这个操作的权限！']);
         }else{
-            if($result['is_admin'] == '0') View::AdminErrorMessage('goback', '对不起，你没有这个操作的权限！');
-        }*/
+            $info = Article::find($id);
+            if($info['uid'] !== $user['id'] && $user['is_admin'] == 0)
+                return $app->render('admin/public/show_error_message', ['jumpurl' => 'manage', 'msg' => '你没有这篇文章的操作权限！']);
+        }
     }
 }

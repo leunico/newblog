@@ -34,16 +34,17 @@ class ManageController extends Controller
 
     public function update()
     {
-        $lasttime = Request::getSession('MemacheData') ? Request::getSession('MemacheData'):1444895435;
+        $session = $this->getSession();
+        $lasttime = $session->get('MemacheData') ? $session->get('MemacheData') : 1444895435;
         if(time() < ($lasttime + 5)){
-            View::AdminErrorMessage('goback', '操作过于频繁');
+            return $this->error('goback', '操作过于频繁');
         }else{
-            if(MEMCACHE == TRUE){
-                $mem->clear();
+            if($this->get('memcache_switch')){
+                $this->getMemcache()->getMemcached()->clear();
             }else{
-                View::AdminErrorMessage('goback', '网站未开启缓存');
+                return $this->error('goback', '网站未开启缓存');
             }
-            Request::setSession('MemacheData', time());
+            $session->set('MemacheData', time());
        }
 
        return $this->success('goback', '缓存更新成功！');

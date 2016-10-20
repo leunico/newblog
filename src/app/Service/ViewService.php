@@ -151,7 +151,10 @@ class ViewService implements ServiceInterface
     {
         $key = $this->app['session_pre'].'admin_user_login';
         $loginInfo = $this->getSession()->get($key);
-        if(isset($loginInfo[$type])){
+        if($type === 'all')
+            return $loginInfo;
+
+        if($type && isset($loginInfo[$type])){
             return $loginInfo[$type];
         }else{
             $key = 'comment_'.$type;
