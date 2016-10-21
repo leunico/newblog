@@ -1,5 +1,5 @@
 AliceBlog
-======
+==========
 
 .. caution::
 
@@ -10,7 +10,7 @@ AliceBlog
 Composer Framework!!!
 ------------
 
- ``composer.json`` file 'require':
+``composer.json`` file 'require':
 
 .. code-block:: bash
 
