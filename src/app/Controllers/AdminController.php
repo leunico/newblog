@@ -14,7 +14,7 @@ class AdminController extends Controller
 
     public function index()
     {
-        $loginInfo = $this->getSession()->get($this->sessionId);
+        $loginInfo = $this->getSession()->get($this->get('session_pre').$this->sessionId);
         if (!empty($loginInfo) && !empty($loginInfo['username']) && !empty($loginInfo['id']))
             return $this->success('manage', '你已经登录了!');
 

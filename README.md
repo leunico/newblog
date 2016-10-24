@@ -1,7 +1,6 @@
 AliceBlog
 ==========
 
-.. caution::
 
     坐在这里，不要急着去抓住一些什么惴惴不安，也不总是去懊恼错过了什么患得患失。
     身上容易表现出来的戾气与浮躁慢慢抹去，觉得一切来来去去很平静。
@@ -10,9 +9,7 @@ AliceBlog
 Composer Framework!!!
 ------------
 
-``composer.json`` file 'require':
-
-.. code-block:: bash
+## composer.json file 'require':
 
     "require": {
         "symfony/http-foundation": "^3.1",

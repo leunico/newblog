@@ -4,11 +4,11 @@ return [
 
     'web_name' => 'Alice Blog',
 
-    'seo_title' => 'yi', #SEO默认标题
+    'seo_title' => 'Alice的博客', #SEO默认标题
 
-    'seo_keywords' => 'qi', #SEO默认关键字
+    'seo_keywords' => 'PHP技术博客', #SEO默认关键字
 
-    'seo_description' => 'hapi', #SEO默认描述
+    'seo_description' => 'Symfony2,Composer,自己设计博客框架。', #SEO默认描述
 
     'debug' => true, #是否打印詳細錯誤
 

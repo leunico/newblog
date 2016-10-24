@@ -26,7 +26,7 @@
           </a>
           <a class="brand" href="<?php echo $view->Route('') ?>" target="_blank">Alice Blog管理后台</a>
           <div class="btn-group pull-right">
-            <a class="btn" href="<?php echo $view->Route('manage/article_my') ?>"><!--<i class="icon-user"></i>--><?php echo $view->getUser('username') ?></a>
+            <a class="btn" href="<?php echo $view->Route('manage/article_my/'.$view->getUser('id')) ?>"><!--<i class="icon-user"></i>--><?php echo $view->getUser('username') ?></a>
             <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
             <ul class="dropdown-menu">
               <li>

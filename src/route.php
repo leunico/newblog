@@ -24,7 +24,7 @@ Route::post('/manage/article_save', ['_controller' => 'ArticleController::save',
 Route::group('/manage/article_edit/{id}', ['_controller' => 'ArticleController::edit', '_before_middlewares' => 'auth::security']);
 Route::get('/manage/article_delete/{id}', ['_controller' => 'ArticleController::delete', '_before_middlewares' => 'auth::security']);
 
-Route::get('/manage/users', ['_controller' => 'UserController::index', '_before_middlewares' => 'auth::boot']);
+Route::get('/manage/users', ['_controller' => 'UserController::index', '_before_middlewares' => 'auth::security']);
 Route::get('/manage/user_block/{id}', ['_controller' => 'UserController::block', '_before_middlewares' => 'auth::security']);
 Route::get('/manage/user_delete/{id}', ['_controller' => 'UserController::delete', '_before_middlewares' => 'auth::security']);
 Route::group('/manage/user_add', ['_controller' => 'UserController::add', '_before_middlewares' => 'auth::security']);
@@ -38,7 +38,7 @@ Route::get('/manage/tags', ['_controller' => 'TagController::index', '_before_mi
 Route::group('/manage/tag_edit/{id}', ['_controller' => 'TagController::edit', '_before_middlewares' => 'auth::security']);
 Route::get('/manage/tag_delete/{id}', ['_controller' => 'TagController::delete', '_before_middlewares' => 'auth::security']);
 
-Route::group('/manage/pushs', ['_controller' => 'PushController::index', '_before_middlewares' => 'auth::boot']);
+Route::group('/manage/pushs', ['_controller' => 'PushController::index', '_before_middlewares' => 'auth::security']);
 
 Route::get('/manage/timewaits', ['_controller' => 'DiaryController::index', '_before_middlewares' => 'auth::boot']);
 Route::get('/manage/timewait_delete/{id}', ['_controller' => 'DiaryController::delete', '_before_middlewares' => 'auth::security']);

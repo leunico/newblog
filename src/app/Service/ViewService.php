@@ -44,7 +44,6 @@ class ViewService implements ServiceInterface
 
     public function getServer($name)
     {
-        #var_dump($this->app['request_stack']->getCurrentRequest()->server);die();
         return $this->app['request_stack']->getCurrentRequest()->server->get($name);
     }
 
