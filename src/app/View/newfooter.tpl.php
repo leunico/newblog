@@ -37,7 +37,7 @@
 </footer>
 <script>
     window.jsui={
-        www: "<?php echo $view->getBaseUrl() ?>",
+        www: "<?php echo 'http://'.$view->getServer('HTTP_HOST') ?>",
         uri: "<?php echo $view->getBaseUrl() ?>",
         ver: 'THEME_VERSION',
         roll: ["1"],

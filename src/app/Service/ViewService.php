@@ -15,8 +15,10 @@ class ViewService implements ServiceInterface
 
     public function getBaseUrl()
     {
-        $baseUrl = str_replace('', '/', dirname($this->getServer('SCRIPT_NAME')));
-        $website = empty($baseUrl) ? '/' : '/'.trim($baseUrl, '/').'/';
+        // $baseUrl = str_replace('', '/', dirname($this->getServer('SCRIPT_NAME')));
+        // $website = empty($baseUrl) ? '/' : trim($baseUrl, '/');
+        $website = preg_replace('/\w+\.php/i', '', htmlentities($_SERVER['PHP_SELF']));
+        $website = str_replace('//', '/', $website);
         return $website;
     }
 
