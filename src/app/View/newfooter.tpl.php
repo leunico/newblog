@@ -38,7 +38,7 @@
 <script>
     window.jsui={
         www: "<?php echo 'http://'.$view->getServer('HTTP_HOST') ?>",
-        uri: "<?php echo $view->getBaseUrl() ?>",
+        uri: "<?php echo $view->getBaseUrl().'\\' ?>",
         ver: 'THEME_VERSION',
         roll: ["1"],
         ajaxpager: '0',
