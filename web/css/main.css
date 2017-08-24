@@ -1100,7 +1100,7 @@ ul.tabc{padding:1px 0 0 0}
 .widget_ui_textasb a.style05 strong{background-color:#45B6F7}
 .widget_ui_tags .items .alltags{border:1px solid #7B93AF!important;color:#839AB6;font-weight:700}
 .widget_ui_tags .items .alltags:hover{border:1px solid #839AB6;background-color:#839AB6!important;color:#fff;font-weight:700}
-.widget_ui_tags .items{overflow:hidden;margin-top:-5px;padding:10px 0 12px 0}
+.widget_ui_tags .items{overflow:hidden;margin-top:-5px;padding:10px 0 12px 0;clear:both}
 .widget_copyright h3,.widget_ui_comments h3,.widget_ui_readers h3,.widget_ui_tags h3{margin-top:0;color:#000}
 .widget_ui_tags .items a{display:inline-block;overflow:hidden;margin-right:7px;margin-bottom:2px;padding:2px 9px;border:1px solid transparent;border-radius:2px;border-radius:2px;background:#f0f2f7;color:#6b7485;font-size:13px;font-size:12px}
 .widget_ui_tags .items a:hover{border-color:#A53038;background-color:rgba(253,189,194,.1)!important;color:#A53038}
