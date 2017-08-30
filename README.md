@@ -1,24 +1,19 @@
-AliceBlog
-==========
+# Newblog of Leunico
+
+> 这是利用Symfony2核心组件以及其他轻量组件开发的博客。
+
+### 技术栈
+- Symfony2四大核心组件（http-foundation、routing、http-kernel、event-dispatcher）
+- 超轻量级容器-pimple
+- Laravel5的两个组件（database、validation）
+
+## 截图
+![首页](https://raw.githubusercontent.com/leunico/newblog/master/web/image/v/v1.png)
+![详情](https://raw.githubusercontent.com/leunico/newblog/master/web/image/v/v2.png)
 
 
-    坐在这里，不要急着去抓住一些什么惴惴不安，也不总是去懊恼错过了什么患得患失。
-    身上容易表现出来的戾气与浮躁慢慢抹去，觉得一切来来去去很平静。
-    做着自己认为正确的事，对未来有信心，对现在有耐心。
+## 鸣谢
 
-Composer Framework!!!
-------------
-
-## composer.json file 'require':
-
-    "require": {
-        "symfony/http-foundation": "^3.1",
-        "symfony/routing": "^3.1",
-        "symfony/http-kernel": "^3.1",
-        "symfony/event-dispatcher": "^3.1",
-        "pimple/pimple": "~3.0",
-        "illuminate/database": "^5.3",
-        "overtrue/validation": "^2.0"
-    }
-
+阿里云空间
+七牛云储存
 
